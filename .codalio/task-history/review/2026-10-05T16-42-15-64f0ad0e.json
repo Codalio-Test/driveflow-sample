@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Read review inputs (acceptance-criteria.json, .rhino-plan.md, PRD)",
+    "notes": "",
+    "status": "done"
+  },
+  {
+    "title": "Inventory backend suites and coverage tooling",
+    "notes": "",
+    "status": "done"
+  },
+  {
+    "title": "Run backend suite, capture log to .codalio/review/backend.log",
+    "notes": "",
+    "status": "done"
+  },
+  {
+    "title": "Collect coverage metrics (SimpleCov not configured)",
+    "notes": "",
+    "status": "done"
+  },
+  {
+    "title": "Map test results to acceptance criteria and update status incrementally",
+    "notes": "",
+    "status": "done"
+  },
+  {
+    "title": "Write .rhino-review.md report",
+    "notes": "",
+    "status": "done"
+  }
+]

@@ -1,0 +1,135 @@
+model: Rental
+slug: rentals
+table: rentals
+
+options:
+  belongs_to_organization: true
+  pagination: true
+  per_page: 25
+
+columns:
+  customer_profile_id:
+    type: foreignId
+    foreign_model: CustomerProfile
+    nullable: false
+    index: true
+    filterable: true
+  vehicle_category_id:
+    type: foreignId
+    foreign_model: VehicleCategory
+    nullable: false
+    index: true
+    filterable: true
+  vehicle_id:
+    type: foreignId
+    foreign_model: Vehicle
+    nullable: true
+    index: true
+    filterable: true
+  location_id:
+    type: foreignId
+    foreign_model: Location
+    nullable: true
+    index: true
+    filterable: true
+  reservation_number:
+    type: string
+    nullable: false
+    filterable: true
+    sortable: true
+    searchable: true
+  pickup_datetime:
+    type: datetime
+    nullable: true
+    sortable: true
+  scheduled_return_datetime:
+    type: datetime
+    nullable: true
+    sortable: true
+  actual_return_datetime:
+    type: datetime
+    nullable: true
+    sortable: true
+  scheduled_duration_days:
+    type: integer
+    nullable: true
+  status:
+    type: string
+    nullable: false
+    default: "reserved"
+    filterable: true
+    sortable: true
+  protection_tier:
+    type: string
+    nullable: false
+    default: "basic"
+    filterable: true
+  initial_odometer:
+    type: integer
+    nullable: true
+  final_odometer:
+    type: integer
+    nullable: true
+  initial_fuel_percentage:
+    type: integer
+    nullable: true
+  final_fuel_percentage:
+    type: integer
+    nullable: true
+  total_charges_amount:
+    type: decimal
+    precision: 10
+    scale: 2
+    nullable: false
+    default: "0.00"
+  total_paid_amount:
+    type: decimal
+    precision: 10
+    scale: 2
+    nullable: false
+    default: "0.00"
+  balance_owed_amount:
+    type: decimal
+    precision: 10
+    scale: 2
+    nullable: false
+    default: "0.00"
+  dropoff_location_code:
+    type: string
+    nullable: true
+    filterable: true
+
+relationships:
+  - type: belongsTo
+    model: Organization
+  - type: belongsTo
+    model: CustomerProfile
+  - type: belongsTo
+    model: VehicleCategory
+  - type: belongsTo
+    model: Vehicle
+  - type: belongsTo
+    model: Location
+  - type: hasMany
+    model: Inspection
+  - type: hasMany
+    model: RentalCharge
+  - type: hasMany
+    model: Payment
+
+permissions:
+  fleet_manager:
+    actions: [index, show, store, update, destroy]
+    show_fields: "*"
+    create_fields: "*"
+    update_fields: "*"
+  counter_agent:
+    actions: [index, show, store, update]
+    show_fields: "*"
+    create_fields: [customer_profile_id, vehicle_category_id, vehicle_id, location_id, reservation_number, pickup_datetime, scheduled_return_datetime, scheduled_duration_days, status, protection_tier, initial_odometer, initial_fuel_percentage, dropoff_location_code]
+    update_fields: [vehicle_id, location_id, scheduled_return_datetime, actual_return_datetime, status, initial_odometer, final_odometer, initial_fuel_percentage, final_fuel_percentage, total_charges_amount, total_paid_amount, balance_owed_amount, dropoff_location_code]
+  customer:
+    actions: [index, show, store, update]
+    show_fields: [id, vehicle_category_id, vehicle_id, location_id, reservation_number, pickup_datetime, scheduled_return_datetime, actual_return_datetime, scheduled_duration_days, status, protection_tier, total_charges_amount, total_paid_amount, balance_owed_amount, dropoff_location_code]
+    create_fields: [vehicle_category_id, location_id, pickup_datetime, scheduled_return_datetime, scheduled_duration_days, protection_tier, dropoff_location_code]
+    update_fields: [protection_tier, location_id, pickup_datetime, scheduled_return_datetime, scheduled_duration_days, dropoff_location_code]

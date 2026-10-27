@@ -1,0 +1,85 @@
+model: Inspection
+slug: inspections
+table: inspections
+
+options:
+  belongs_to_organization: true
+  pagination: true
+  per_page: 25
+
+columns:
+  rental_id:
+    type: foreignId
+    foreign_model: Rental
+    nullable: false
+    index: true
+    filterable: true
+  vehicle_id:
+    type: foreignId
+    foreign_model: Vehicle
+    nullable: false
+    index: true
+    filterable: true
+  user_id:
+    type: foreignId
+    foreign_model: User
+    nullable: true
+    index: true
+    filterable: true
+  inspection_type:
+    type: string
+    nullable: false
+    filterable: true
+  odometer_reading:
+    type: integer
+    nullable: true
+  fuel_percentage:
+    type: integer
+    nullable: true
+  cleanliness_status:
+    type: string
+    nullable: true
+    filterable: true
+  customer_signature_url:
+    type: string
+    nullable: true
+  customer_signature_timestamp:
+    type: datetime
+    nullable: true
+  notes:
+    type: text
+    nullable: true
+    searchable: true
+  performed_at:
+    type: datetime
+    nullable: true
+    sortable: true
+
+relationships:
+  - type: belongsTo
+    model: Organization
+  - type: belongsTo
+    model: Rental
+  - type: belongsTo
+    model: Vehicle
+  - type: belongsTo
+    model: User
+  - type: hasMany
+    model: DamageRecord
+
+permissions:
+  fleet_manager:
+    actions: [index, show, store, update, destroy]
+    show_fields: "*"
+    create_fields: "*"
+    update_fields: "*"
+  counter_agent:
+    actions: [index, show, store, update]
+    show_fields: "*"
+    create_fields: [rental_id, vehicle_id, user_id, inspection_type, odometer_reading, fuel_percentage, cleanliness_status, customer_signature_url, customer_signature_timestamp, notes, performed_at]
+    update_fields: [odometer_reading, fuel_percentage, cleanliness_status, customer_signature_url, customer_signature_timestamp, notes, performed_at]
+  customer:
+    actions: [index, show]
+    show_fields: [id, rental_id, vehicle_id, inspection_type, odometer_reading, fuel_percentage, cleanliness_status, customer_signature_timestamp, performed_at]
+    create_fields: []
+    update_fields: []

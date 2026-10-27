@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Read acceptance criteria, plan Extras, and PRD gaps",
+    "notes": "128 ACs loaded, plan Extras + ui-handoff data contracts read",
+    "status": "done"
+  },
+  {
+    "title": "Inventory existing tests + factories",
+    "notes": "Read test_helper, 12 integration, 12 model, 3 service, 1 job test file; no factories",
+    "status": "done"
+  },
+  {
+    "title": "Write feature/integration tests for uncovered ACs",
+    "notes": "Added 6 new test files + extended account/admin access tests; tightened BillingController gate for AC-69",
+    "status": "done"
+  },
+  {
+    "title": "Run bundle exec rails test and fix failures",
+    "notes": "3 runs: 269 green, then 270 runs / 874 assertions / 0 failures on two different seeds",
+    "status": "done"
+  },
+  {
+    "title": "Update .codalio/acceptance-criteria.json statuses + test_name",
+    "notes": "All 128 criteria status=tested with per-AC test_name; root updated_at set; evidence script scripts/mark_acs_tested.py",
+    "status": "done"
+  },
+  {
+    "title": "Verify coverage + run runtime smoke self-check",
+    "notes": "128/128 ACs referenced by tests; runtime_app_smoke.py exited 0 with {\"status\": \"passed\"}",
+    "status": "done"
+  }
+]

@@ -1,0 +1,3796 @@
+{
+  "pages": [
+    {
+      "name": "Landing",
+      "route": "/",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Fast, transparent rentals",
+          "images": null,
+          "spacing": "spacious",
+          "image_urls": null,
+          "section_type": "hero",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "RentalSearchHero",
+              "props": {
+                "headline": "Rent with proof, not surprises",
+                "showDateTime": true,
+                "showLocation": true
+              },
+              "images": [
+                {
+                  "url": "/images/ui-prototype/8891625.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/cars-super-cars-luxury-cars-8891625/",
+                  "pixabay_id": 8891625
+                },
+                {
+                  "url": "/images/ui-prototype/5190050.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/opel-gt-antique-car-youngtimer-5190050/",
+                  "pixabay_id": 5190050
+                },
+                {
+                  "url": "/images/ui-prototype/1400243.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/buick-oldtimer-old-car-blue-car-1400243/",
+                  "pixabay_id": 1400243
+                },
+                {
+                  "url": "/images/ui-prototype/790722.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/capri-ford-antique-car-automobile-790722/",
+                  "pixabay_id": 790722
+                },
+                {
+                  "url": "https://pixabay.com/get/ga71664aae0a4cfe3052bcbb6926feab2313fca32a3ef24e6b1b2662a3f84247473b9f2734d13d662d69dee49dff2be8ab29df2f8b0af95419a566fa52514c8ee_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/oldtimer-car-old-car-convertible-1197800/",
+                  "pixabay_id": 1197800
+                },
+                {
+                  "url": "https://pixabay.com/get/g3c88f9bfcc89e536253f159abfea8d898670b4696023d7173b8d34211219446e15a745c9fe36b792ffe7a071d87ee4584dfb01e5ac33cb4a274cc21fa1ecdd61_640.png",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/car-auto-sports-car-luxury-car-2209439/",
+                  "pixabay_id": 2209439
+                },
+                {
+                  "url": "https://pixabay.com/get/ga101b39e327c0690577dee755fd7171021ca61f2bb2b3e11b6cfb47cd2cfb2073221b2c03e4cbf6b69f51780960305609227359f298259359679a65c7163e6f6_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/car-racing-speed-aston-martin-8136751/",
+                  "pixabay_id": 8136751
+                },
+                {
+                  "url": "https://pixabay.com/get/g746bad276e96ec80c05666e164bda8009ec242a295b595e7305d5743d9992d8424af5f9eb9e2af236d0796c03096b8cc5f9df336dc9f389d8acb0e384d1b1bf0_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/automotive-volkswagen-beetle-car-1846910/",
+                  "pixabay_id": 1846910
+                },
+                {
+                  "url": "https://pixabay.com/get/g76fff55f738f4559d0abe285d2961d8b176b1d87596ce546508b63a89c4930df3c7f04e162165d528279d8203d68b8328c2da1610a8c5f0a481f0c7da22e072e_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/drift-speed-transport-snow-spoiler-7248723/",
+                  "pixabay_id": 7248723
+                },
+                {
+                  "url": "https://pixabay.com/get/g1ff146f0fc97dc1df7ec8a87e8ed428b5dc6219c4261780dd1880d68305c5a7c07e201d4ac584014ae3bc4f90853c5869d81c060bf6bec0f57a628147eff18c4_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/vintage-car-classic-car-car-vehicle-7300881/",
+                  "pixabay_id": 7300881
+                },
+                {
+                  "url": "https://pixabay.com/get/g03068cc39073b646d9f295b00cb8f9f3cae2f37aebbda898fbaa01f37e0e28c76abc552b4f322853e2653574046233e1ae533e5cc84c8c4555b4aee6200564f9_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/fire-fighters-mini-cooper-automobile-1045906/",
+                  "pixabay_id": 1045906
+                },
+                {
+                  "url": "https://pixabay.com/get/g49eb07960f9c5a050d99e1038f0ca8fa27d2f151caca0ced9383f24393932dd2a5f6c4b117e648dbc6dfc426185595b3add3a269206ebbf3694a8850c1899d09_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/car-classic-tail-lights-1846103/",
+                  "pixabay_id": 1846103
+                },
+                {
+                  "url": "https://pixabay.com/get/g41e58aa1f543284c909d16a985d693e4a0062bc972e304d82850445389ed541d1ea0470bb3f1e22db2624d5ab90681cfab336b508fb65e2368e486ac52ada73a_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/jeep-car-sunrise-water-8004136/",
+                  "pixabay_id": 8004136
+                },
+                {
+                  "url": "https://pixabay.com/get/g8911283efd159538000279e297d3e33db059169422f9577c970a5e65aff7e3f6619451081cd36a1d027144127307b1ea90659825a44154e83899fcb17f770333_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/vehicle-transport-automobile-2132360/",
+                  "pixabay_id": 2132360
+                },
+                {
+                  "url": "https://pixabay.com/get/gadbc0d82789978172f7ba20df321e5fa905130e3d32c12ddc4021119bec82c02e68dae8afe19e367305c9384b593db58cdcdc009cb639446a8cf174bb9b2eaf3_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/automobile-car-junkyard-scrap-metal-3368094/",
+                  "pixabay_id": 3368094
+                },
+                {
+                  "url": "https://pixabay.com/get/g4e63d1708e7fe5d5af809eb000c3b4fe012c0c0adaf36bbca2e3485c97749b931912437b3f382485539d34219bb0398a_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/car-vehicle-ford-classic-498244/",
+                  "pixabay_id": 498244
+                },
+                {
+                  "url": "https://pixabay.com/get/g2cf10854bcf7117f9514ad700797665618b8e3870dbb543e5d28a3b352482b3f2f6b05b4cd7e08cd10151ec092f7fec7_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/automobile-car-barn-farm-ranch-176989/",
+                  "pixabay_id": 176989
+                },
+                {
+                  "url": "https://pixabay.com/get/g7ef9af953bfe984edd2101245c48e8efc262e9a6d8f2862e85bf9bd6cdefd77b63413786c29d3e945c9bbcf9710f6117f617b78284f6ec99b8fdba298bc1efd9_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/car-volkswagen-old-beetle-mexico-1093927/",
+                  "pixabay_id": 1093927
+                },
+                {
+                  "url": "https://pixabay.com/get/g24c4ff0df2c00bf7ef99a3c6c20ee6b4a4db9647af23ebc68fbd0b49121806f74bc6e3512f2d7314c0370ae5f8a8de62a51873c37bdd8f5f9878bf2ed660442c_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/car-scrap-car-cemetery-rust-dirty-3370706/",
+                  "pixabay_id": 3370706
+                },
+                {
+                  "url": "https://pixabay.com/get/g33371c07f79e4e9ec064342cb6e126b312927f86cbcd544b7567f3126033e107d56c556a8ea86ce31e685faa06abf436d0e245b9a3bbad5eb4c6ee6e32a1428b_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/dashboard-car-vehicle-mercedes-benz-3510327/",
+                  "pixabay_id": 3510327
+                },
+                {
+                  "url": "https://pixabay.com/get/gfb16e534d7a023ca5cab8e91691ae4d95246a405c2fd0057dc16983165f3e2ba8309a41b0b5a4d40a8b89a2c928a4804db739263462a2b6447bafb2010812b6a_640.jpg",
+                  "keyword": "airport",
+                  "page_url": "https://pixabay.com/photos/ryanair-boeing-boeing-737-800-5249631/",
+                  "pixabay_id": 5249631
+                },
+                {
+                  "url": "https://pixabay.com/get/g967be493d012a12bc70dc4be8418ccd42e4df094d5bd80bb5949c74c7906f54850e4c56608ee7182b60fd604d6a542557602c735a868b1f706cf3e1c6d21d2da_640.jpg",
+                  "keyword": "airport",
+                  "page_url": "https://pixabay.com/photos/airport-woman-flight-boarding-2373727/",
+                  "pixabay_id": 2373727
+                },
+                {
+                  "url": "https://pixabay.com/get/g539c2d68e1ea7049ef2fbb56a92df4eb03ccebd4b5563b2b6e31d6ca899de60c4644d86fa8cf18f3db7b64225542fb3b8d6fc880bd0a15b65c37739c5c8ab81d_640.jpg",
+                  "keyword": "airport",
+                  "page_url": "https://pixabay.com/photos/airbus-airplane-jet-flight-airport-4454338/",
+                  "pixabay_id": 4454338
+                },
+                {
+                  "url": "https://pixabay.com/get/ga7258e86c9a6eb7be6d8fdeb8e9fb5d39ad8feaa53939e341e8cbfcd45b1500a5b04c03b04c68585cf85c75ab597a98249c1c06e400feabd32809601dffbabe3_640.jpg",
+                  "keyword": "airport",
+                  "page_url": "https://pixabay.com/photos/airport-aircraft-departure-travel-1105980/",
+                  "pixabay_id": 1105980
+                },
+                {
+                  "url": "https://pixabay.com/get/g3290b8445a994af33f582ee657946f11eb90ecdb56f713ff1cee8d6418ae27a9e4603cbcf257cfe02932f028d25498f089bef00daffd562a3d04e5c5466dc7f0_640.jpg",
+                  "keyword": "airport",
+                  "page_url": "https://pixabay.com/photos/merry-christmas-boarding-pass-travel-5219496/",
+                  "pixabay_id": 5219496
+                },
+                {
+                  "url": "https://pixabay.com/get/gcdd388d9133ca29f2235e3f75a6ba416fe6867dc8375da0fa8666fba4d118d154e7b0ba6cdb48a8f55e356ac649fb32b209ad38680edf7938bd43ad69682e12d_640.jpg",
+                  "keyword": "airport",
+                  "page_url": "https://pixabay.com/photos/airport-terminal-man-travel-1822133/",
+                  "pixabay_id": 1822133
+                },
+                {
+                  "url": "https://pixabay.com/get/gb05e70d328039a983985a2e441e1c226553a2a7e405a3fd382f2809b4909650589fe26f4bd33544a0a7bdacb57ea349de041d2092bc6348a8c9a53f011adc91c_640.jpg",
+                  "keyword": "airport",
+                  "page_url": "https://pixabay.com/photos/airplane-landing-runway-city-night-10381742/",
+                  "pixabay_id": 10381742
+                },
+                {
+                  "url": "https://pixabay.com/get/g2b76b6d5190505d0cd48260b6d43b1c4c6e60991891d3059a1d8d1b5512998bb44a6c5c904ea7affbd2913f9a53c40c719de64fc31a88a86de833b5b6b0d8db4_640.jpg",
+                  "keyword": "airport",
+                  "page_url": "https://pixabay.com/photos/airport-gate-flight-1659008/",
+                  "pixabay_id": 1659008
+                },
+                {
+                  "url": "https://pixabay.com/get/gd97b90978ae002e06a35ef03b7f00c448d32bc7584055e5d1b92a6a0d28311159a1d40b3f0289cec96321cba8faed71ccf89d3a0d67fbc563033c6516ac6f42d_640.jpg",
+                  "keyword": "airport",
+                  "page_url": "https://pixabay.com/photos/airport-walking-waiting-gate-walk-4120835/",
+                  "pixabay_id": 4120835
+                },
+                {
+                  "url": "https://pixabay.com/get/g0777c8efd8a5a66f31c3b27fa41173078bca6796c3834a50916057092b59fc5d6e8f38c02883617cb58716d1dbc9f38e7982e16b05b45f41fef25e727d84bb09_640.jpg",
+                  "keyword": "airport",
+                  "page_url": "https://pixabay.com/photos/china-daxing-airport-building-5094729/",
+                  "pixabay_id": 5094729
+                },
+                {
+                  "url": "https://pixabay.com/get/gf0d1ef15f863ef19481bf59c62983f6dc083b5d280dc75c6341d237aee3e78fc2defda989cb7072581f884e73208ed0dd74bd6f376af0b7b5a228f0f32fcbab7_640.jpg",
+                  "keyword": "airport",
+                  "page_url": "https://pixabay.com/photos/cockpit-aircraft-runway-flying-4598188/",
+                  "pixabay_id": 4598188
+                },
+                {
+                  "url": "https://pixabay.com/get/g66d8f52260c08e5415f7446b782fd7d5428b50ecde0fc239acba727ffb94f28432a4549af9e93d461fbb263de6d07c0c910bdd42ab0a50980592dbf27b8d74ea_640.jpg",
+                  "keyword": "airport",
+                  "page_url": "https://pixabay.com/photos/airplane-runway-airport-tarmac-4974678/",
+                  "pixabay_id": 4974678
+                },
+                {
+                  "url": "https://pixabay.com/get/g4b74d5a29d4163d1d8af041112caacdd1acca285dbfc962952be2c0300e13b6ca66d78b66a625c7424bb5a6724fb12228f2f7427729186f24bdb195c9339da70_640.jpg",
+                  "keyword": "airport",
+                  "page_url": "https://pixabay.com/photos/airplane-wait-apron-aviation-7359232/",
+                  "pixabay_id": 7359232
+                },
+                {
+                  "url": "https://pixabay.com/get/g2bd516c72ef3d4bed412785bc66126ff4a5e335b14d3d0a04a6ad703b44db1200a5f6ac63210fc6832cdd594e725f83c_640.jpg",
+                  "keyword": "airport",
+                  "page_url": "https://pixabay.com/photos/airport-d%C3%BCsseldorf-airport-airfield-197743/",
+                  "pixabay_id": 197743
+                },
+                {
+                  "url": "https://pixabay.com/get/g079c4a3deecb8545cff0a274f70b6a42a10023ddbb079cd7e4e8c0832e1abf9c5150a176d6ed0cf20ff9bd2c337d5701499eea5d4649dd7921a2eb16e67bf9a7_640.jpg",
+                  "keyword": "airport",
+                  "page_url": "https://pixabay.com/photos/airport-departure-board-6911566/",
+                  "pixabay_id": 6911566
+                },
+                {
+                  "url": "https://pixabay.com/get/ga0a4815638b8751c340127830e523a2b384e5249e795c7dc61256c687c2424655680be25ba074c3d322210d725a45002acb11c271f0023e0dbd814511474f83e_640.jpg",
+                  "keyword": "airport",
+                  "page_url": "https://pixabay.com/photos/airport-tokyo-haneda-ana-jet-5387490/",
+                  "pixabay_id": 5387490
+                },
+                {
+                  "url": "https://pixabay.com/get/gb96f1188bd505cb88ca028fab56c9dcb51cd15453f4969250a9e42288875ecc7bdbd5b44da4cb10511c38d11017fca32cc3f483c05d9c5d303702a9e643313e1_640.jpg",
+                  "keyword": "airport",
+                  "page_url": "https://pixabay.com/photos/airbus-plane-departure-lufthansa-8607152/",
+                  "pixabay_id": 8607152
+                },
+                {
+                  "url": "https://pixabay.com/get/g3ea3bbe3330b7529e2a46905c2df6dc1dfbfc416be2049efbf179f57ce647b927552550604b85b8ed1b87dd9db1414caee4d78074138914396775596cabd154d_640.jpg",
+                  "keyword": "airport",
+                  "page_url": "https://pixabay.com/photos/plane-airport-transportation-engine-7013022/",
+                  "pixabay_id": 7013022
+                },
+                {
+                  "url": "https://pixabay.com/get/g246a4a46afa7afcba90dadc4b0b5f055e40a483b9eb89f65b346c78ce435a492995f8366e32e39c02dd1a26a19662427239c7d2ad9eae511b998c5d5e855ce04_640.jpg",
+                  "keyword": "airport",
+                  "page_url": "https://pixabay.com/photos/plane-seats-window-aviation-6511878/",
+                  "pixabay_id": 6511878
+                },
+                {
+                  "url": "https://pixabay.com/get/ge9d7601d51224ae551b612bd6c270f5c53cd4802b354b66e57f33d8d17dd4c4a35ced753b17f73833494fb6c70e250649bf32adac5acdbee152c6a27a570dc28_640.jpg",
+                  "keyword": "airport",
+                  "page_url": "https://pixabay.com/photos/aircraft-emirates-airport-airstrip-6860124/",
+                  "pixabay_id": 6860124
+                }
+              ],
+              "styling": {
+                "search": "rounded-xl bg-card p-6 shadow-xl",
+                "container": "grid gap-8 lg:grid-cols-2"
+              },
+              "has_state": true,
+              "image_urls": [
+                "/images/ui-prototype/8891625.jpg",
+                "/images/ui-prototype/5190050.jpg",
+                "/images/ui-prototype/1400243.jpg",
+                "/images/ui-prototype/790722.jpg",
+                "https://pixabay.com/get/ga71664aae0a4cfe3052bcbb6926feab2313fca32a3ef24e6b1b2662a3f84247473b9f2734d13d662d69dee49dff2be8ab29df2f8b0af95419a566fa52514c8ee_640.jpg",
+                "https://pixabay.com/get/g3c88f9bfcc89e536253f159abfea8d898670b4696023d7173b8d34211219446e15a745c9fe36b792ffe7a071d87ee4584dfb01e5ac33cb4a274cc21fa1ecdd61_640.png",
+                "https://pixabay.com/get/ga101b39e327c0690577dee755fd7171021ca61f2bb2b3e11b6cfb47cd2cfb2073221b2c03e4cbf6b69f51780960305609227359f298259359679a65c7163e6f6_640.jpg",
+                "https://pixabay.com/get/g746bad276e96ec80c05666e164bda8009ec242a295b595e7305d5743d9992d8424af5f9eb9e2af236d0796c03096b8cc5f9df336dc9f389d8acb0e384d1b1bf0_640.jpg",
+                "https://pixabay.com/get/g76fff55f738f4559d0abe285d2961d8b176b1d87596ce546508b63a89c4930df3c7f04e162165d528279d8203d68b8328c2da1610a8c5f0a481f0c7da22e072e_640.jpg",
+                "https://pixabay.com/get/g1ff146f0fc97dc1df7ec8a87e8ed428b5dc6219c4261780dd1880d68305c5a7c07e201d4ac584014ae3bc4f90853c5869d81c060bf6bec0f57a628147eff18c4_640.jpg",
+                "https://pixabay.com/get/g03068cc39073b646d9f295b00cb8f9f3cae2f37aebbda898fbaa01f37e0e28c76abc552b4f322853e2653574046233e1ae533e5cc84c8c4555b4aee6200564f9_640.jpg",
+                "https://pixabay.com/get/g49eb07960f9c5a050d99e1038f0ca8fa27d2f151caca0ced9383f24393932dd2a5f6c4b117e648dbc6dfc426185595b3add3a269206ebbf3694a8850c1899d09_640.jpg",
+                "https://pixabay.com/get/g41e58aa1f543284c909d16a985d693e4a0062bc972e304d82850445389ed541d1ea0470bb3f1e22db2624d5ab90681cfab336b508fb65e2368e486ac52ada73a_640.jpg",
+                "https://pixabay.com/get/g8911283efd159538000279e297d3e33db059169422f9577c970a5e65aff7e3f6619451081cd36a1d027144127307b1ea90659825a44154e83899fcb17f770333_640.jpg",
+                "https://pixabay.com/get/gadbc0d82789978172f7ba20df321e5fa905130e3d32c12ddc4021119bec82c02e68dae8afe19e367305c9384b593db58cdcdc009cb639446a8cf174bb9b2eaf3_640.jpg",
+                "https://pixabay.com/get/g4e63d1708e7fe5d5af809eb000c3b4fe012c0c0adaf36bbca2e3485c97749b931912437b3f382485539d34219bb0398a_640.jpg",
+                "https://pixabay.com/get/g2cf10854bcf7117f9514ad700797665618b8e3870dbb543e5d28a3b352482b3f2f6b05b4cd7e08cd10151ec092f7fec7_640.jpg",
+                "https://pixabay.com/get/g7ef9af953bfe984edd2101245c48e8efc262e9a6d8f2862e85bf9bd6cdefd77b63413786c29d3e945c9bbcf9710f6117f617b78284f6ec99b8fdba298bc1efd9_640.jpg",
+                "https://pixabay.com/get/g24c4ff0df2c00bf7ef99a3c6c20ee6b4a4db9647af23ebc68fbd0b49121806f74bc6e3512f2d7314c0370ae5f8a8de62a51873c37bdd8f5f9878bf2ed660442c_640.jpg",
+                "https://pixabay.com/get/g33371c07f79e4e9ec064342cb6e126b312927f86cbcd544b7567f3126033e107d56c556a8ea86ce31e685faa06abf436d0e245b9a3bbad5eb4c6ee6e32a1428b_640.jpg",
+                "https://pixabay.com/get/gfb16e534d7a023ca5cab8e91691ae4d95246a405c2fd0057dc16983165f3e2ba8309a41b0b5a4d40a8b89a2c928a4804db739263462a2b6447bafb2010812b6a_640.jpg",
+                "https://pixabay.com/get/g967be493d012a12bc70dc4be8418ccd42e4df094d5bd80bb5949c74c7906f54850e4c56608ee7182b60fd604d6a542557602c735a868b1f706cf3e1c6d21d2da_640.jpg",
+                "https://pixabay.com/get/g539c2d68e1ea7049ef2fbb56a92df4eb03ccebd4b5563b2b6e31d6ca899de60c4644d86fa8cf18f3db7b64225542fb3b8d6fc880bd0a15b65c37739c5c8ab81d_640.jpg",
+                "https://pixabay.com/get/ga7258e86c9a6eb7be6d8fdeb8e9fb5d39ad8feaa53939e341e8cbfcd45b1500a5b04c03b04c68585cf85c75ab597a98249c1c06e400feabd32809601dffbabe3_640.jpg",
+                "https://pixabay.com/get/g3290b8445a994af33f582ee657946f11eb90ecdb56f713ff1cee8d6418ae27a9e4603cbcf257cfe02932f028d25498f089bef00daffd562a3d04e5c5466dc7f0_640.jpg",
+                "https://pixabay.com/get/gcdd388d9133ca29f2235e3f75a6ba416fe6867dc8375da0fa8666fba4d118d154e7b0ba6cdb48a8f55e356ac649fb32b209ad38680edf7938bd43ad69682e12d_640.jpg",
+                "https://pixabay.com/get/gb05e70d328039a983985a2e441e1c226553a2a7e405a3fd382f2809b4909650589fe26f4bd33544a0a7bdacb57ea349de041d2092bc6348a8c9a53f011adc91c_640.jpg",
+                "https://pixabay.com/get/g2b76b6d5190505d0cd48260b6d43b1c4c6e60991891d3059a1d8d1b5512998bb44a6c5c904ea7affbd2913f9a53c40c719de64fc31a88a86de833b5b6b0d8db4_640.jpg",
+                "https://pixabay.com/get/gd97b90978ae002e06a35ef03b7f00c448d32bc7584055e5d1b92a6a0d28311159a1d40b3f0289cec96321cba8faed71ccf89d3a0d67fbc563033c6516ac6f42d_640.jpg",
+                "https://pixabay.com/get/g0777c8efd8a5a66f31c3b27fa41173078bca6796c3834a50916057092b59fc5d6e8f38c02883617cb58716d1dbc9f38e7982e16b05b45f41fef25e727d84bb09_640.jpg",
+                "https://pixabay.com/get/gf0d1ef15f863ef19481bf59c62983f6dc083b5d280dc75c6341d237aee3e78fc2defda989cb7072581f884e73208ed0dd74bd6f376af0b7b5a228f0f32fcbab7_640.jpg",
+                "https://pixabay.com/get/g66d8f52260c08e5415f7446b782fd7d5428b50ecde0fc239acba727ffb94f28432a4549af9e93d461fbb263de6d07c0c910bdd42ab0a50980592dbf27b8d74ea_640.jpg",
+                "https://pixabay.com/get/g4b74d5a29d4163d1d8af041112caacdd1acca285dbfc962952be2c0300e13b6ca66d78b66a625c7424bb5a6724fb12228f2f7427729186f24bdb195c9339da70_640.jpg",
+                "https://pixabay.com/get/g2bd516c72ef3d4bed412785bc66126ff4a5e335b14d3d0a04a6ad703b44db1200a5f6ac63210fc6832cdd594e725f83c_640.jpg",
+                "https://pixabay.com/get/g079c4a3deecb8545cff0a274f70b6a42a10023ddbb079cd7e4e8c0832e1abf9c5150a176d6ed0cf20ff9bd2c337d5701499eea5d4649dd7921a2eb16e67bf9a7_640.jpg",
+                "https://pixabay.com/get/ga0a4815638b8751c340127830e523a2b384e5249e795c7dc61256c687c2424655680be25ba074c3d322210d725a45002acb11c271f0023e0dbd814511474f83e_640.jpg",
+                "https://pixabay.com/get/gb96f1188bd505cb88ca028fab56c9dcb51cd15453f4969250a9e42288875ecc7bdbd5b44da4cb10511c38d11017fca32cc3f483c05d9c5d303702a9e643313e1_640.jpg",
+                "https://pixabay.com/get/g3ea3bbe3330b7529e2a46905c2df6dc1dfbfc416be2049efbf179f57ce647b927552550604b85b8ed1b87dd9db1414caee4d78074138914396775596cabd154d_640.jpg",
+                "https://pixabay.com/get/g246a4a46afa7afcba90dadc4b0b5f055e40a483b9eb89f65b346c78ce435a492995f8366e32e39c02dd1a26a19662427239c7d2ad9eae511b998c5d5e855ce04_640.jpg",
+                "https://pixabay.com/get/ge9d7601d51224ae551b612bd6c270f5c53cd4802b354b66e57f33d8d17dd4c4a35ced753b17f73833494fb6c70e250649bf32adac5acdbee152c6a27a570dc28_640.jpg"
+              ],
+              "data_source": "locations",
+              "event_handlers": [
+                "onSearch",
+                "onDateChange"
+              ],
+              "image_keywords": [
+                "car",
+                "airport"
+              ],
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "Input",
+                "Button",
+                "Popover",
+                "Calendar",
+                "Select"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Trust at every handoff",
+          "images": null,
+          "spacing": "loose",
+          "image_urls": null,
+          "section_type": "features",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "TrustFeatureGrid",
+              "props": {
+                "features": [
+                  "Transparent pricing",
+                  "Photo-backed inspections",
+                  "Fast deposit release"
+                ]
+              },
+              "images": null,
+              "styling": {
+                "grid": "grid gap-4 md:grid-cols-3"
+              },
+              "has_state": false,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Badge"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "How DriveFlow works",
+          "images": null,
+          "spacing": "loose",
+          "image_urls": null,
+          "section_type": "how_it_works",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "BookingSteps",
+              "props": {
+                "steps": [
+                  "Choose a vehicle",
+                  "Confirm transparent total",
+                  "Inspect and drive"
+                ]
+              },
+              "images": null,
+              "styling": {
+                "steps": "grid gap-4 md:grid-cols-3"
+              },
+              "has_state": false,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "Button"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Find your vehicle",
+          "images": null,
+          "spacing": "spacious",
+          "image_urls": null,
+          "section_type": "final_cta",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "BrowseFleetCta",
+              "props": {
+                "label": "Browse Fleet",
+                "primaryRoute": "/vehicles"
+              },
+              "images": null,
+              "styling": {
+                "container": "rounded-2xl bg-primary p-8 text-primary-foreground"
+              },
+              "has_state": false,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Button"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "DriveFlow",
+      "required_imports": [
+        "lucide-react",
+        "react-router-dom"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "Booking",
+      "route": "/booking",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Reservation progress",
+          "images": null,
+          "spacing": "tight",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "BookingProgress",
+              "props": {
+                "steps": [
+                  "Select Vehicle",
+                  "Protection & Options",
+                  "Review & Checkout",
+                  "Confirmed"
+                ],
+                "currentStep": 1
+              },
+              "images": null,
+              "styling": {
+                "container": "sticky top-16 z-20 bg-background py-4"
+              },
+              "has_state": false,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Progress",
+                "Badge"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Search and select",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "BookingVehicleSelector",
+              "props": {},
+              "images": null,
+              "styling": {
+                "layout": "grid gap-6 lg:grid-cols-[1fr_22rem]"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "vehicles",
+              "event_handlers": [
+                "onSelect",
+                "onContinue"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "Button",
+                "Select",
+                "Popover",
+                "Calendar"
+              ]
+            },
+            {
+              "name": "ReservationPriceSummary",
+              "props": {
+                "sticky": true,
+                "showDeposit": true
+              },
+              "images": null,
+              "styling": {
+                "card": "lg:sticky lg:top-28"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "rate_rules",
+              "event_handlers": [
+                "onToggleMobileSummary"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Separator",
+                "Button",
+                "Sheet"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Select Vehicle",
+      "required_imports": [
+        "lucide-react",
+        "react-router-dom"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "Vehicles",
+      "route": "/vehicles",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Fleet search and filters",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "VehicleFilters",
+              "props": {
+                "filters": [
+                  "location",
+                  "dates",
+                  "category",
+                  "price"
+                ]
+              },
+              "images": null,
+              "styling": {
+                "bar": "sticky top-16 z-30 grid gap-3 border-b bg-background py-4 md:grid-cols-5"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "locations",
+              "event_handlers": [
+                "onFilterChange",
+                "onClear"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Input",
+                "Select",
+                "Popover",
+                "Calendar",
+                "Button",
+                "Sheet"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Available vehicles",
+          "images": null,
+          "spacing": "loose",
+          "image_urls": null,
+          "section_type": "grid",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "VehicleResultsGrid",
+              "props": {},
+              "images": [
+                {
+                  "url": "/images/ui-prototype/8891625.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/cars-super-cars-luxury-cars-8891625/",
+                  "pixabay_id": 8891625
+                },
+                {
+                  "url": "/images/ui-prototype/5190050.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/opel-gt-antique-car-youngtimer-5190050/",
+                  "pixabay_id": 5190050
+                },
+                {
+                  "url": "/images/ui-prototype/1400243.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/buick-oldtimer-old-car-blue-car-1400243/",
+                  "pixabay_id": 1400243
+                },
+                {
+                  "url": "/images/ui-prototype/790722.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/capri-ford-antique-car-automobile-790722/",
+                  "pixabay_id": 790722
+                },
+                {
+                  "url": "https://pixabay.com/get/ga71664aae0a4cfe3052bcbb6926feab2313fca32a3ef24e6b1b2662a3f84247473b9f2734d13d662d69dee49dff2be8ab29df2f8b0af95419a566fa52514c8ee_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/oldtimer-car-old-car-convertible-1197800/",
+                  "pixabay_id": 1197800
+                },
+                {
+                  "url": "https://pixabay.com/get/g3c88f9bfcc89e536253f159abfea8d898670b4696023d7173b8d34211219446e15a745c9fe36b792ffe7a071d87ee4584dfb01e5ac33cb4a274cc21fa1ecdd61_640.png",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/car-auto-sports-car-luxury-car-2209439/",
+                  "pixabay_id": 2209439
+                },
+                {
+                  "url": "https://pixabay.com/get/ga101b39e327c0690577dee755fd7171021ca61f2bb2b3e11b6cfb47cd2cfb2073221b2c03e4cbf6b69f51780960305609227359f298259359679a65c7163e6f6_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/car-racing-speed-aston-martin-8136751/",
+                  "pixabay_id": 8136751
+                },
+                {
+                  "url": "https://pixabay.com/get/g746bad276e96ec80c05666e164bda8009ec242a295b595e7305d5743d9992d8424af5f9eb9e2af236d0796c03096b8cc5f9df336dc9f389d8acb0e384d1b1bf0_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/automotive-volkswagen-beetle-car-1846910/",
+                  "pixabay_id": 1846910
+                },
+                {
+                  "url": "https://pixabay.com/get/g76fff55f738f4559d0abe285d2961d8b176b1d87596ce546508b63a89c4930df3c7f04e162165d528279d8203d68b8328c2da1610a8c5f0a481f0c7da22e072e_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/drift-speed-transport-snow-spoiler-7248723/",
+                  "pixabay_id": 7248723
+                },
+                {
+                  "url": "https://pixabay.com/get/g1ff146f0fc97dc1df7ec8a87e8ed428b5dc6219c4261780dd1880d68305c5a7c07e201d4ac584014ae3bc4f90853c5869d81c060bf6bec0f57a628147eff18c4_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/vintage-car-classic-car-car-vehicle-7300881/",
+                  "pixabay_id": 7300881
+                },
+                {
+                  "url": "https://pixabay.com/get/g03068cc39073b646d9f295b00cb8f9f3cae2f37aebbda898fbaa01f37e0e28c76abc552b4f322853e2653574046233e1ae533e5cc84c8c4555b4aee6200564f9_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/fire-fighters-mini-cooper-automobile-1045906/",
+                  "pixabay_id": 1045906
+                },
+                {
+                  "url": "https://pixabay.com/get/g49eb07960f9c5a050d99e1038f0ca8fa27d2f151caca0ced9383f24393932dd2a5f6c4b117e648dbc6dfc426185595b3add3a269206ebbf3694a8850c1899d09_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/car-classic-tail-lights-1846103/",
+                  "pixabay_id": 1846103
+                },
+                {
+                  "url": "https://pixabay.com/get/g41e58aa1f543284c909d16a985d693e4a0062bc972e304d82850445389ed541d1ea0470bb3f1e22db2624d5ab90681cfab336b508fb65e2368e486ac52ada73a_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/jeep-car-sunrise-water-8004136/",
+                  "pixabay_id": 8004136
+                },
+                {
+                  "url": "https://pixabay.com/get/g8911283efd159538000279e297d3e33db059169422f9577c970a5e65aff7e3f6619451081cd36a1d027144127307b1ea90659825a44154e83899fcb17f770333_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/vehicle-transport-automobile-2132360/",
+                  "pixabay_id": 2132360
+                },
+                {
+                  "url": "https://pixabay.com/get/gadbc0d82789978172f7ba20df321e5fa905130e3d32c12ddc4021119bec82c02e68dae8afe19e367305c9384b593db58cdcdc009cb639446a8cf174bb9b2eaf3_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/automobile-car-junkyard-scrap-metal-3368094/",
+                  "pixabay_id": 3368094
+                },
+                {
+                  "url": "https://pixabay.com/get/g4e63d1708e7fe5d5af809eb000c3b4fe012c0c0adaf36bbca2e3485c97749b931912437b3f382485539d34219bb0398a_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/car-vehicle-ford-classic-498244/",
+                  "pixabay_id": 498244
+                },
+                {
+                  "url": "https://pixabay.com/get/g2cf10854bcf7117f9514ad700797665618b8e3870dbb543e5d28a3b352482b3f2f6b05b4cd7e08cd10151ec092f7fec7_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/automobile-car-barn-farm-ranch-176989/",
+                  "pixabay_id": 176989
+                },
+                {
+                  "url": "https://pixabay.com/get/g7ef9af953bfe984edd2101245c48e8efc262e9a6d8f2862e85bf9bd6cdefd77b63413786c29d3e945c9bbcf9710f6117f617b78284f6ec99b8fdba298bc1efd9_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/car-volkswagen-old-beetle-mexico-1093927/",
+                  "pixabay_id": 1093927
+                },
+                {
+                  "url": "https://pixabay.com/get/g24c4ff0df2c00bf7ef99a3c6c20ee6b4a4db9647af23ebc68fbd0b49121806f74bc6e3512f2d7314c0370ae5f8a8de62a51873c37bdd8f5f9878bf2ed660442c_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/car-scrap-car-cemetery-rust-dirty-3370706/",
+                  "pixabay_id": 3370706
+                },
+                {
+                  "url": "https://pixabay.com/get/g33371c07f79e4e9ec064342cb6e126b312927f86cbcd544b7567f3126033e107d56c556a8ea86ce31e685faa06abf436d0e245b9a3bbad5eb4c6ee6e32a1428b_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/dashboard-car-vehicle-mercedes-benz-3510327/",
+                  "pixabay_id": 3510327
+                }
+              ],
+              "styling": {
+                "grid": "grid gap-6 sm:grid-cols-2 xl:grid-cols-3"
+              },
+              "has_state": true,
+              "image_urls": [
+                "/images/ui-prototype/8891625.jpg",
+                "/images/ui-prototype/5190050.jpg",
+                "/images/ui-prototype/1400243.jpg",
+                "/images/ui-prototype/790722.jpg",
+                "https://pixabay.com/get/ga71664aae0a4cfe3052bcbb6926feab2313fca32a3ef24e6b1b2662a3f84247473b9f2734d13d662d69dee49dff2be8ab29df2f8b0af95419a566fa52514c8ee_640.jpg",
+                "https://pixabay.com/get/g3c88f9bfcc89e536253f159abfea8d898670b4696023d7173b8d34211219446e15a745c9fe36b792ffe7a071d87ee4584dfb01e5ac33cb4a274cc21fa1ecdd61_640.png",
+                "https://pixabay.com/get/ga101b39e327c0690577dee755fd7171021ca61f2bb2b3e11b6cfb47cd2cfb2073221b2c03e4cbf6b69f51780960305609227359f298259359679a65c7163e6f6_640.jpg",
+                "https://pixabay.com/get/g746bad276e96ec80c05666e164bda8009ec242a295b595e7305d5743d9992d8424af5f9eb9e2af236d0796c03096b8cc5f9df336dc9f389d8acb0e384d1b1bf0_640.jpg",
+                "https://pixabay.com/get/g76fff55f738f4559d0abe285d2961d8b176b1d87596ce546508b63a89c4930df3c7f04e162165d528279d8203d68b8328c2da1610a8c5f0a481f0c7da22e072e_640.jpg",
+                "https://pixabay.com/get/g1ff146f0fc97dc1df7ec8a87e8ed428b5dc6219c4261780dd1880d68305c5a7c07e201d4ac584014ae3bc4f90853c5869d81c060bf6bec0f57a628147eff18c4_640.jpg",
+                "https://pixabay.com/get/g03068cc39073b646d9f295b00cb8f9f3cae2f37aebbda898fbaa01f37e0e28c76abc552b4f322853e2653574046233e1ae533e5cc84c8c4555b4aee6200564f9_640.jpg",
+                "https://pixabay.com/get/g49eb07960f9c5a050d99e1038f0ca8fa27d2f151caca0ced9383f24393932dd2a5f6c4b117e648dbc6dfc426185595b3add3a269206ebbf3694a8850c1899d09_640.jpg",
+                "https://pixabay.com/get/g41e58aa1f543284c909d16a985d693e4a0062bc972e304d82850445389ed541d1ea0470bb3f1e22db2624d5ab90681cfab336b508fb65e2368e486ac52ada73a_640.jpg",
+                "https://pixabay.com/get/g8911283efd159538000279e297d3e33db059169422f9577c970a5e65aff7e3f6619451081cd36a1d027144127307b1ea90659825a44154e83899fcb17f770333_640.jpg",
+                "https://pixabay.com/get/gadbc0d82789978172f7ba20df321e5fa905130e3d32c12ddc4021119bec82c02e68dae8afe19e367305c9384b593db58cdcdc009cb639446a8cf174bb9b2eaf3_640.jpg",
+                "https://pixabay.com/get/g4e63d1708e7fe5d5af809eb000c3b4fe012c0c0adaf36bbca2e3485c97749b931912437b3f382485539d34219bb0398a_640.jpg",
+                "https://pixabay.com/get/g2cf10854bcf7117f9514ad700797665618b8e3870dbb543e5d28a3b352482b3f2f6b05b4cd7e08cd10151ec092f7fec7_640.jpg",
+                "https://pixabay.com/get/g7ef9af953bfe984edd2101245c48e8efc262e9a6d8f2862e85bf9bd6cdefd77b63413786c29d3e945c9bbcf9710f6117f617b78284f6ec99b8fdba298bc1efd9_640.jpg",
+                "https://pixabay.com/get/g24c4ff0df2c00bf7ef99a3c6c20ee6b4a4db9647af23ebc68fbd0b49121806f74bc6e3512f2d7314c0370ae5f8a8de62a51873c37bdd8f5f9878bf2ed660442c_640.jpg",
+                "https://pixabay.com/get/g33371c07f79e4e9ec064342cb6e126b312927f86cbcd544b7567f3126033e107d56c556a8ea86ce31e685faa06abf436d0e245b9a3bbad5eb4c6ee6e32a1428b_640.jpg"
+              ],
+              "data_source": "vehicles",
+              "event_handlers": [
+                "onSelectVehicle"
+              ],
+              "image_keywords": [
+                "car"
+              ],
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "CardFooter",
+                "Badge",
+                "Button"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Browse Fleet",
+      "required_imports": [
+        "lucide-react",
+        "react-router-dom"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "BookingConfigure",
+      "route": "/booking/configure",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Reservation progress",
+          "images": null,
+          "spacing": "tight",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "BookingProgress",
+              "props": {
+                "steps": [
+                  "Select Vehicle",
+                  "Protection & Options",
+                  "Review & Checkout",
+                  "Confirmed"
+                ],
+                "currentStep": 2
+              },
+              "images": null,
+              "styling": {},
+              "has_state": false,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Progress",
+                "Badge"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Protection and add-ons",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "ProtectionOptions",
+              "props": {
+                "tiers": [
+                  "Essential",
+                  "Plus",
+                  "Premium"
+                ]
+              },
+              "images": null,
+              "styling": {
+                "layout": "grid gap-4"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onTierChange",
+                "onAddonToggle"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "RadioGroup",
+                "Card",
+                "CardContent",
+                "Badge",
+                "Checkbox",
+                "Button"
+              ]
+            },
+            {
+              "name": "ReservationPriceSummary",
+              "props": {
+                "sticky": true,
+                "showDeposit": true
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "rate_rules",
+              "event_handlers": [
+                "onContinue"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "Separator",
+                "Button",
+                "Sheet"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Protection & Options",
+      "required_imports": [
+        "lucide-react",
+        "react-router-dom"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "BookingConfirmation",
+      "route": "/booking/confirmation",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Confirmation status",
+          "images": null,
+          "spacing": "loose",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "BookingConfirmationPanel",
+              "props": {
+                "showReservationCode": true,
+                "showPickupInstructions": true
+              },
+              "images": null,
+              "styling": {
+                "card": "mx-auto max-w-3xl text-center"
+              },
+              "has_state": false,
+              "image_urls": null,
+              "data_source": "rentals",
+              "event_handlers": [
+                "onViewBooking",
+                "onDownloadReceipt"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Badge",
+                "Button"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Next steps",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "PickupChecklist",
+              "props": {
+                "items": [
+                  "Bring driver license",
+                  "Payment hold required",
+                  "Review photo inspection"
+                ]
+              },
+              "images": null,
+              "styling": {
+                "grid": "mx-auto grid max-w-3xl gap-4 md:grid-cols-3"
+              },
+              "has_state": false,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "Alert"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Booking Confirmed",
+      "required_imports": [
+        "lucide-react",
+        "react-router-dom"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "BookingCheckout",
+      "route": "/booking/checkout",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Reservation progress",
+          "images": null,
+          "spacing": "tight",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "BookingProgress",
+              "props": {
+                "steps": [
+                  "Select Vehicle",
+                  "Protection & Options",
+                  "Review & Checkout",
+                  "Confirmed"
+                ],
+                "currentStep": 3
+              },
+              "images": null,
+              "styling": {},
+              "has_state": false,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Progress"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Driver and payment details",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "CheckoutForm",
+              "props": {
+                "sections": [
+                  "Driver details",
+                  "Billing address",
+                  "Stripe payment"
+                ]
+              },
+              "images": null,
+              "styling": {
+                "layout": "grid gap-6 lg:grid-cols-[1fr_22rem]"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onChange",
+                "onSubmit"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Input",
+                "Label",
+                "Checkbox",
+                "Button",
+                "Alert"
+              ]
+            },
+            {
+              "name": "CheckoutPriceBreakdown",
+              "props": {
+                "showDeposit": true,
+                "showFormula": true
+              },
+              "images": null,
+              "styling": {},
+              "has_state": false,
+              "image_urls": null,
+              "data_source": "rental_charges",
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "Separator",
+                "Badge"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Review & Checkout",
+      "required_imports": [
+        "lucide-react",
+        "react-router-dom"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "Signup",
+      "route": "/signup",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Account registration",
+          "images": null,
+          "spacing": "loose",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "SignupForm",
+              "props": {
+                "fields": [
+                  "name",
+                  "email",
+                  "phone",
+                  "password"
+                ]
+              },
+              "images": null,
+              "styling": {
+                "card": "mx-auto max-w-md"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onChange",
+                "onSubmit",
+                "onSocialSignup"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Input",
+                "Label",
+                "Checkbox",
+                "Button",
+                "Separator"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Create Account",
+      "required_imports": [
+        "lucide-react",
+        "react-router-dom"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "Login",
+      "route": "/login",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Account sign in",
+          "images": null,
+          "spacing": "loose",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "LoginForm",
+              "props": {},
+              "images": null,
+              "styling": {
+                "card": "mx-auto max-w-md"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onChange",
+                "onSubmit",
+                "onForgotPassword"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Input",
+                "Label",
+                "Checkbox",
+                "Button",
+                "Separator"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Sign In",
+      "required_imports": [
+        "lucide-react",
+        "react-router-dom"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "AccountDashboard",
+      "route": "/account/dashboard",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Upcoming rental",
+          "spacing": "normal",
+          "component_specs": [
+            {
+              "name": "UpcomingRentalCard",
+              "props": {
+                "buttonBehavior": "Manage Booking navigates to /account/bookings.",
+                "showPickupCountdown": true
+              },
+              "styling": {},
+              "has_state": false,
+              "data_source": "rentals",
+              "event_handlers": [
+                "onManageBooking"
+              ],
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Badge",
+                "Button"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Account shortcuts",
+          "spacing": "normal",
+          "component_specs": [
+            {
+              "name": "AccountShortcutGrid",
+              "props": {
+                "items": [
+                  "My Bookings",
+                  "Billing",
+                  "Profile & Verification"
+                ],
+                "routes": {
+                  "Billing": "/account/billing",
+                  "My Bookings": "/account/bookings",
+                  "Profile & Verification": "/account/profile"
+                },
+                "buttonBehavior": "Each shortcut navigates to its mapped account route."
+              },
+              "styling": {
+                "grid": "grid gap-4 md:grid-cols-3"
+              },
+              "has_state": false,
+              "event_handlers": [
+                "onNavigateShortcut"
+              ],
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "Button"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Account Dashboard",
+      "required_imports": [
+        "lucide-react",
+        "react-router-dom"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "AccountBookings",
+      "route": "/account/bookings",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Booking filters",
+          "images": null,
+          "spacing": "tight",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "BookingTabs",
+              "props": {
+                "tabs": [
+                  "Upcoming",
+                  "Past",
+                  "Cancelled"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onTabChange",
+                "onSearch"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Tabs",
+                "TabsList",
+                "TabsTrigger",
+                "Input"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reservation history",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "CustomerBookingList",
+              "props": {},
+              "images": null,
+              "styling": {
+                "list": "space-y-4"
+              },
+              "has_state": false,
+              "image_urls": null,
+              "data_source": "rentals",
+              "event_handlers": [
+                "onManage",
+                "onViewInvoice"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "Badge",
+                "Button",
+                "DropdownMenu"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "My Bookings",
+      "required_imports": [
+        "lucide-react",
+        "react-router-dom"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "CounterAgreement",
+      "route": "/counter/agreement",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Agreement lookup",
+          "images": null,
+          "spacing": "tight",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "AgreementLookup",
+              "props": {
+                "searchBy": [
+                  "reservation",
+                  "customer",
+                  "plate"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onSearch",
+                "onSelect"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Input",
+                "Button",
+                "Command"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Contract and signature",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "AgreementSigningWorkspace",
+              "props": {
+                "touchSignature": true,
+                "requireAcknowledgement": true
+              },
+              "images": null,
+              "styling": {
+                "layout": "grid gap-6 lg:grid-cols-[1fr_24rem]"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "rentals",
+              "event_handlers": [
+                "onAccept",
+                "onSign",
+                "onClear",
+                "onComplete"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "ScrollArea",
+                "Checkbox",
+                "Button",
+                "Alert"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Agreement Signing",
+      "required_imports": [
+        "lucide-react"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "Counter",
+      "route": "/counter",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Counter shift overview",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "CounterKpiStrip",
+              "props": {
+                "metrics": [
+                  "Pending departures",
+                  "Arrived returns",
+                  "Overdue",
+                  "Ready vehicles"
+                ]
+              },
+              "images": null,
+              "styling": {
+                "grid": "grid gap-4 sm:grid-cols-2 xl:grid-cols-4"
+              },
+              "has_state": false,
+              "image_urls": null,
+              "data_source": "rentals",
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "Badge"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Next actions",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "CounterActionBoard",
+              "props": {
+                "keyboardFirst": true
+              },
+              "images": null,
+              "styling": {},
+              "has_state": false,
+              "image_urls": null,
+              "data_source": "rentals",
+              "event_handlers": [
+                "onOpenRental",
+                "onStartWalkaround"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Button",
+                "Table"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Counter Portal",
+      "required_imports": [
+        "lucide-react",
+        "react-router-dom"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "CounterDepartures",
+      "route": "/counter/departures",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Departure queue controls",
+          "images": null,
+          "spacing": "tight",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "QueueToolbar",
+              "props": {
+                "shortcut": "Mod+K",
+                "statuses": [
+                  "Due now",
+                  "Ready",
+                  "Blocked"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onSearch",
+                "onFilter"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Input",
+                "Select",
+                "Button",
+                "Badge"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Today's scheduled departures",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "DeparturesTable",
+              "props": {
+                "dense": true,
+                "showDepositGate": true,
+                "showSignatureGate": true
+              },
+              "images": null,
+              "styling": {},
+              "has_state": false,
+              "image_urls": null,
+              "data_source": "rentals",
+              "event_handlers": [
+                "onStartCheckout",
+                "onAssignVehicle"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Table",
+                "Badge",
+                "Button",
+                "DropdownMenu",
+                "Alert"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Departures Queue",
+      "required_imports": [
+        "lucide-react",
+        "react-router-dom"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "CounterCheckout",
+      "route": "/counter/check-out/:reservationId",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Handover progress",
+          "spacing": "tight",
+          "component_specs": [
+            {
+              "name": "HandoverStepper",
+              "props": {
+                "steps": [
+                  "Vehicle Assignment",
+                  "Payment Authorization",
+                  "Condition Walkaround",
+                  "Electronic Signature",
+                  "Key Handover"
+                ],
+                "targetSeconds": 90
+              },
+              "styling": {},
+              "has_state": true,
+              "event_handlers": [
+                "onStepChange"
+              ],
+              "shadcn_components": [
+                "Progress",
+                "Badge",
+                "Alert"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Rapid checkout workspace",
+          "spacing": "normal",
+          "component_specs": [
+            {
+              "name": "CheckoutWorkflow",
+              "props": {
+                "scanLicense": true,
+                "enforceGates": true,
+                "keyboardFirst": true,
+                "buttonBehavior": "Scan, authorize, advance, and release-key controls update the local checkout workflow; blocked actions explain the unmet gate."
+              },
+              "styling": {
+                "layout": "grid gap-6 xl:grid-cols-[1fr_20rem]"
+              },
+              "has_state": true,
+              "data_source": "rentals",
+              "event_handlers": [
+                "onScanLicense",
+                "onAuthorizeDeposit",
+                "onAdvance",
+                "onReleaseKeys"
+              ],
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Input",
+                "Button",
+                "Badge",
+                "Alert",
+                "Separator"
+              ]
+            },
+            {
+              "name": "CheckoutGateSummary",
+              "props": {
+                "gates": [
+                  "Vehicle assigned",
+                  "Stripe hold active",
+                  "Inspection complete",
+                  "Agreement signed"
+                ],
+                "buttonBehavior": "Gate action buttons focus or open the corresponding checkout step."
+              },
+              "styling": {},
+              "has_state": true,
+              "data_source": "payments",
+              "event_handlers": [
+                "onOpenGate"
+              ],
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "Badge",
+                "Button"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Rental Check-Out",
+      "required_imports": [
+        "lucide-react",
+        "react-router-dom"
+      ],
+      "has_dynamic_params": true
+    },
+    {
+      "name": "AccountBilling",
+      "route": "/account/billing",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Deposit visibility",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "DepositStatusPanel",
+              "props": {
+                "states": [
+                  "Pre-Authorized / Held",
+                  "Released",
+                  "Captured",
+                  "Partially Refunded"
+                ],
+                "showTimeline": true
+              },
+              "images": null,
+              "styling": {},
+              "has_state": false,
+              "image_urls": null,
+              "data_source": "payments",
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Badge",
+                "Progress",
+                "Alert"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Payment methods and invoices",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "BillingManager",
+              "props": {},
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "rental_charges",
+              "event_handlers": [
+                "onAddCard",
+                "onDownloadInvoice"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Tabs",
+                "TabsList",
+                "TabsTrigger",
+                "Card",
+                "CardContent",
+                "Table",
+                "Button",
+                "Dialog"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Payment Methods & Billing",
+      "required_imports": [
+        "lucide-react"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "AccountProfile",
+      "route": "/account/profile",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Personal details",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "ProfileForm",
+              "props": {},
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "customer_profiles",
+              "event_handlers": [
+                "onChange",
+                "onSave"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Input",
+                "Label",
+                "Button",
+                "Avatar"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Driver verification",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "LicenseVerification",
+              "props": {
+                "cameraScan": true
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "customer_profiles",
+              "event_handlers": [
+                "onScan",
+                "onUpload"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "Badge",
+                "Button",
+                "Alert"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Profile & Verification",
+      "required_imports": [
+        "lucide-react"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "CounterReturns",
+      "route": "/counter/returns",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Return queue controls",
+          "images": null,
+          "spacing": "tight",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "ReturnQueueToolbar",
+              "props": {
+                "statuses": [
+                  "Arrived",
+                  "Due soon",
+                  "Overdue"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onSearch",
+                "onFilter"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Input",
+                "Select",
+                "Button",
+                "Badge"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Today's returns",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "ReturnsTable",
+              "props": {
+                "graceMinutes": 60,
+                "showGracePeriod": true
+              },
+              "images": null,
+              "styling": {},
+              "has_state": false,
+              "image_urls": null,
+              "data_source": "rentals",
+              "event_handlers": [
+                "onStartInspection",
+                "onSettle",
+                "onEscalate"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Table",
+                "Badge",
+                "Button",
+                "Alert",
+                "DropdownMenu"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Returns Queue",
+      "required_imports": [
+        "lucide-react",
+        "react-router-dom"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "CounterSettlement",
+      "route": "/counter/settlement/:rentalId",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Return comparison",
+          "spacing": "normal",
+          "component_specs": [
+            {
+              "name": "ReturnMetricsComparison",
+              "props": {
+                "metrics": [
+                  "return time",
+                  "odometer",
+                  "fuel",
+                  "damage"
+                ],
+                "showDepartureVsReturn": true
+              },
+              "styling": {
+                "grid": "grid gap-4 md:grid-cols-2 xl:grid-cols-4"
+              },
+              "has_state": false,
+              "data_source": "inspections",
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Badge",
+                "Alert"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Calculated charges and deposit",
+          "spacing": "normal",
+          "component_specs": [
+            {
+              "name": "SettlementCalculator",
+              "props": {
+                "lateCap": "daily rate",
+                "showFormulas": true,
+                "buttonBehavior": "Adjust recalculates totals; capture and refund open confirmation dialogs; finalize updates the demo settlement status and shows confirmation.",
+                "lateGraceMinutes": 60,
+                "fuelRatePerGallon": 8
+              },
+              "styling": {
+                "layout": "grid gap-6 xl:grid-cols-[1fr_22rem]"
+              },
+              "has_state": true,
+              "data_source": "rental_charges",
+              "event_handlers": [
+                "onAdjust",
+                "onCapture",
+                "onRefund",
+                "onFinalize"
+              ],
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "Table",
+                "Input",
+                "Label",
+                "Separator",
+                "Badge",
+                "Alert",
+                "Button",
+                "Dialog"
+              ]
+            },
+            {
+              "name": "DepositSettlementCard",
+              "props": {
+                "states": [
+                  "Held",
+                  "Captured",
+                  "Partially Refunded",
+                  "Released"
+                ],
+                "buttonBehavior": "Deposit action opens the applicable confirmation flow and updates the local status when confirmed."
+              },
+              "styling": {},
+              "has_state": true,
+              "data_source": "payments",
+              "event_handlers": [
+                "onOpenDepositAction",
+                "onConfirmDepositAction",
+                "onCancelDepositAction"
+              ],
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Badge",
+                "Button",
+                "Dialog"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Settlement & Billing",
+      "required_imports": [
+        "lucide-react"
+      ],
+      "has_dynamic_params": true
+    },
+    {
+      "name": "AdminFleet",
+      "route": "/admin/fleet",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Fleet inventory controls",
+          "images": null,
+          "spacing": "tight",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "FleetToolbar",
+              "props": {
+                "filters": [
+                  "status",
+                  "category",
+                  "location"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onSearch",
+                "onFilter",
+                "onBulkAction",
+                "onAddVehicle"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Input",
+                "Select",
+                "Button",
+                "DropdownMenu"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Vehicle directory",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "FleetInventoryTable",
+              "props": {
+                "dense": true,
+                "bulkSelect": true,
+                "showMaintenanceThreshold": true
+              },
+              "images": null,
+              "styling": {},
+              "has_state": false,
+              "image_urls": null,
+              "data_source": "vehicles",
+              "event_handlers": [
+                "onSelect",
+                "onOpenVehicle",
+                "onBulkUpdate"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Table",
+                "Badge",
+                "Checkbox",
+                "Button",
+                "DropdownMenu",
+                "Progress"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Fleet Inventory",
+      "required_imports": [
+        "lucide-react",
+        "react-router-dom"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "InspectionReturn",
+      "route": "/inspections/return/:rentalId",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Inspection vehicle header",
+          "images": null,
+          "spacing": "tight",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "InspectionFocusHeader",
+              "props": {
+                "returnMode": true,
+                "exitConfirmation": true
+              },
+              "images": null,
+              "styling": {
+                "header": "sticky top-0 z-40 min-h-16 border-b bg-background px-4"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onExit"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Badge",
+                "Button",
+                "AlertDialog"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Departure and return evidence",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "ReturnInspectionStepper",
+              "props": {
+                "steps": [
+                  "Odometer & Fuel",
+                  "Exterior Comparison",
+                  "Pin New Damage",
+                  "Renter Sign-Off"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": false,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Progress",
+                "Tabs",
+                "TabsList",
+                "TabsTrigger"
+              ]
+            },
+            {
+              "name": "PhotoComparisonWorkspace",
+              "props": {
+                "angles": [
+                  "Front",
+                  "Driver Side",
+                  "Rear",
+                  "Passenger Side"
+                ],
+                "splitView": true,
+                "differenceToggle": true,
+                "showTimestampAndLocation": true
+              },
+              "images": [
+                {
+                  "url": "/images/ui-prototype/8891625.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/cars-super-cars-luxury-cars-8891625/",
+                  "pixabay_id": 8891625
+                },
+                {
+                  "url": "/images/ui-prototype/5190050.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/opel-gt-antique-car-youngtimer-5190050/",
+                  "pixabay_id": 5190050
+                },
+                {
+                  "url": "/images/ui-prototype/1400243.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/buick-oldtimer-old-car-blue-car-1400243/",
+                  "pixabay_id": 1400243
+                },
+                {
+                  "url": "/images/ui-prototype/790722.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/capri-ford-antique-car-automobile-790722/",
+                  "pixabay_id": 790722
+                },
+                {
+                  "url": "https://pixabay.com/get/ga71664aae0a4cfe3052bcbb6926feab2313fca32a3ef24e6b1b2662a3f84247473b9f2734d13d662d69dee49dff2be8ab29df2f8b0af95419a566fa52514c8ee_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/oldtimer-car-old-car-convertible-1197800/",
+                  "pixabay_id": 1197800
+                },
+                {
+                  "url": "https://pixabay.com/get/g3c88f9bfcc89e536253f159abfea8d898670b4696023d7173b8d34211219446e15a745c9fe36b792ffe7a071d87ee4584dfb01e5ac33cb4a274cc21fa1ecdd61_640.png",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/car-auto-sports-car-luxury-car-2209439/",
+                  "pixabay_id": 2209439
+                },
+                {
+                  "url": "https://pixabay.com/get/ga101b39e327c0690577dee755fd7171021ca61f2bb2b3e11b6cfb47cd2cfb2073221b2c03e4cbf6b69f51780960305609227359f298259359679a65c7163e6f6_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/car-racing-speed-aston-martin-8136751/",
+                  "pixabay_id": 8136751
+                },
+                {
+                  "url": "https://pixabay.com/get/g746bad276e96ec80c05666e164bda8009ec242a295b595e7305d5743d9992d8424af5f9eb9e2af236d0796c03096b8cc5f9df336dc9f389d8acb0e384d1b1bf0_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/automotive-volkswagen-beetle-car-1846910/",
+                  "pixabay_id": 1846910
+                },
+                {
+                  "url": "https://pixabay.com/get/g76fff55f738f4559d0abe285d2961d8b176b1d87596ce546508b63a89c4930df3c7f04e162165d528279d8203d68b8328c2da1610a8c5f0a481f0c7da22e072e_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/drift-speed-transport-snow-spoiler-7248723/",
+                  "pixabay_id": 7248723
+                },
+                {
+                  "url": "https://pixabay.com/get/g1ff146f0fc97dc1df7ec8a87e8ed428b5dc6219c4261780dd1880d68305c5a7c07e201d4ac584014ae3bc4f90853c5869d81c060bf6bec0f57a628147eff18c4_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/vintage-car-classic-car-car-vehicle-7300881/",
+                  "pixabay_id": 7300881
+                },
+                {
+                  "url": "https://pixabay.com/get/g03068cc39073b646d9f295b00cb8f9f3cae2f37aebbda898fbaa01f37e0e28c76abc552b4f322853e2653574046233e1ae533e5cc84c8c4555b4aee6200564f9_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/fire-fighters-mini-cooper-automobile-1045906/",
+                  "pixabay_id": 1045906
+                },
+                {
+                  "url": "https://pixabay.com/get/g49eb07960f9c5a050d99e1038f0ca8fa27d2f151caca0ced9383f24393932dd2a5f6c4b117e648dbc6dfc426185595b3add3a269206ebbf3694a8850c1899d09_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/car-classic-tail-lights-1846103/",
+                  "pixabay_id": 1846103
+                },
+                {
+                  "url": "https://pixabay.com/get/g41e58aa1f543284c909d16a985d693e4a0062bc972e304d82850445389ed541d1ea0470bb3f1e22db2624d5ab90681cfab336b508fb65e2368e486ac52ada73a_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/jeep-car-sunrise-water-8004136/",
+                  "pixabay_id": 8004136
+                },
+                {
+                  "url": "https://pixabay.com/get/g8911283efd159538000279e297d3e33db059169422f9577c970a5e65aff7e3f6619451081cd36a1d027144127307b1ea90659825a44154e83899fcb17f770333_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/vehicle-transport-automobile-2132360/",
+                  "pixabay_id": 2132360
+                },
+                {
+                  "url": "https://pixabay.com/get/gadbc0d82789978172f7ba20df321e5fa905130e3d32c12ddc4021119bec82c02e68dae8afe19e367305c9384b593db58cdcdc009cb639446a8cf174bb9b2eaf3_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/automobile-car-junkyard-scrap-metal-3368094/",
+                  "pixabay_id": 3368094
+                },
+                {
+                  "url": "https://pixabay.com/get/g4e63d1708e7fe5d5af809eb000c3b4fe012c0c0adaf36bbca2e3485c97749b931912437b3f382485539d34219bb0398a_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/car-vehicle-ford-classic-498244/",
+                  "pixabay_id": 498244
+                },
+                {
+                  "url": "https://pixabay.com/get/g2cf10854bcf7117f9514ad700797665618b8e3870dbb543e5d28a3b352482b3f2f6b05b4cd7e08cd10151ec092f7fec7_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/automobile-car-barn-farm-ranch-176989/",
+                  "pixabay_id": 176989
+                },
+                {
+                  "url": "https://pixabay.com/get/g7ef9af953bfe984edd2101245c48e8efc262e9a6d8f2862e85bf9bd6cdefd77b63413786c29d3e945c9bbcf9710f6117f617b78284f6ec99b8fdba298bc1efd9_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/car-volkswagen-old-beetle-mexico-1093927/",
+                  "pixabay_id": 1093927
+                },
+                {
+                  "url": "https://pixabay.com/get/g24c4ff0df2c00bf7ef99a3c6c20ee6b4a4db9647af23ebc68fbd0b49121806f74bc6e3512f2d7314c0370ae5f8a8de62a51873c37bdd8f5f9878bf2ed660442c_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/car-scrap-car-cemetery-rust-dirty-3370706/",
+                  "pixabay_id": 3370706
+                },
+                {
+                  "url": "https://pixabay.com/get/g33371c07f79e4e9ec064342cb6e126b312927f86cbcd544b7567f3126033e107d56c556a8ea86ce31e685faa06abf436d0e245b9a3bbad5eb4c6ee6e32a1428b_640.jpg",
+                  "keyword": "car",
+                  "page_url": "https://pixabay.com/photos/dashboard-car-vehicle-mercedes-benz-3510327/",
+                  "pixabay_id": 3510327
+                }
+              ],
+              "styling": {
+                "split": "grid gap-2 lg:grid-cols-2",
+                "touchTarget": "min-h-12"
+              },
+              "has_state": true,
+              "image_urls": [
+                "/images/ui-prototype/8891625.jpg",
+                "/images/ui-prototype/5190050.jpg",
+                "/images/ui-prototype/1400243.jpg",
+                "/images/ui-prototype/790722.jpg",
+                "https://pixabay.com/get/ga71664aae0a4cfe3052bcbb6926feab2313fca32a3ef24e6b1b2662a3f84247473b9f2734d13d662d69dee49dff2be8ab29df2f8b0af95419a566fa52514c8ee_640.jpg",
+                "https://pixabay.com/get/g3c88f9bfcc89e536253f159abfea8d898670b4696023d7173b8d34211219446e15a745c9fe36b792ffe7a071d87ee4584dfb01e5ac33cb4a274cc21fa1ecdd61_640.png",
+                "https://pixabay.com/get/ga101b39e327c0690577dee755fd7171021ca61f2bb2b3e11b6cfb47cd2cfb2073221b2c03e4cbf6b69f51780960305609227359f298259359679a65c7163e6f6_640.jpg",
+                "https://pixabay.com/get/g746bad276e96ec80c05666e164bda8009ec242a295b595e7305d5743d9992d8424af5f9eb9e2af236d0796c03096b8cc5f9df336dc9f389d8acb0e384d1b1bf0_640.jpg",
+                "https://pixabay.com/get/g76fff55f738f4559d0abe285d2961d8b176b1d87596ce546508b63a89c4930df3c7f04e162165d528279d8203d68b8328c2da1610a8c5f0a481f0c7da22e072e_640.jpg",
+                "https://pixabay.com/get/g1ff146f0fc97dc1df7ec8a87e8ed428b5dc6219c4261780dd1880d68305c5a7c07e201d4ac584014ae3bc4f90853c5869d81c060bf6bec0f57a628147eff18c4_640.jpg",
+                "https://pixabay.com/get/g03068cc39073b646d9f295b00cb8f9f3cae2f37aebbda898fbaa01f37e0e28c76abc552b4f322853e2653574046233e1ae533e5cc84c8c4555b4aee6200564f9_640.jpg",
+                "https://pixabay.com/get/g49eb07960f9c5a050d99e1038f0ca8fa27d2f151caca0ced9383f24393932dd2a5f6c4b117e648dbc6dfc426185595b3add3a269206ebbf3694a8850c1899d09_640.jpg",
+                "https://pixabay.com/get/g41e58aa1f543284c909d16a985d693e4a0062bc972e304d82850445389ed541d1ea0470bb3f1e22db2624d5ab90681cfab336b508fb65e2368e486ac52ada73a_640.jpg",
+                "https://pixabay.com/get/g8911283efd159538000279e297d3e33db059169422f9577c970a5e65aff7e3f6619451081cd36a1d027144127307b1ea90659825a44154e83899fcb17f770333_640.jpg",
+                "https://pixabay.com/get/gadbc0d82789978172f7ba20df321e5fa905130e3d32c12ddc4021119bec82c02e68dae8afe19e367305c9384b593db58cdcdc009cb639446a8cf174bb9b2eaf3_640.jpg",
+                "https://pixabay.com/get/g4e63d1708e7fe5d5af809eb000c3b4fe012c0c0adaf36bbca2e3485c97749b931912437b3f382485539d34219bb0398a_640.jpg",
+                "https://pixabay.com/get/g2cf10854bcf7117f9514ad700797665618b8e3870dbb543e5d28a3b352482b3f2f6b05b4cd7e08cd10151ec092f7fec7_640.jpg",
+                "https://pixabay.com/get/g7ef9af953bfe984edd2101245c48e8efc262e9a6d8f2862e85bf9bd6cdefd77b63413786c29d3e945c9bbcf9710f6117f617b78284f6ec99b8fdba298bc1efd9_640.jpg",
+                "https://pixabay.com/get/g24c4ff0df2c00bf7ef99a3c6c20ee6b4a4db9647af23ebc68fbd0b49121806f74bc6e3512f2d7314c0370ae5f8a8de62a51873c37bdd8f5f9878bf2ed660442c_640.jpg",
+                "https://pixabay.com/get/g33371c07f79e4e9ec064342cb6e126b312927f86cbcd544b7567f3126033e107d56c556a8ea86ce31e685faa06abf436d0e245b9a3bbad5eb4c6ee6e32a1428b_640.jpg"
+              ],
+              "data_source": "inspections",
+              "event_handlers": [
+                "onCapture",
+                "onAngleChange",
+                "onCompare",
+                "onMarkDamage",
+                "onSaveDraft"
+              ],
+              "image_keywords": [
+                "car"
+              ],
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "Button",
+                "Toggle",
+                "Slider",
+                "Badge",
+                "Alert"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Return action bar",
+          "images": null,
+          "spacing": "tight",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "InspectionActionBar",
+              "props": {
+                "fixed": true,
+                "height": 72,
+                "actions": [
+                  "Back",
+                  "Flashlight",
+                  "Flag note",
+                  "Complete & Review"
+                ]
+              },
+              "images": null,
+              "styling": {
+                "bar": "fixed inset-x-0 bottom-0 z-50 flex h-[72px] border-t bg-background px-4",
+                "button": "min-h-12"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onBack",
+                "onToggleFlash",
+                "onFlag",
+                "onNext"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Button",
+                "DropdownMenu"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Return Inspection",
+      "required_imports": [
+        "lucide-react"
+      ],
+      "has_dynamic_params": true
+    },
+    {
+      "name": "Admin",
+      "route": "/admin",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Operations overview",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "AdminKpiGrid",
+              "props": {
+                "metrics": [
+                  "Fleet utilization",
+                  "RevPAC",
+                  "Active rentals",
+                  "Overdue balance"
+                ]
+              },
+              "images": null,
+              "styling": {
+                "grid": "grid gap-4 md:grid-cols-2 xl:grid-cols-4"
+              },
+              "has_state": false,
+              "image_urls": null,
+              "data_source": "rentals",
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "Badge"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Operational alerts",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "OperationsAlertBoard",
+              "props": {
+                "alerts": [
+                  "Overdue returns",
+                  "Maintenance due",
+                  "Failed holds"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": false,
+              "image_urls": null,
+              "data_source": "rentals",
+              "event_handlers": [
+                "onOpenAlert"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Table",
+                "Badge",
+                "Button"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Admin Portal",
+      "required_imports": [
+        "lucide-react",
+        "react-router-dom"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "AdminFleetNew",
+      "route": "/admin/fleet/new",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Vehicle details",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "VehicleCreateForm",
+              "props": {
+                "sections": [
+                  "Identity",
+                  "Classification",
+                  "Location",
+                  "Rates",
+                  "Maintenance baseline"
+                ]
+              },
+              "images": null,
+              "styling": {
+                "form": "grid gap-6 lg:grid-cols-2"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "vehicle_categories",
+              "event_handlers": [
+                "onChange",
+                "onSaveDraft",
+                "onSubmit"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Input",
+                "Label",
+                "Select",
+                "Button",
+                "Separator",
+                "Alert"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Add Vehicle",
+      "required_imports": [
+        "lucide-react",
+        "react-router-dom"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "InspectionNew",
+      "route": "/inspections/new",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Inspection vehicle header",
+          "images": null,
+          "spacing": "tight",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "InspectionFocusHeader",
+              "props": {
+                "showModel": true,
+                "showPlate": true,
+                "showStall": true,
+                "exitConfirmation": true
+              },
+              "images": null,
+              "styling": {
+                "header": "sticky top-0 z-40 flex min-h-16 items-center justify-between border-b bg-background px-4"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onExit"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Badge",
+                "Button",
+                "AlertDialog"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Guided departure inspection",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "InspectionStepper",
+              "props": {
+                "steps": [
+                  "Odometer & Fuel",
+                  "Exterior 360 Photos",
+                  "Pin Damage Hotspots",
+                  "Renter Sign-Off"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": false,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Progress",
+                "Tabs",
+                "TabsList",
+                "TabsTrigger"
+              ]
+            },
+            {
+              "name": "DepartureInspectionWorkspace",
+              "props": {
+                "cameraFirst": true,
+                "photoAngles": [
+                  "Front",
+                  "Driver Side",
+                  "Rear",
+                  "Passenger Side"
+                ],
+                "offlineCache": true,
+                "immutableMetadata": true
+              },
+              "images": null,
+              "styling": {
+                "workspace": "pb-24",
+                "touchTarget": "min-h-12"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "inspections",
+              "event_handlers": [
+                "onCapture",
+                "onReadingChange",
+                "onPinDamage",
+                "onSaveDraft"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "Input",
+                "Slider",
+                "Button",
+                "Badge",
+                "Alert"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Lot action bar",
+          "images": null,
+          "spacing": "tight",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "InspectionActionBar",
+              "props": {
+                "fixed": true,
+                "height": 72,
+                "actions": [
+                  "Back",
+                  "Flashlight",
+                  "Flag note",
+                  "Next"
+                ]
+              },
+              "images": null,
+              "styling": {
+                "bar": "fixed inset-x-0 bottom-0 z-50 flex h-[72px] items-center justify-between border-t bg-background px-4",
+                "button": "min-h-12"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onBack",
+                "onToggleFlash",
+                "onFlag",
+                "onNext"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Button",
+                "DropdownMenu"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "New Walkaround Inspection",
+      "required_imports": [
+        "lucide-react"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "AdminFleetMatrix",
+      "route": "/admin/fleet/matrix",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Matrix controls",
+          "images": null,
+          "spacing": "tight",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "FleetMatrixToolbar",
+              "props": {
+                "views": [
+                  "Day",
+                  "3 Days",
+                  "Week"
+                ],
+                "filters": [
+                  "location",
+                  "class",
+                  "status"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onDateChange",
+                "onZoom",
+                "onFilter",
+                "onSearch"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Button",
+                "Select",
+                "Popover",
+                "Calendar",
+                "ToggleGroup",
+                "Input"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Vehicle schedule timeline",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "FleetScheduleMatrix",
+              "props": {
+                "ganttStyle": true,
+                "graceMinutes": 60,
+                "statusColors": true,
+                "currentTimeMarker": true
+              },
+              "images": null,
+              "styling": {
+                "matrix": "min-w-[1200px]",
+                "viewport": "h-[calc(100vh-13rem)]"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "rentals",
+              "event_handlers": [
+                "onOpenRental",
+                "onReschedule",
+                "onOpenVehicle"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "ScrollArea",
+                "Card",
+                "Badge",
+                "Tooltip",
+                "ContextMenu"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Live Fleet Matrix",
+      "required_imports": [
+        "lucide-react"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "AdminRates",
+      "route": "/admin/rates",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Rate rule controls",
+          "images": null,
+          "spacing": "tight",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "RateToolbar",
+              "props": {
+                "tabs": [
+                  "Base Rates",
+                  "Seasonal",
+                  "Fees & Penalties"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onTabChange",
+                "onCreateRule"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Tabs",
+                "TabsList",
+                "TabsTrigger",
+                "Button",
+                "Select"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Pricing rule editor",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "RateRulesTable",
+              "props": {
+                "showFuelDefault": 8,
+                "showGraceMinutes": 60
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "rate_rules",
+              "event_handlers": [
+                "onToggle",
+                "onEdit",
+                "onDuplicate",
+                "onSave"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Table",
+                "Badge",
+                "Switch",
+                "Button",
+                "DropdownMenu",
+                "Dialog",
+                "Input",
+                "Select"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Dynamic Pricing & Rates",
+      "required_imports": [
+        "lucide-react"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "AdminRentalOverdue",
+      "route": "/admin/rentals/:rentalId/overdue",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Overdue severity",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "OverdueStatusHero",
+              "props": {
+                "urgent": true,
+                "graceMinutes": 60,
+                "showLiveDuration": true
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "rentals",
+              "event_handlers": [
+                "onCall",
+                "onMessage",
+                "onEscalate"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "Badge",
+                "Alert",
+                "Button"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Penalty and recovery",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "OverdueRecoveryWorkspace",
+              "props": {
+                "capAtDailyRate": true,
+                "showHourlyFormula": true,
+                "showPaymentAttempts": true
+              },
+              "images": null,
+              "styling": {
+                "layout": "grid gap-6 xl:grid-cols-[1fr_22rem]"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "rental_charges",
+              "event_handlers": [
+                "onRetryCharge",
+                "onAddNote",
+                "onMarkRecovered"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Table",
+                "Badge",
+                "Button",
+                "Textarea",
+                "Separator"
+              ]
+            },
+            {
+              "name": "OverdueTimeline",
+              "props": {},
+              "images": null,
+              "styling": {},
+              "has_state": false,
+              "image_urls": null,
+              "data_source": "payments",
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "ScrollArea",
+                "Badge"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Overdue Management",
+      "required_imports": [
+        "lucide-react"
+      ],
+      "has_dynamic_params": true
+    },
+    {
+      "name": "AdminMaintenance",
+      "route": "/admin/maintenance",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Maintenance controls",
+          "images": null,
+          "spacing": "tight",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "MaintenanceToolbar",
+              "props": {
+                "tabs": [
+                  "Due Now",
+                  "Upcoming",
+                  "Work Orders",
+                  "History"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onSearch",
+                "onFilter",
+                "onNewWorkOrder"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Input",
+                "Select",
+                "Button",
+                "Tabs",
+                "TabsList",
+                "TabsTrigger"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Service alerts and work orders",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "MaintenanceTable",
+              "props": {
+                "showOdometerThreshold": true
+              },
+              "images": null,
+              "styling": {},
+              "has_state": false,
+              "image_urls": null,
+              "data_source": "vehicle_maintenance_logs",
+              "event_handlers": [
+                "onOpenOrder",
+                "onAssign",
+                "onComplete"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Table",
+                "Badge",
+                "Progress",
+                "Button",
+                "DropdownMenu"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Maintenance Hub",
+      "required_imports": [
+        "lucide-react",
+        "react-router-dom"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "AdminMaintenanceNew",
+      "route": "/admin/maintenance/new",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Work order details",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "WorkOrderForm",
+              "props": {
+                "fields": [
+                  "vehicle",
+                  "service type",
+                  "priority",
+                  "odometer",
+                  "vendor",
+                  "scheduled date",
+                  "estimate",
+                  "notes"
+                ]
+              },
+              "images": null,
+              "styling": {
+                "form": "grid gap-6 md:grid-cols-2"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "vehicles",
+              "event_handlers": [
+                "onChange",
+                "onSaveDraft",
+                "onCreate"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Input",
+                "Label",
+                "Select",
+                "Textarea",
+                "Popover",
+                "Calendar",
+                "Button",
+                "Alert"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "New Work Order",
+      "required_imports": [
+        "lucide-react",
+        "react-router-dom"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "AdminAnalytics",
+      "route": "/admin/analytics",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Analytics controls",
+          "images": null,
+          "spacing": "tight",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "AnalyticsToolbar",
+              "props": {
+                "ranges": [
+                  "7 days",
+                  "30 days",
+                  "Quarter",
+                  "Year"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onRangeChange",
+                "onLocationChange",
+                "onExport"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Popover",
+                "Calendar",
+                "Select",
+                "Button",
+                "Tabs",
+                "TabsList",
+                "TabsTrigger"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Fleet and revenue performance",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "AnalyticsKpis",
+              "props": {
+                "metrics": [
+                  "Utilization",
+                  "RevPAC",
+                  "Revenue",
+                  "Damage recovery"
+                ]
+              },
+              "images": null,
+              "styling": {
+                "grid": "grid gap-4 md:grid-cols-2 xl:grid-cols-4"
+              },
+              "has_state": false,
+              "image_urls": null,
+              "data_source": "rentals",
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "Badge"
+              ]
+            },
+            {
+              "name": "PerformanceCharts",
+              "props": {
+                "charts": [
+                  "Utilization trend",
+                  "RevPAC trend",
+                  "Revenue by class",
+                  "Deposit balances"
+                ]
+              },
+              "images": null,
+              "styling": {
+                "grid": "grid gap-6 xl:grid-cols-2"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "payments",
+              "event_handlers": [
+                "onChartTabChange"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Tabs",
+                "TabsList",
+                "TabsTrigger"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Stripe transaction audit",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "TransactionAuditTable",
+              "props": {
+                "dense": true
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "payments",
+              "event_handlers": [
+                "onSearch",
+                "onOpenTransaction",
+                "onExport"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Table",
+                "Badge",
+                "Input",
+                "Button",
+                "DropdownMenu"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Analytics & RevPAC",
+      "required_imports": [
+        "lucide-react"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "AdminActiveRentals",
+      "route": "/admin/rentals/active",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Rental status controls",
+          "images": null,
+          "spacing": "tight",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "ActiveRentalFilters",
+              "props": {
+                "tabs": [
+                  "All Active",
+                  "Due Soon",
+                  "Overdue"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onSearch",
+                "onFilter",
+                "onExport"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Input",
+                "Select",
+                "Tabs",
+                "TabsList",
+                "TabsTrigger",
+                "Button"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Active contract list",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": null,
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "ActiveRentalsTable",
+              "props": {
+                "dense": true,
+                "graceMinutes": 60,
+                "showAccruedPenalty": true
+              },
+              "images": null,
+              "styling": {},
+              "has_state": false,
+              "image_urls": null,
+              "data_source": "rentals",
+              "event_handlers": [
+                "onOpenRental",
+                "onEscalate",
+                "onContactCustomer"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Table",
+                "Badge",
+                "Button",
+                "DropdownMenu",
+                "Tooltip"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Active Rentals & Overdue",
+      "required_imports": [
+        "lucide-react",
+        "react-router-dom"
+      ],
+      "has_dynamic_params": false
+    }
+  ],
+  "layout": {
+    "name": "Layout",
+    "props": {
+      "buttonBehavior": "Every shell button must perform its labeled client-side action; navigation controls use React Router routes, menus and dialogs open/close, theme toggle updates the preview, and unavailable backend actions show clear demo feedback rather than doing nothing."
+    },
+    "images": null,
+    "styling": {
+      "main": "min-w-0 flex-1 p-4 md:p-6",
+      "shell": "min-h-screen bg-background text-foreground",
+      "header": "sticky top-0 z-40 h-16 border-b bg-background/95 backdrop-blur",
+      "sidebar": "w-64 border-r bg-card",
+      "touchTarget": "min-h-12 min-w-12",
+      "inspectionMode": "min-h-screen bg-background p-0"
+    },
+    "has_state": true,
+    "image_urls": null,
+    "data_source": null,
+    "event_handlers": [
+      "onNavigate",
+      "onOpenMobileMenu",
+      "onCloseMobileMenu",
+      "onToggleTheme",
+      "onOpenGlobalSearch",
+      "onSignIn",
+      "onSignOut"
+    ],
+    "image_keywords": null,
+    "shadcn_components": [
+      "Sidebar",
+      "SidebarProvider",
+      "SidebarTrigger",
+      "Sheet",
+      "Breadcrumb",
+      "Button",
+      "Input",
+      "Badge",
+      "Avatar",
+      "DropdownMenu",
+      "Command",
+      "Separator"
+    ]
+  },
+  "design_notes": null,
+  "project_name": "DriveFlow",
+  "design_tokens": {
+    "dark": {
+      "card": "#0F172A",
+      "ring": "#60A5FA",
+      "input": "#334155",
+      "muted": "#172033",
+      "accent": "#1E3A5F",
+      "border": "#334155",
+      "radius": "0.5rem",
+      "primary": "#60A5FA",
+      "secondary": "#1E293B",
+      "background": "#020617",
+      "foreground": "#F8FAFC",
+      "destructive": "#F87171",
+      "card_foreground": "#F8FAFC",
+      "muted_foreground": "#94A3B8",
+      "accent_foreground": "#DBEAFE",
+      "primary_foreground": "#082F49",
+      "secondary_foreground": "#F8FAFC",
+      "destructive_foreground": "#450A0A"
+    },
+    "light": {
+      "card": "#FFFFFF",
+      "ring": "#2563EB",
+      "input": "#CBD5E1",
+      "muted": "#F1F5F9",
+      "accent": "#DBEAFE",
+      "border": "#CBD5E1",
+      "radius": "0.5rem",
+      "primary": "#2563EB",
+      "secondary": "#E2E8F0",
+      "background": "#F8FAFC",
+      "foreground": "#0F172A",
+      "destructive": "#DC2626",
+      "card_foreground": "#0F172A",
+      "muted_foreground": "#475569",
+      "accent_foreground": "#1E3A8A",
+      "primary_foreground": "#FFFFFF",
+      "secondary_foreground": "#0F172A",
+      "destructive_foreground": "#FFFFFF"
+    },
+    "gradients": [
+      {
+        "key": "hero",
+        "value": "linear-gradient(135deg, #0F172A 0%, #1D4ED8 100%)"
+      },
+      {
+        "key": "inspection",
+        "value": "linear-gradient(135deg, #1E3A8A 0%, #2563EB 55%, #38BDF8 100%)"
+      }
+    ],
+    "typography": {
+      "body": "Inter",
+      "heading": "Inter"
+    }
+  },
+  "layout_archetype": "dashboard",
+  "shared_components": [
+    {
+      "name": "VehicleStatusBadge",
+      "props": {
+        "statuses": {
+          "active": "On-Rent / Active",
+          "overdue": "Return Overdue",
+          "reserved": "Reserved / Pick-Up Due",
+          "available": "Available / Ready",
+          "turnaround": "Turnaround / Detailing",
+          "maintenance": "Maintenance Hold"
+        },
+        "lucideIcons": true
+      },
+      "images": null,
+      "styling": {
+        "badge": "inline-flex items-center gap-1.5 font-semibold",
+        "overdue": "animate-pulse bg-destructive text-destructive-foreground"
+      },
+      "has_state": false,
+      "image_urls": null,
+      "data_source": null,
+      "event_handlers": null,
+      "image_keywords": null,
+      "shadcn_components": [
+        "Badge"
+      ]
+    },
+    {
+      "name": "AppBreadcrumbs",
+      "props": {
+        "buttonBehavior": "Each eligible breadcrumb navigates to its matching parent route."
+      },
+      "images": null,
+      "styling": {
+        "container": "mb-4 text-sm"
+      },
+      "has_state": false,
+      "image_urls": null,
+      "data_source": null,
+      "event_handlers": [
+        "onNavigate"
+      ],
+      "image_keywords": null,
+      "shadcn_components": [
+        "Breadcrumb",
+        "BreadcrumbList",
+        "BreadcrumbItem",
+        "BreadcrumbLink",
+        "BreadcrumbSeparator",
+        "BreadcrumbPage"
+      ]
+    },
+    {
+      "name": "DepositStatusBadge",
+      "props": {
+        "states": [
+          "Stripe Hold Active",
+          "Hold Expiring Soon",
+          "Deposit Captured",
+          "Hold Released",
+          "Partially Refunded"
+        ],
+        "lucideIcons": true
+      },
+      "images": null,
+      "styling": {
+        "badge": "inline-flex items-center gap-1.5 whitespace-nowrap"
+      },
+      "has_state": false,
+      "image_urls": null,
+      "data_source": null,
+      "event_handlers": null,
+      "image_keywords": null,
+      "shadcn_components": [
+        "Badge"
+      ]
+    },
+    {
+      "name": "BookingProgress",
+      "props": {
+        "buttonBehavior": "Completed step controls navigate to their corresponding booking routes; unavailable future steps remain disabled with an explanation.",
+        "interactiveCompletedSteps": true
+      },
+      "images": null,
+      "styling": {
+        "steps": "grid grid-cols-4 gap-2 text-xs md:text-sm",
+        "container": "w-full"
+      },
+      "has_state": true,
+      "image_urls": null,
+      "data_source": null,
+      "event_handlers": [
+        "onStepChange"
+      ],
+      "image_keywords": null,
+      "shadcn_components": [
+        "Progress",
+        "Badge"
+      ]
+    },
+    {
+      "name": "ReservationPriceSummary",
+      "props": {
+        "buttonBehavior": "Continue and back controls navigate through the booking flow; mobile summary opens and closes with local state."
+      },
+      "images": null,
+      "styling": {
+        "mobile": "fixed inset-x-0 bottom-0 z-40 lg:hidden",
+        "desktop": "hidden lg:block lg:sticky lg:top-28"
+      },
+      "has_state": true,
+      "image_urls": null,
+      "data_source": "rate_rules",
+      "event_handlers": [
+        "onToggleMobileSummary",
+        "onContinue",
+        "onBack"
+      ],
+      "image_keywords": null,
+      "shadcn_components": [
+        "Card",
+        "CardHeader",
+        "CardContent",
+        "Separator",
+        "Button",
+        "Sheet",
+        "SheetContent",
+        "SheetTrigger"
+      ]
+    },
+    {
+      "name": "InspectionFocusHeader",
+      "props": {
+        "buttonBehavior": "Exit opens a confirmation dialog; confirm navigates back and cancel closes the dialog."
+      },
+      "images": null,
+      "styling": {
+        "exit": "min-h-12",
+        "header": "sticky top-0 z-40 flex min-h-16 items-center justify-between border-b bg-background px-4"
+      },
+      "has_state": true,
+      "image_urls": null,
+      "data_source": null,
+      "event_handlers": [
+        "onExit",
+        "onConfirmExit",
+        "onCancelExit"
+      ],
+      "image_keywords": null,
+      "shadcn_components": [
+        "Badge",
+        "Button",
+        "AlertDialog",
+        "AlertDialogContent",
+        "AlertDialogAction",
+        "AlertDialogCancel"
+      ]
+    },
+    {
+      "name": "InspectionActionBar",
+      "props": {
+        "buttonBehavior": "All inspection actions update local workflow state; back/next change steps, flashlight toggles, flag opens its menu, and complete shows review feedback."
+      },
+      "images": null,
+      "styling": {
+        "bar": "fixed inset-x-0 bottom-0 z-50 flex h-[72px] items-center justify-between gap-2 border-t bg-background px-4",
+        "button": "min-h-12 min-w-12"
+      },
+      "has_state": true,
+      "image_urls": null,
+      "data_source": null,
+      "event_handlers": [
+        "onBack",
+        "onToggleFlash",
+        "onFlag",
+        "onNext",
+        "onComplete"
+      ],
+      "image_keywords": null,
+      "shadcn_components": [
+        "Button",
+        "DropdownMenu"
+      ]
+    },
+    {
+      "name": "GlobalOperationsSearch",
+      "props": {
+        "buttonBehavior": "Search trigger opens the command palette, clear resets the query, and selecting a result navigates to its relevant route."
+      },
+      "images": null,
+      "styling": {
+        "trigger": "w-full max-w-xl"
+      },
+      "has_state": true,
+      "image_urls": null,
+      "data_source": "rentals",
+      "event_handlers": [
+        "onOpen",
+        "onClose",
+        "onSearch",
+        "onSelectResult",
+        "onClear"
+      ],
+      "image_keywords": null,
+      "shadcn_components": [
+        "Command",
+        "CommandInput",
+        "CommandList",
+        "CommandGroup",
+        "CommandItem",
+        "Dialog"
+      ]
+    },
+    {
+      "name": "FinancialFormulaBreakdown",
+      "props": {
+        "lateCap": "daily rate",
+        "showFuelFormula": true,
+        "showLateFormula": true,
+        "lateGraceMinutes": 60,
+        "fuelRatePerGallon": 8,
+        "showExcessMileageFormula": true
+      },
+      "images": null,
+      "styling": {
+        "formula": "font-mono text-sm text-muted-foreground"
+      },
+      "has_state": false,
+      "image_urls": null,
+      "data_source": "rental_charges",
+      "event_handlers": null,
+      "image_keywords": null,
+      "shadcn_components": [
+        "Card",
+        "CardContent",
+        "Table",
+        "Separator",
+        "Tooltip",
+        "Alert"
+      ]
+    },
+    {
+      "name": "PhotoEvidenceMetadata",
+      "props": {
+        "buttonBehavior": "Copy writes metadata to the clipboard with confirmation; location and full-size controls open their demo views."
+      },
+      "images": null,
+      "styling": {
+        "overlay": "absolute inset-x-2 bottom-2 flex flex-wrap gap-1 rounded bg-background/90 p-2 text-xs"
+      },
+      "has_state": true,
+      "image_urls": null,
+      "data_source": "inspections",
+      "event_handlers": [
+        "onCopyMetadata",
+        "onOpenLocation",
+        "onViewFullSize"
+      ],
+      "image_keywords": null,
+      "shadcn_components": [
+        "Badge",
+        "Tooltip",
+        "Card",
+        "CardContent"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+roles:
+  fleet_manager:
+    name: Fleet Manager
+    description: "Fleet operations manager. Full administrative access to fleet inventory, pricing rules, rentals, maintenance and analytics."
+  counter_agent:
+    name: Counter Agent
+    description: "Front-desk and lot staff. Manages check-out, walkaround inspections, returns and deposit settlement."
+  customer:
+    name: Customer
+    description: "Retail renter. Books vehicles online and manages own bookings, billing and profile."

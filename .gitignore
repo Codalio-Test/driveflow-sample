@@ -1,0 +1,28 @@
+--- DriveFlow client (Vite) ---
+/client/node_modules
+/client/dist
+/client/.vite
+/client/*.local
+
+# OpenHands / Codalio orchestrator metadata — do not push
+/.rhino-history
+/.rhino-plan.md
+/.rhino-review.md
+/.openhands-state
+/.codalio/usage.json
+/.codalio/launch.json
+/.codalio/source-repo
+/.codalio/source-repo.json
+/.codalio/prd-diff.json
+/.codalio/prd-change.json
+/.codalio/ui-handoff.json
+/.codalio/.rhino-plan.md.prev
+/.codalio/paused-insufficient-credits
+/log/*
+!/log/.keep
+/tmp/*
+!/tmp/.keep
+/server/log/*
+!/server/log/.keep
+/server/tmp/*
+!/server/tmp/.keep

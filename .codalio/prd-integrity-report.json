@@ -1,0 +1,322 @@
+{
+  "prd_name": "DriveFlow",
+  "analyzed_sections": [
+    "key_features",
+    "user_flows",
+    "user_journeys",
+    "user_personas",
+    "user_stories",
+    "sitemap",
+    "navigation_design",
+    "phasing",
+    "schema",
+    "sample_data"
+  ],
+  "prototype_present": true,
+  "summary": {
+    "gap_count": 11,
+    "by_severity": {
+      "high": 5,
+      "medium": 4,
+      "low": 2
+    },
+    "sitemap_pages": 32,
+    "prototype_pages": 30,
+    "key_features": 7,
+    "user_stories": 17
+  },
+  "role_registry": [
+    {
+      "id": "customer",
+      "name": "Customer",
+      "source": "persona David Chen (retail renter); user_stories as_a 'customer'; flows 'Retail Renter'",
+      "description": "Retail renter who books online and manages own bookings, billing and profile."
+    },
+    {
+      "id": "counter_agent",
+      "name": "Counter Agent",
+      "source": "persona Marcus Vance (application role: counter_agent); user_stories as_a 'counter_agent'",
+      "description": "Front-desk / lot staff performing check-out, walkaround inspections, returns and settlement."
+    },
+    {
+      "id": "fleet_manager",
+      "name": "Fleet Operations Manager",
+      "source": "persona Elena Rostova (application role: fleet_manager); user_stories as_a 'fleet_manager'",
+      "description": "Back-office administrator for fleet, rates, rentals, maintenance and analytics."
+    }
+  ],
+  "coverage_matrix": [
+    {
+      "key_feature": "Online Customer Booking Engine & Account Portal",
+      "stories": [
+        "Vehicle Search & Reservation Configuration",
+        "Online Reservation Checkout & Digital Voucher",
+        "Customer Portal & Booking History Access"
+      ],
+      "flows": [
+        "Customer Online Reservation & Booking",
+        "Customer Account Sign-Up & Authentication"
+      ],
+      "sitemap_paths": [
+        "/",
+        "/vehicles",
+        "/booking",
+        "/booking/configure",
+        "/booking/checkout",
+        "/booking/confirmation",
+        "/signup",
+        "/login",
+        "/account/dashboard",
+        "/account/bookings",
+        "/account/billing",
+        "/account/profile"
+      ],
+      "models": [
+        "Rental",
+        "VehicleCategory",
+        "Vehicle",
+        "RateRule",
+        "RentalCharge",
+        "CustomerProfile"
+      ],
+      "gaps": [
+        "DATA_MODEL_UX_MISMATCH",
+        "DATA_MODEL_UX_MISMATCH",
+        "SITEMAP_PAGE_NO_AC",
+        "SITEMAP_PAGE_NO_AC"
+      ]
+    },
+    {
+      "key_feature": "Tablet-Optimized Digital Inspection & Condition Audit",
+      "stories": [
+        "Tablet Departure Inspection & Condition Pinning",
+        "Tablet Return Walkaround & Damage Comparison"
+      ],
+      "flows": [
+        "Staff Vehicle Check-Out & Pickup Inspection",
+        "Staff Vehicle Check-In, Damage/Fuel Reconciliation & Final Settlement"
+      ],
+      "sitemap_paths": [
+        "/inspections/new",
+        "/inspections/return/:rentalId"
+      ],
+      "models": [
+        "Inspection",
+        "DamageRecord",
+        "Vehicle"
+      ],
+      "gaps": []
+    },
+    {
+      "key_feature": "Check-Out, Identity Verification & Digital Agreement",
+      "stories": [
+        "Counter Check-Out & Driver Verification",
+        "Security Deposit Pre-Authorization Hold",
+        "Digital Rental Agreement & Touchscreen Signature"
+      ],
+      "flows": [
+        "Staff Vehicle Check-Out & Pickup Inspection"
+      ],
+      "sitemap_paths": [
+        "/counter",
+        "/counter/departures",
+        "/counter/check-out/:reservationId",
+        "/counter/agreement"
+      ],
+      "models": [
+        "Rental",
+        "CustomerProfile",
+        "Payment",
+        "Inspection"
+      ],
+      "gaps": [
+        "SITEMAP_PAGE_NO_AC"
+      ]
+    },
+    {
+      "key_feature": "Check-In, Automated Surcharges & Settlement Engine",
+      "stories": [
+        "Deposit Settlement, Capture & Release",
+        "Automated Surcharge Calculation on Return"
+      ],
+      "flows": [
+        "Staff Vehicle Check-In, Damage/Fuel Reconciliation & Final Settlement"
+      ],
+      "sitemap_paths": [
+        "/counter/returns",
+        "/counter/settlement/:rentalId"
+      ],
+      "models": [
+        "Rental",
+        "Inspection",
+        "RentalCharge",
+        "Payment",
+        "DamageRecord"
+      ],
+      "gaps": [
+        "FLOW_JOURNEY_MISMATCH"
+      ]
+    },
+    {
+      "key_feature": "Active Fleet Dashboard & Overdue Tracking",
+      "stories": [
+        "Fleet Status Matrix & Vehicle Onboarding",
+        "Active Rentals Monitoring & Overdue Detection",
+        "Overdue Escalation & Deposit Pre-Auth Expansion"
+      ],
+      "flows": [
+        "Overdue/Late Rental Management & Balance Recovery",
+        "Fleet Inventory & Dynamic Rate Configuration"
+      ],
+      "sitemap_paths": [
+        "/admin",
+        "/admin/fleet",
+        "/admin/fleet/new",
+        "/admin/fleet/matrix",
+        "/admin/rentals/active",
+        "/admin/rentals/:rentalId/overdue"
+      ],
+      "models": [
+        "Vehicle",
+        "Rental",
+        "VehicleCategory",
+        "Location"
+      ],
+      "gaps": [
+        "FLOW_JOURNEY_MISMATCH",
+        "DATA_MODEL_UX_MISMATCH"
+      ]
+    },
+    {
+      "key_feature": "Integrated Payments & Multi-Tier Pricing Management",
+      "stories": [
+        "Balance Recovery & Customer Invoicing",
+        "Dynamic Pricing Rules & Seasonal Multipliers"
+      ],
+      "flows": [
+        "Fleet Inventory & Dynamic Rate Configuration",
+        "Overdue/Late Rental Management & Balance Recovery"
+      ],
+      "sitemap_paths": [
+        "/admin/rates",
+        "/account/billing"
+      ],
+      "models": [
+        "RateRule",
+        "Payment",
+        "RentalCharge",
+        "CustomerProfile",
+        "VehicleCategory"
+      ],
+      "gaps": [
+        "DATA_MODEL_UX_MISMATCH"
+      ]
+    },
+    {
+      "key_feature": "Fleet Analytics, Maintenance & Audit Reporting",
+      "stories": [
+        "Odometer Service Triggers & Maintenance Scheduling",
+        "Executive Operational & Financial Analytics"
+      ],
+      "flows": [
+        "Fleet Analytics, Maintenance Scheduling & Audit"
+      ],
+      "sitemap_paths": [
+        "/admin/maintenance",
+        "/admin/maintenance/new",
+        "/admin/analytics"
+      ],
+      "models": [
+        "VehicleMaintenanceLog",
+        "Vehicle",
+        "Rental",
+        "Payment",
+        "Inspection"
+      ],
+      "gaps": [
+        "PRD_PROTOTYPE_ROUTE_GAP"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "code": "FLOW_JOURNEY_MISMATCH",
+      "severity": "high",
+      "message": "Elena's overdue journey states a '30-minute grace period' and a '$75/hr late penalty', while key_features ('Check-In, Automated Surcharges & Settlement Engine' / 'Active Fleet Dashboard & Overdue Tracking'), the overdue user stories, and the prototype (FinancialFormulaBreakdown lateGraceMinutes=60) all define a 60-minute (1-hour) grace period and an hourly late fee capped at the vehicle's daily rate.",
+      "compensation_hint": "Implement the 60-minute grace period everywhere; compute the hourly late fee from VehicleCategory.late_hourly_fee capped at the daily rate; render the 60-min grace and cap in /admin/rentals/:rentalId/overdue and /counter/settlement/:rentalId."
+    },
+    {
+      "code": "DATA_MODEL_UX_MISMATCH",
+      "severity": "high",
+      "message": "Booking protection tiers (Basic/Standard/Full) and add-ons (child seat, additional driver, roadside assistance, prepaid fuel) are required by key_features, the booking stories and the /booking/configure prototype, but no column or model persists the selection. RentalCharge's enum allows insurance_protection/equipment_addon, but nothing stores which tier/add-ons the renter chose.",
+      "compensation_hint": "Add a `protection_tier` string column to Rental; persist tier + add-on selections as RentalCharge line items (charge_type insurance_protection / equipment_addon) on the reserved Rental; drive pricing from RateRule/VehicleCategory."
+    },
+    {
+      "code": "DATA_MODEL_UX_MISMATCH",
+      "severity": "high",
+      "message": "Acceptance criterion 'Guest users can complete checkout and booking confirmation without an account' conflicts with the schema: Rental.customer_profile_id is required and CustomerProfile.user_id is required, so a renter without an account cannot be represented.",
+      "compensation_hint": "Make CustomerProfile.user_id nullable and add `full_name` and `email` columns so a guest CustomerProfile can be created at checkout; keep Rental.customer_profile_id required and resolve guest bookings through a public booking endpoint (Extra)."
+    },
+    {
+      "code": "SITEMAP_PAGE_NO_AC",
+      "severity": "high",
+      "message": "Sitemap page /account/profile (Profile & Documents) has no user story and no acceptance criterion describing its behavior.",
+      "compensation_hint": "Add compensated ACs: an authenticated customer can view/update name, email and phone; see driver's-license verification status; and unauthenticated hits redirect to /login."
+    },
+    {
+      "code": "PROTECTED_ROUTE_NO_AUTH_AC",
+      "severity": "medium",
+      "message": "/account/profile is protected in the sitemap but is not included in the 'Unauthenticated users are redirected to /login' AC, which lists only /account/dashboard, /account/bookings and /account/billing.",
+      "compensation_hint": "Extend the authenticated guard to every /account/* route; add a compensated AC and set roles ['customer'] in the UI handoff."
+    },
+    {
+      "code": "SITEMAP_PAGE_NO_AC",
+      "severity": "low",
+      "message": "Parent hub routes /booking, /counter and /admin appear in the sitemap and have prototype pages, but no acceptance criterion describes their landing content.",
+      "compensation_hint": "Add compensated ACs for each hub: /booking funnel entry, /counter KPI + dispatch board, /admin KPI + operational alert board."
+    },
+    {
+      "code": "PRD_PROTOTYPE_ROUTE_GAP",
+      "severity": "low",
+      "message": "navigation_design references destinations with no sitemap route and no prototype page: 'How It Works' and 'Support' primary links, plus admin System items Branch Settings, Staff Access Control and Stripe Gateway Settings.",
+      "compensation_hint": "Treat as out-of-scope nav stubs \u2014 render as static anchors on the landing page and omit admin System routes; no PRD story or AC covers them. Documented in .rhino-plan.md."
+    },
+    {
+      "code": "DATA_MODEL_UX_MISMATCH",
+      "severity": "medium",
+      "message": "Vehicle.status vocabulary conflicts across the PRD: key_features/design use 'Available, Reserved, On-Rent, Maintenance, Detailing' while sample_data uses 'available, rented, cleaning, maintenance'.",
+      "compensation_hint": "Normalize to the enum available|reserved|rented|maintenance|cleaning|overdue on Vehicle; document the mapping (rented = On-Rent, cleaning = Detailing) and use the normalized values in seeds, badges and availability logic."
+    },
+    {
+      "code": "DATA_MODEL_UX_MISMATCH",
+      "severity": "medium",
+      "message": "Rental.status mixes booking and rental vocabulary with no declared enum (stories/sample_data use reserved, confirmed, active, overdue, completed).",
+      "compensation_hint": "Declare the enum reserved|confirmed|active|overdue|completed|cancelled on Rental and validate it; document where each transition occurs (checkout \u2192 confirmed, key handover \u2192 active, grace expiry \u2192 overdue, settlement \u2192 completed)."
+    },
+    {
+      "code": "DATA_MODEL_UX_MISMATCH",
+      "severity": "high",
+      "message": "The PRD requires open public customer sign-up (/signup) with email verification, but Rhino v4 registration is invitation-token based (POST /api/auth/register consumes an invitation token) \u2014 there is no open signup endpoint.",
+      "compensation_hint": "Implement a custom customer registration + email-verification flow as an Extra (public registration endpoint + mailer), or seed customer accounts for demos; document that staff onboarding uses Rhino invitations."
+    },
+    {
+      "code": "DATA_MODEL_UX_MISMATCH",
+      "severity": "medium",
+      "message": "sample_data 'users' rows carry Devise/DeviseTokenAuth columns (uid, provider, encrypted_password, sign_in_count, approved, profile_completed, allow_password_change) that do not exist in the Rhino v4 auth model (has_secure_password + has_secure_token :api_token). The story-1 AC 'The data model stores approved' therefore has no backing column.",
+      "compensation_hint": "Use Rhino Bearer api_token auth and ignore the Devise-only columns; add a `users.approved` boolean (default true) via a DriveFlow extension migration to back the 'approved' AC, and set it false for self-registered customers pending email verification."
+    }
+  ],
+  "hints_for_planner": [
+    "Use role_registry ids verbatim in _roles.yaml and ui-handoff.json roles arrays: customer, counter_agent, fleet_manager.",
+    "Normalize late-return logic to a 60-minute grace period with an hourly fee from VehicleCategory.late_hourly_fee capped at the daily rate (FLOW_JOURNEY_MISMATCH).",
+    "Add Rental.protection_tier and persist protection/add-on selections as RentalCharge line items (DATA_MODEL_UX_MISMATCH).",
+    "Make CustomerProfile.user_id nullable and add full_name/email so guest checkout works (DATA_MODEL_UX_MISMATCH).",
+    "Declare Vehicle.status and Rental.status enums and use the normalized values in seeds/badges (DATA_MODEL_UX_MISMATCH).",
+    "Implement customer self-registration + email verification as an Extra because Rhino v4 registration is invitation-token based (DATA_MODEL_UX_MISMATCH).",
+    "Add users.approved boolean via a DriveFlow extension migration to back the 'approved' data-model AC.",
+    "Add compensated ACs + handoff entries for /account/profile, /booking, /counter, /admin (SITEMAP_PAGE_NO_AC / PROTECTED_ROUTE_NO_AUTH_AC).",
+    "Extend the '/account/* redirect to /login' guard to include /account/profile.",
+    "Treat How It Works / Support and admin System nav items as documented out-of-scope stubs (PRD_PROTOTYPE_ROUTE_GAP)."
+  ],
+  "updated_at": "2026-10-05T14:27:59Z"
+}

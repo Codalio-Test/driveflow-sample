@@ -1,0 +1,81 @@
+model: Payment
+slug: payments
+table: payments
+
+options:
+  belongs_to_organization: true
+  pagination: true
+  per_page: 25
+
+columns:
+  rental_id:
+    type: foreignId
+    foreign_model: Rental
+    nullable: false
+    index: true
+    filterable: true
+  customer_profile_id:
+    type: foreignId
+    foreign_model: CustomerProfile
+    nullable: true
+    index: true
+    filterable: true
+  stripe_payment_intent_key:
+    type: string
+    nullable: true
+    filterable: true
+    searchable: true
+  stripe_charge_key:
+    type: string
+    nullable: true
+  transaction_type:
+    type: string
+    nullable: false
+    filterable: true
+  amount:
+    type: decimal
+    precision: 10
+    scale: 2
+    nullable: false
+    default: "0.00"
+  status:
+    type: string
+    nullable: false
+    default: "pending"
+    filterable: true
+  payment_method_last4:
+    type: string
+    nullable: true
+  processed_at:
+    type: datetime
+    nullable: true
+    sortable: true
+  notes:
+    type: string
+    nullable: true
+    searchable: true
+
+relationships:
+  - type: belongsTo
+    model: Organization
+  - type: belongsTo
+    model: Rental
+  - type: belongsTo
+    model: CustomerProfile
+
+permissions:
+  fleet_manager:
+    actions: [index, show, store, update, destroy]
+    show_fields: "*"
+    create_fields: "*"
+    update_fields: "*"
+  counter_agent:
+    actions: [index, show, store]
+    show_fields: "*"
+    create_fields: [rental_id, customer_profile_id, transaction_type, amount, status, payment_method_last4, notes, stripe_payment_intent_key, stripe_charge_key, processed_at]
+    update_fields: []
+  customer:
+    actions: [index, show]
+    show_fields: [id, rental_id, transaction_type, amount, status, payment_method_last4, processed_at]
+    create_fields: []
+    update_fields: []

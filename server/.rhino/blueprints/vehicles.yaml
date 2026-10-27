@@ -1,0 +1,105 @@
+model: Vehicle
+slug: vehicles
+table: vehicles
+
+options:
+  belongs_to_organization: true
+  soft_deletes: true
+  pagination: true
+  per_page: 25
+
+columns:
+  vehicle_category_id:
+    type: foreignId
+    foreign_model: VehicleCategory
+    nullable: false
+    index: true
+    filterable: true
+  location_id:
+    type: foreignId
+    foreign_model: Location
+    nullable: false
+    index: true
+    filterable: true
+  vin:
+    type: string
+    nullable: false
+    filterable: true
+    searchable: true
+  license_plate:
+    type: string
+    nullable: false
+    filterable: true
+    sortable: true
+    searchable: true
+  make:
+    type: string
+    nullable: false
+    filterable: true
+    sortable: true
+    searchable: true
+  model:
+    type: string
+    nullable: false
+    filterable: true
+    sortable: true
+    searchable: true
+  year:
+    type: integer
+    nullable: false
+    sortable: true
+  color:
+    type: string
+    nullable: true
+    filterable: true
+  current_odometer:
+    type: integer
+    nullable: false
+    default: 0
+    sortable: true
+  fuel_percentage:
+    type: integer
+    nullable: true
+  fuel_type:
+    type: string
+    nullable: true
+    filterable: true
+  status:
+    type: string
+    nullable: false
+    default: "available"
+    filterable: true
+    sortable: true
+
+relationships:
+  - type: belongsTo
+    model: Organization
+  - type: belongsTo
+    model: VehicleCategory
+  - type: belongsTo
+    model: Location
+  - type: hasMany
+    model: Rental
+  - type: hasMany
+    model: Inspection
+  - type: hasMany
+    model: DamageRecord
+  - type: hasMany
+    model: VehicleMaintenanceLog
+
+permissions:
+  fleet_manager:
+    actions: [index, show, store, update, destroy, trashed, restore, forceDelete]
+    show_fields: "*"
+    create_fields: "*"
+    update_fields: "*"
+  counter_agent:
+    actions: [index, show, store, update]
+    show_fields: "*"
+    create_fields: [vehicle_category_id, location_id, vin, license_plate, make, model, year, color, current_odometer, fuel_percentage, fuel_type, status]
+    update_fields: [location_id, current_odometer, fuel_percentage, status]
+  customer:
+    actions: [index, show]
+    show_fields: [id, vehicle_category_id, location_id, make, model, year, color, fuel_type, status]
+    create_fields: []
+    update_fields: []

@@ -1,0 +1,11 @@
+{
+  "status": "ok",
+  "stamp": "22.22.2-Linux-x86_64",
+  "installed_at": "2026-10-05T15:58:18.562907+00:00",
+  "log_path": "/workspace/projects/657/1946/logs/setup-npm.log",
+  "runtime": {
+    "version": "22.22.2",
+    "bin_dir": "/workspace/.toolchain/nvm/versions/node/v22.22.2/bin",
+    "source": "system"
+  }
+}

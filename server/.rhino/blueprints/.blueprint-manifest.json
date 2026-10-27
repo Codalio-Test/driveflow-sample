@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "generated_at": "2026-10-05T14:47:05+00:00",
+  "files": {
+    "customer_profiles.yaml": {
+      "content_hash": "1e3257aa2f514dddf0ed7c5e7ab1f40b65b07b918c3e92812d9949598102754e",
+      "generated_files": [
+        "app/models/customer_profile.rb",
+        "db/migrate/20261005144705_create_customer_profiles.rb",
+        "spec/factories/customer_profiles.rb",
+        "app/models/scopes/customer_profile_scope.rb",
+        "app/policies/customer_profile_policy.rb"
+      ],
+      "generated_at": "2026-10-05T14:47:05+00:00"
+    },
+    "locations.yaml": {
+      "content_hash": "08404010663ea7267e0748e7034f1c2c08e699cf4d2e28e6cfccd6d8da0d8382",
+      "generated_files": [
+        "app/models/location.rb",
+        "db/migrate/20261005144706_create_locations.rb",
+        "spec/factories/locations.rb",
+        "app/models/scopes/location_scope.rb",
+        "app/policies/location_policy.rb"
+      ],
+      "generated_at": "2026-10-05T14:47:05+00:00"
+    },
+    "vehicle_categories.yaml": {
+      "content_hash": "10c7428349ebb135dd3a6d5dffdddb84ce709c392f6a478783131b54837cfe3a",
+      "generated_files": [
+        "app/models/vehicle_category.rb",
+        "db/migrate/20261005144707_create_vehicle_categories.rb",
+        "spec/factories/vehicle_categories.rb",
+        "app/models/scopes/vehicle_category_scope.rb",
+        "app/policies/vehicle_category_policy.rb"
+      ],
+      "generated_at": "2026-10-05T14:47:05+00:00"
+    },
+    "rate_rules.yaml": {
+      "content_hash": "2194736dd923a1b6ce0fd821d503a69bb338480518be3f3bf4d82097536c9441",
+      "generated_files": [
+        "app/models/rate_rule.rb",
+        "db/migrate/20261005144708_create_rate_rules.rb",
+        "spec/factories/rate_rules.rb",
+        "app/models/scopes/rate_rule_scope.rb",
+        "app/policies/rate_rule_policy.rb"
+      ],
+      "generated_at": "2026-10-05T14:47:05+00:00"
+    },
+    "vehicles.yaml": {
+      "content_hash": "6fc580d2b027bba1b3a727ea8b9f17fc9b22e179f04497486bce885f2cfc6288",
+      "generated_files": [
+        "app/models/vehicle.rb",
+        "db/migrate/20261005144709_create_vehicles.rb",
+        "spec/factories/vehicles.rb",
+        "app/models/scopes/vehicle_scope.rb",
+        "app/policies/vehicle_policy.rb"
+      ],
+      "generated_at": "2026-10-05T14:47:05+00:00"
+    },
+    "rentals.yaml": {
+      "content_hash": "5300b99dbd24ba2c5552b88c83e9338507b21097ae915429bf13dba94330aa72",
+      "generated_files": [
+        "app/models/rental.rb",
+        "db/migrate/20261005144710_create_rentals.rb",
+        "spec/factories/rentals.rb",
+        "app/models/scopes/rental_scope.rb",
+        "app/policies/rental_policy.rb"
+      ],
+      "generated_at": "2026-10-05T14:47:05+00:00"
+    },
+    "inspections.yaml": {
+      "content_hash": "aee14df03f5819c0d12b92a94dfe7ba0929684dcdf9ed4b10968a7c517e6820d",
+      "generated_files": [
+        "app/models/inspection.rb",
+        "db/migrate/20261005144711_create_inspections.rb",
+        "spec/factories/inspections.rb",
+        "app/models/scopes/inspection_scope.rb",
+        "app/policies/inspection_policy.rb"
+      ],
+      "generated_at": "2026-10-05T14:47:05+00:00"
+    },
+    "damage_records.yaml": {
+      "content_hash": "c4a371e2804b68c0d216a72e52f7c9a4478e183a52061bb6327c406991a386a1",
+      "generated_files": [
+        "app/models/damage_record.rb",
+        "db/migrate/20261005144712_create_damage_records.rb",
+        "spec/factories/damage_records.rb",
+        "app/models/scopes/damage_record_scope.rb",
+        "app/policies/damage_record_policy.rb"
+      ],
+      "generated_at": "2026-10-05T14:47:05+00:00"
+    },
+    "payments.yaml": {
+      "content_hash": "4e287eabf713fd2f7bd4455995a88a401387d55b9107fe16ab19ce47746037b1",
+      "generated_files": [
+        "app/models/payment.rb",
+        "db/migrate/20261005144713_create_payments.rb",
+        "spec/factories/payments.rb",
+        "app/models/scopes/payment_scope.rb",
+        "app/policies/payment_policy.rb"
+      ],
+      "generated_at": "2026-10-05T14:47:05+00:00"
+    },
+    "rental_charges.yaml": {
+      "content_hash": "03e7ce7cf005b5d4fc3c878e966d0981600ca3041c24a683b6a666cb6226d377",
+      "generated_files": [
+        "app/models/rental_charge.rb",
+        "db/migrate/20261005144714_create_rental_charges.rb",
+        "spec/factories/rental_charges.rb",
+        "app/models/scopes/rental_charge_scope.rb",
+        "app/policies/rental_charge_policy.rb"
+      ],
+      "generated_at": "2026-10-05T14:47:05+00:00"
+    },
+    "vehicle_maintenance_logs.yaml": {
+      "content_hash": "4607f5adb78373d2fb2452b10e4fa5e3e681cdfed7e8a7337e729f386302cbec",
+      "generated_files": [
+        "app/models/vehicle_maintenance_log.rb",
+        "db/migrate/20261005144715_create_vehicle_maintenance_logs.rb",
+        "spec/factories/vehicle_maintenance_logs.rb",
+        "app/models/scopes/vehicle_maintenance_log_scope.rb",
+        "app/policies/vehicle_maintenance_log_policy.rb"
+      ],
+      "generated_at": "2026-10-05T14:47:05+00:00"
+    }
+  }
+}

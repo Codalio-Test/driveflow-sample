@@ -1,0 +1,57 @@
+[
+  {
+    "title": "Discover active design root + read ui-handoff.json / plan",
+    "notes": "design root = .codalio/ui-prototype (Tailwind v4 + shadcn/radix + react-router-dom)",
+    "status": "done"
+  },
+  {
+    "title": "Install user's styling stack and prototype deps in client",
+    "notes": "tailwindcss v4 + @tailwindcss/vite + prototype radix/shadcn deps installed; styles.css copied verbatim",
+    "status": "done"
+  },
+  {
+    "title": "Vendor design-root pages/components verbatim",
+    "notes": "30 pages mirrored under client/src/pages; components + ui primitives + hooks + lib + images vendored",
+    "status": "done"
+  },
+  {
+    "title": "Wire data reads per page (schema-vs-prototype contract check + useModel* / useApiGet)",
+    "notes": "25/30 pages read server data via useModel*/useQuery or custom api endpoints; null-guarded",
+    "status": "done"
+  },
+  {
+    "title": "Wire mutations per action_contract (create/update/destroy/custom)",
+    "notes": "create/update/destroy, deposit hold/settle/expand, finalize, notify/notes/escalate, documents, exports wired",
+    "status": "done"
+  },
+  {
+    "title": "Wire identity/auth slots + auth routes against Rhino",
+    "notes": "Layout avatar initials + sign out from session; /login /signup via Rhino auth mutations; reset-password via recover",
+    "status": "done"
+  },
+  {
+    "title": "Register routes with the design's router + catch-all",
+    "notes": "route paths mirrored 1:1, AppOwnerProvider wraps Layout, catch-all -> /",
+    "status": "done"
+  },
+  {
+    "title": "Scaffold required screens the design omitted",
+    "notes": "Vehicles results grid, checkout license upload, fleet registration upload, return-inspection readings, rates editor",
+    "status": "done"
+  },
+  {
+    "title": "Verify diff vs design root (pages byte-identical apart from data lines)",
+    "notes": "className survival 95.6-100% per page, no component drift",
+    "status": "done"
+  },
+  {
+    "title": "Build + runtime smoke + Definition-of-done checklist",
+    "notes": "smoke exits 0; identity rows seeded per read-only role",
+    "status": "done"
+  },
+  {
+    "title": "Resumed-run re-verification of design fidelity + runtime gates",
+    "notes": "Re-ran on resume: runtime smoke passed (status=passed), vite build clean, 30/30 handoff pages have files+routes, catch-all present, react-router-dom only, single CSS graph, AppOwnerProvider wiring, no dead buttons/residual mocks",
+    "status": "done"
+  }
+]

@@ -1,0 +1,78 @@
+model: Location
+slug: locations
+table: locations
+
+options:
+  belongs_to_organization: true
+  soft_deletes: true
+  pagination: true
+  per_page: 25
+
+columns:
+  name:
+    type: string
+    nullable: false
+    filterable: true
+    sortable: true
+    searchable: true
+  code:
+    type: string
+    nullable: false
+    filterable: true
+    sortable: true
+    searchable: true
+  address:
+    type: string
+    nullable: true
+    searchable: true
+  city:
+    type: string
+    nullable: true
+    filterable: true
+    sortable: true
+    searchable: true
+  state:
+    type: string
+    nullable: true
+    filterable: true
+    sortable: true
+  postal_code:
+    type: string
+    nullable: true
+    filterable: true
+  phone:
+    type: string
+    nullable: true
+  email:
+    type: string
+    nullable: true
+  is_active:
+    type: boolean
+    nullable: false
+    default: true
+    filterable: true
+
+relationships:
+  - type: belongsTo
+    model: Organization
+  - type: hasMany
+    model: Vehicle
+  - type: hasMany
+    model: Rental
+
+permissions:
+  fleet_manager:
+    actions: [index, show, store, update, destroy, trashed, restore, forceDelete]
+    show_fields: "*"
+    create_fields: "*"
+    update_fields: "*"
+  counter_agent:
+    actions: [index, show]
+    show_fields: [id, name, code, address, city, state, postal_code, is_active]
+    create_fields: []
+    update_fields: []
+  customer:
+    actions: [index, show]
+    show_fields: [id, name, code, city, state]
+    create_fields: []
+    update_fields: []

@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV.fetch("PGHOST", "localhost") %>
+  username: <%= ENV.fetch("PGUSER", "postgres") %>
+  password: <%= ENV.fetch("PGPASSWORD", "postgres") %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS", 5) %>
+
+development:
+  <<: *default
+  database: <%= ENV.fetch("DRIVEFLOW_DEVELOPMENT_DATABASE", "rhino_1946") %>
+
+test:
+  <<: *default
+  database: <%= ENV.fetch("DRIVEFLOW_TEST_DATABASE", "rhino_1946_test") %>
+
+production:
+  <<: *default
+  database: <%= ENV.fetch("DRIVEFLOW_PRODUCTION_DATABASE", "rhino_1946_production") %>

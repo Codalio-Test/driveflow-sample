@@ -1,0 +1,89 @@
+model: CustomerProfile
+slug: customer_profiles
+table: customer_profiles
+
+options:
+  belongs_to_organization: true
+  soft_deletes: true
+  pagination: true
+  per_page: 25
+
+columns:
+  user_id:
+    type: foreignId
+    foreign_model: User
+    nullable: true
+    index: true
+    filterable: true
+  full_name:
+    type: string
+    nullable: true
+    sortable: true
+    searchable: true
+  email:
+    type: string
+    nullable: true
+    filterable: true
+    searchable: true
+  license_number:
+    type: string
+    nullable: true
+    searchable: true
+  license_state:
+    type: string
+    nullable: true
+    filterable: true
+  license_expiry_date:
+    type: date
+    nullable: true
+    sortable: true
+  license_country:
+    type: string
+    nullable: true
+    filterable: true
+  license_verified:
+    type: boolean
+    nullable: false
+    default: false
+    filterable: true
+  stripe_customer_token:
+    type: string
+    nullable: true
+  phone_number:
+    type: string
+    nullable: true
+    searchable: true
+  date_of_birth:
+    type: date
+    nullable: true
+  address:
+    type: string
+    nullable: true
+    searchable: true
+
+relationships:
+  - type: belongsTo
+    model: Organization
+  - type: belongsTo
+    model: User
+  - type: hasMany
+    model: Rental
+  - type: hasMany
+    model: Payment
+
+permissions:
+  fleet_manager:
+    actions: [index, show, store, update, destroy, trashed, restore, forceDelete]
+    show_fields: "*"
+    create_fields: "*"
+    update_fields: "*"
+  counter_agent:
+    actions: [index, show, store, update]
+    show_fields: "*"
+    create_fields: [full_name, email, license_number, license_state, license_expiry_date, license_country, phone_number, date_of_birth, address]
+    update_fields: [full_name, email, license_number, license_state, license_expiry_date, license_country, license_verified, phone_number, date_of_birth, address]
+  customer:
+    actions: [index, show, update]
+    show_fields: [id, full_name, email, phone_number, date_of_birth, address, license_state, license_expiry_date, license_country, license_verified]
+    create_fields: []
+    update_fields: [full_name, email, phone_number, date_of_birth, address, license_number, license_state, license_expiry_date, license_country]

@@ -1,0 +1,81 @@
+model: DamageRecord
+slug: damage_records
+table: damage_records
+
+options:
+  belongs_to_organization: true
+  pagination: true
+  per_page: 25
+
+columns:
+  inspection_id:
+    type: foreignId
+    foreign_model: Inspection
+    nullable: false
+    index: true
+    filterable: true
+  vehicle_id:
+    type: foreignId
+    foreign_model: Vehicle
+    nullable: false
+    index: true
+    filterable: true
+  panel_location:
+    type: string
+    nullable: false
+    filterable: true
+    searchable: true
+  severity:
+    type: string
+    nullable: false
+    filterable: true
+    # The model enforces this vocabulary (DamageRecord validates inclusion), so
+    # the blueprint declares it: anything else is a 422.
+    values: [minor_scratch, dent, deep_gouge, crack, structural]
+  description:
+    type: text
+    nullable: false
+    searchable: true
+  photo_url:
+    type: string
+    nullable: true
+  is_pre_existing:
+    type: boolean
+    nullable: false
+    default: false
+    filterable: true
+  repair_cost_estimate:
+    type: decimal
+    precision: 10
+    scale: 2
+    nullable: true
+  repaired:
+    type: boolean
+    nullable: false
+    default: false
+    filterable: true
+
+relationships:
+  - type: belongsTo
+    model: Organization
+  - type: belongsTo
+    model: Inspection
+  - type: belongsTo
+    model: Vehicle
+
+permissions:
+  fleet_manager:
+    actions: [index, show, store, update, destroy]
+    show_fields: "*"
+    create_fields: "*"
+    update_fields: "*"
+  counter_agent:
+    actions: [index, show, store, update]
+    show_fields: "*"
+    create_fields: [inspection_id, vehicle_id, panel_location, severity, description, photo_url, is_pre_existing, repair_cost_estimate, repaired]
+    update_fields: [panel_location, severity, description, photo_url, is_pre_existing, repair_cost_estimate, repaired]
+  customer:
+    actions: [index, show]
+    show_fields: [id, vehicle_id, panel_location, severity, description, photo_url, is_pre_existing]
+    create_fields: []
+    update_fields: []

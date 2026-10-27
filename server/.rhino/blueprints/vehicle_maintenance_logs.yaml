@@ -1,0 +1,78 @@
+model: VehicleMaintenanceLog
+slug: vehicle_maintenance_logs
+table: vehicle_maintenance_logs
+
+options:
+  belongs_to_organization: true
+  soft_deletes: true
+  pagination: true
+  per_page: 25
+
+columns:
+  vehicle_id:
+    type: foreignId
+    foreign_model: Vehicle
+    nullable: false
+    index: true
+    filterable: true
+  user_id:
+    type: foreignId
+    foreign_model: User
+    nullable: true
+    index: true
+    filterable: true
+  service_type:
+    type: string
+    nullable: false
+    filterable: true
+    searchable: true
+  service_date:
+    type: date
+    nullable: false
+    sortable: true
+  odometer_at_service:
+    type: integer
+    nullable: true
+  cost:
+    type: decimal
+    precision: 10
+    scale: 2
+    nullable: true
+  vendor_name:
+    type: string
+    nullable: true
+    searchable: true
+  status:
+    type: string
+    nullable: false
+    default: "scheduled"
+    filterable: true
+  notes:
+    type: text
+    nullable: true
+    searchable: true
+
+relationships:
+  - type: belongsTo
+    model: Organization
+  - type: belongsTo
+    model: Vehicle
+  - type: belongsTo
+    model: User
+
+permissions:
+  fleet_manager:
+    actions: [index, show, store, update, destroy, trashed, restore, forceDelete]
+    show_fields: "*"
+    create_fields: "*"
+    update_fields: "*"
+  counter_agent:
+    actions: [index, show]
+    show_fields: "*"
+    create_fields: []
+    update_fields: []
+  customer:
+    actions: [index, show]
+    show_fields: [id, vehicle_id, service_type, service_date, status]
+    create_fields: []
+    update_fields: []

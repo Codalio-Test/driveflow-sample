@@ -1,0 +1,18 @@
+
+Run options: --seed 40602
+
+# Running:
+
+................................................................................................PDF's built-in fonts have very limited support for internationalized text.
+If you need full UTF-8 support, consider using an external font instead.
+
+To disable this warning, add the following line to your code:
+Prawn::Fonts::AFM.hide_m17n_warning = true
+..............................................................................................................................................................................
+
+Finished in 14.340341s, 18.8280 runs/s, 60.9469 assertions/s.
+270 runs, 874 assertions, 0 failures, 0 errors, 0 skips
+
+real	0m15.625s
+user	0m13.035s
+sys	0m1.055s

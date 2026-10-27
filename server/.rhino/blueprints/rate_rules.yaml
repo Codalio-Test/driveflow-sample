@@ -1,0 +1,81 @@
+model: RateRule
+slug: rate_rules
+table: rate_rules
+
+options:
+  belongs_to_organization: true
+  soft_deletes: true
+  pagination: true
+  per_page: 25
+
+columns:
+  vehicle_category_id:
+    type: foreignId
+    foreign_model: VehicleCategory
+    nullable: false
+    index: true
+    filterable: true
+  name:
+    type: string
+    nullable: false
+    filterable: true
+    sortable: true
+    searchable: true
+  season_name:
+    type: string
+    nullable: true
+    filterable: true
+    sortable: true
+    searchable: true
+  start_date:
+    type: date
+    nullable: true
+    sortable: true
+  end_date:
+    type: date
+    nullable: true
+    sortable: true
+  daily_multiplier:
+    type: decimal
+    precision: 8
+    scale: 2
+    nullable: false
+    default: "1.00"
+  weekend_multiplier:
+    type: decimal
+    precision: 8
+    scale: 2
+    nullable: false
+    default: "1.00"
+  min_rental_days:
+    type: integer
+    nullable: false
+    default: 1
+  is_active:
+    type: boolean
+    nullable: false
+    default: true
+    filterable: true
+
+relationships:
+  - type: belongsTo
+    model: Organization
+  - type: belongsTo
+    model: VehicleCategory
+
+permissions:
+  fleet_manager:
+    actions: [index, show, store, update, destroy, trashed, restore, forceDelete]
+    show_fields: "*"
+    create_fields: "*"
+    update_fields: "*"
+  counter_agent:
+    actions: [index, show]
+    show_fields: "*"
+    create_fields: []
+    update_fields: []
+  customer:
+    actions: [index, show]
+    show_fields: [id, vehicle_category_id, name, season_name, start_date, end_date, daily_multiplier, weekend_multiplier, min_rental_days, is_active]
+    create_fields: []
+    update_fields: []

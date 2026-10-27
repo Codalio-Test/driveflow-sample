@@ -1,0 +1,64 @@
+model: RentalCharge
+slug: rental_charges
+table: rental_charges
+
+options:
+  belongs_to_organization: true
+  pagination: true
+  per_page: 50
+
+columns:
+  rental_id:
+    type: foreignId
+    foreign_model: Rental
+    nullable: false
+    index: true
+    filterable: true
+  charge_type:
+    type: string
+    nullable: false
+    filterable: true
+    sortable: true
+  description:
+    type: string
+    nullable: false
+    searchable: true
+  unit_price:
+    type: decimal
+    precision: 10
+    scale: 2
+    nullable: true
+  quantity:
+    type: decimal
+    precision: 10
+    scale: 2
+    nullable: true
+  amount:
+    type: decimal
+    precision: 10
+    scale: 2
+    nullable: false
+    default: "0.00"
+
+relationships:
+  - type: belongsTo
+    model: Organization
+  - type: belongsTo
+    model: Rental
+
+permissions:
+  fleet_manager:
+    actions: [index, show, store, update, destroy]
+    show_fields: "*"
+    create_fields: "*"
+    update_fields: "*"
+  counter_agent:
+    actions: [index, show, store, update]
+    show_fields: "*"
+    create_fields: "*"
+    update_fields: [description, unit_price, quantity, amount]
+  customer:
+    actions: [index, show]
+    show_fields: [id, rental_id, charge_type, description, unit_price, quantity, amount]
+    create_fields: []
+    update_fields: []

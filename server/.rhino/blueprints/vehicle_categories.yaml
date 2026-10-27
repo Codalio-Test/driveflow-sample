@@ -1,0 +1,87 @@
+model: VehicleCategory
+slug: vehicle_categories
+table: vehicle_categories
+
+options:
+  belongs_to_organization: true
+  soft_deletes: true
+  pagination: true
+  per_page: 25
+
+columns:
+  name:
+    type: string
+    nullable: false
+    filterable: true
+    sortable: true
+    searchable: true
+  code:
+    type: string
+    nullable: false
+    filterable: true
+    sortable: true
+    searchable: true
+  description:
+    type: text
+    nullable: true
+    searchable: true
+  base_daily_rate:
+    type: decimal
+    precision: 10
+    scale: 2
+    nullable: false
+  security_deposit_amount:
+    type: decimal
+    precision: 10
+    scale: 2
+    nullable: false
+  mileage_allowance_per_day:
+    type: integer
+    nullable: true
+  excess_mileage_rate:
+    type: decimal
+    precision: 10
+    scale: 2
+    nullable: true
+  late_hourly_fee:
+    type: decimal
+    precision: 10
+    scale: 2
+    nullable: true
+  passenger_capacity:
+    type: integer
+    nullable: true
+  baggage_capacity:
+    type: integer
+    nullable: true
+  transmission:
+    type: string
+    nullable: true
+    filterable: true
+
+relationships:
+  - type: belongsTo
+    model: Organization
+  - type: hasMany
+    model: Vehicle
+  - type: hasMany
+    model: RateRule
+  - type: hasMany
+    model: Rental
+
+permissions:
+  fleet_manager:
+    actions: [index, show, store, update, destroy, trashed, restore, forceDelete]
+    show_fields: "*"
+    create_fields: "*"
+    update_fields: "*"
+  counter_agent:
+    actions: [index, show]
+    show_fields: "*"
+    create_fields: []
+    update_fields: []
+  customer:
+    actions: [index, show]
+    show_fields: [id, name, code, description, base_daily_rate, security_deposit_amount, mileage_allowance_per_day, excess_mileage_rate, passenger_capacity, baggage_capacity, transmission]
+    create_fields: []
+    update_fields: []

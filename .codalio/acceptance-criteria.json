@@ -1,0 +1,1937 @@
+{
+  "criteria": [
+    {
+      "id": "AC-1",
+      "name": "Given a guest or customer on /vehicles, When they input pickup and return dates, times, and branch location, Then the system displays matching available vehicle categories with clear daily base rates, vehicle specifications, and seating capacity.",
+      "user_story": "Vehicle Search & Reservation Configuration",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/guest_booking_test.rb",
+      "subtasks": [
+        "Add GET availability endpoint in server/app/controllers/api/availability_controller.rb backed by Rhino.scoped_query(Vehicle)",
+        "Declare rhino_filters :status, :vehicle_category_id and rhino_sorts :base_daily_rate on server/app/models/vehicle_category.rb",
+        "Build client/src/components/vehicles/VehiclesPage.tsx with filters + results grid wired to useModelIndex('vehicle_categories', { includes: ['vehicles'] })",
+        "Register <Route path=\"/vehicles\" element={<VehiclesPage />} /> in client/src/routes/custom.jsx",
+        "DONE: GET /api/:org/vehicle_catalog + /availability (public, no token) return class specs, seating, baggage and the effective daily rate; VehiclesPage renders the results grid from useModelIndex('vehicle_categories'). Verified by server/test/integration/guest_booking_test.rb.",
+        "TESTED: verified by server/test/integration/guest_booking_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-2",
+      "name": "Given a selected vehicle class, When navigating to /booking/configure, Then the user can choose protection tiers (Basic, Standard, Full) and add-ons (child safety seat, additional driver) with real-time recalculation of total cost.",
+      "user_story": "Vehicle Search & Reservation Configuration",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/booking_configure_test.rb",
+      "subtasks": [
+        "Add `protection_tier` string column to server/app/models/rental.rb (see gap DATA_MODEL_UX_MISMATCH)",
+        "Create server/app/models/rental_charge.rb rows for charge_type insurance_protection / equipment_addon",
+        "Build client/src/components/booking/BookingConfigurePage.tsx with tier + add-on state and live total",
+        "Register <Route path=\"/booking/configure\" element={<BookingConfigurePage />} /> in client/src/routes/custom.jsx",
+        "DONE: BookingChargeService.tier_options/addon_options + Rental.protection_tier + RentalCharge rows (insurance_protection / equipment_addon); BookingConfigurePage wires the picker to useModelStore('rentals'). Verified by server/test/integration/booking_configure_test.rb.",
+        "TESTED: verified by server/test/integration/booking_configure_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-3",
+      "name": "Given an unauthenticated user on /vehicles or /booking/configure, Then Guest users can search and configure vehicle reservations without an account.",
+      "user_story": "Vehicle Search & Reservation Configuration",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/guest_booking_test.rb",
+      "subtasks": [
+        "Keep /vehicles, /booking, /booking/configure, /booking/checkout, /booking/confirmation outside the authenticated route guard in client/src/routes/custom.jsx",
+        "Allow the availability endpoint under a public route group in server/config/initializers/rhino.rb",
+        "Add a request spec asserting 200 without an Authorization header in server/test/integration/guest_booking_test.rb",
+        "DONE: Public booking routes are registered both flat and under :organization; /vehicles, /booking* and /signup sit outside the authenticated guard in client/src/routes/custom.jsx. Verified by server/test/integration/guest_booking_test.rb.",
+        "TESTED: verified by server/test/integration/guest_booking_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-4",
+      "name": "Given a user attempting to reserve without selecting dates or selecting a past return date, When submitting the search, Then the system displays inline validation errors highlighting invalid date ranges and prevents proceeding.",
+      "user_story": "Vehicle Search & Reservation Configuration",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/guest_booking_test.rb",
+      "subtasks": [
+        "Add `validate :return_after_pickup` to server/app/models/rental.rb",
+        "Add inline error rendering bound to 422 err.response.data.errors in client/src/components/booking/BookingPage.tsx",
+        "Cover the 422 path in server/test/models/rental_test.rb",
+        "DONE: Availability rejects an inverted or past date range with 422 + field errors; Rental validates scheduled_return_datetime after pickup_datetime. Verified by server/test/integration/guest_booking_test.rb.",
+        "TESTED: verified by server/test/integration/guest_booking_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-5",
+      "name": "The data model stores postal code and the application uses it as described in this story.",
+      "user_story": "Vehicle Search & Reservation Configuration",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/models/location_test.rb",
+      "subtasks": [
+        "Add column `postal_code:string` in server/app/models/location.rb (migration under server/db/migrate/)",
+        "Expose it via rhino_filters/rhino_sorts/rhino_fields on server/app/models/location.rb",
+        "Assert the column persists and serialises in server/test/models/location_test.rb",
+        "DONE: locations.postal_code stored and serialized; the branch shows on the booking pages. Verified by server/test/models/location_test.rb.",
+        "TESTED: verified by server/test/models/location_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-6",
+      "name": "The data model stores date of birth and the application uses it as described in this story.",
+      "user_story": "Vehicle Search & Reservation Configuration",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/models/customer_profile_test.rb",
+      "subtasks": [
+        "Add column `date_of_birth:date` in server/app/models/customer_profile.rb (migration under server/db/migrate/)",
+        "Expose it via rhino_filters/rhino_sorts/rhino_fields on server/app/models/customer_profile.rb",
+        "Assert the column persists and serialises in server/test/models/customer_profile_test.rb",
+        "DONE: customer_profiles.date_of_birth stored. Verified by server/test/models/customer_profile_test.rb.",
+        "TESTED: verified by server/test/models/customer_profile_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-7",
+      "name": "The data model stores approved and the application uses it as described in this story.",
+      "user_story": "Vehicle Search & Reservation Configuration",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/models/user_test.rb",
+      "subtasks": [
+        "Add `approved` boolean (default true) via server/db/migrate/*_add_approved_to_users.rb (see gap DATA_MODEL_UX_MISMATCH)",
+        "Set approved=false on self-registered customers in server/app/controllers/api/registrations_controller.rb",
+        "Expose `approved` on the User serializer and assert in server/test/models/user_test.rb",
+        "DONE: users.approved boolean (DriveFlow extension migration) backs the data-model row; flipped to true by verify_email!. Verified by server/test/models/user_test.rb.",
+        "TESTED: verified by server/test/models/user_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-8",
+      "name": "The data model stores color and the application uses it as described in this story.",
+      "user_story": "Vehicle Search & Reservation Configuration",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/models/vehicle_test.rb",
+      "subtasks": [
+        "Add column `color:string` in server/app/models/vehicle.rb (migration under server/db/migrate/)",
+        "Expose it via rhino_filters/rhino_sorts/rhino_fields on server/app/models/vehicle.rb",
+        "Assert the column persists and serialises in server/test/models/vehicle_test.rb",
+        "DONE: vehicles.color stored and exposed on the fleet inventory table. Verified by server/test/models/vehicle_test.rb.",
+        "TESTED: verified by server/test/models/vehicle_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-9",
+      "name": "The data model stores notes and the application uses it as described in this story.",
+      "user_story": "Vehicle Search & Reservation Configuration",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/models/inspection_test.rb",
+      "subtasks": [
+        "Add column `notes:text` in server/app/models/inspection.rb (migration under server/db/migrate/)",
+        "Expose it via rhino_filters/rhino_sorts/rhino_fields on server/app/models/inspection.rb",
+        "Assert the column persists and serialises in server/test/models/inspection_test.rb",
+        "Add column `notes:text` in server/app/models/vehicle_maintenance_log.rb (migration under server/db/migrate/)",
+        "DONE: inspections.notes stored; used for the walkaround angle markers. Verified by server/test/models/inspection_test.rb.",
+        "TESTED: verified by server/test/models/inspection_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-10",
+      "name": "The data model stores quantity and the application uses it as described in this story.",
+      "user_story": "Vehicle Search & Reservation Configuration",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/models/rental_charge_test.rb",
+      "subtasks": [
+        "Add column `quantity:decimal precision:10 scale:2` in server/app/models/rental_charge.rb (migration under server/db/migrate/)",
+        "Expose it via rhino_filters/rhino_sorts/rhino_fields on server/app/models/rental_charge.rb",
+        "Assert the column persists and serialises in server/test/models/rental_charge_test.rb",
+        "DONE: rental_charges.quantity stored as a decimal and used by the settlement engine. Verified by server/test/models/rental_charge_test.rb.",
+        "TESTED: verified by server/test/models/rental_charge_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-11",
+      "name": "The data model stores repaired and the application uses it as described in this story.",
+      "user_story": "Vehicle Search & Reservation Configuration",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/models/damage_record_test.rb",
+      "subtasks": [
+        "Add column `repaired:boolean default:false` in server/app/models/damage_record.rb (migration under server/db/migrate/)",
+        "Expose it via rhino_filters/rhino_sorts/rhino_fields on server/app/models/damage_record.rb",
+        "Assert the column persists and serialises in server/test/models/damage_record_test.rb",
+        "DONE: damage_records.repaired boolean (default false); toggled when a repair is completed. Verified by server/test/models/damage_record_test.rb.",
+        "TESTED: verified by server/test/models/damage_record_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-12",
+      "name": "The data model stores baggage capacity and the application uses it as described in this story.",
+      "user_story": "Vehicle Search & Reservation Configuration",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/models/vehicle_category_test.rb",
+      "subtasks": [
+        "Add column `baggage_capacity:integer` in server/app/models/vehicle_category.rb (migration under server/db/migrate/)",
+        "Expose it via rhino_filters/rhino_sorts/rhino_fields on server/app/models/vehicle_category.rb",
+        "Assert the column persists and serialises in server/test/models/vehicle_category_test.rb",
+        "DONE: vehicle_categories.baggage_capacity stored and returned by the catalogue contract. Verified by server/test/models/vehicle_category_test.rb.",
+        "TESTED: verified by server/test/models/vehicle_category_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-13",
+      "name": "Given a configured reservation at /booking/checkout, When the user inputs primary driver details and card credentials into the Stripe Elements widget, Then the payment authorization is processed securely and the reservation is committed to confirmed status.",
+      "user_story": "Online Reservation Checkout & Digital Voucher",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/guest_booking_test.rb",
+      "subtasks": [
+        "Add POST /api/:organization/bookings/confirm in server/app/controllers/api/bookings_controller.rb calling StripePaymentService.authorize",
+        "Transition Rental.status reserved -> confirmed in server/app/models/rental.rb",
+        "Build client/src/components/booking/BookingCheckoutPage.tsx posting to the confirm endpoint",
+        "Register <Route path=\"/booking/checkout\" element={<BookingCheckoutPage />} /> in client/src/routes/custom.jsx",
+        "DONE: POST /api/:org/bookings/confirm authorizes through StripePaymentService#charge_booking, flips the rental to confirmed and returns the voucher payload. Verified by server/test/integration/guest_booking_test.rb.",
+        "TESTED: verified by server/test/integration/guest_booking_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-14",
+      "name": "The app provides an upload UI for driver's license documentation data, accepting PNG, JPG, and PDF, and visibly confirms a successful import with document preview.",
+      "user_story": "Online Reservation Checkout & Digital Voucher",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/documents_test.rb",
+      "subtasks": [
+        "has_many_attached :license_documents on server/app/models/customer_profile.rb (ActiveStorage)",
+        "Add server/app/controllers/api/documents_controller.rb accepting multipart uploads with content-type whitelist image/png,image/jpeg,application/pdf",
+        "Add the upload control + preview to client/src/components/booking/BookingCheckoutPage.tsx",
+        "DONE: POST /api/:org/documents with kind=driver_license whitelists PNG/JPG/PDF and attaches to the customer profile; BookingCheckoutPage renders the upload control with preview. Verified by server/test/integration/documents_test.rb.",
+        "TESTED: verified by server/test/integration/documents_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-15",
+      "name": "Given a successful payment authorization, When the transaction commits, Then the user is redirected to /booking/confirmation displaying an itemized summary, pickup instructions, and a scannable booking QR code.",
+      "user_story": "Online Reservation Checkout & Digital Voucher",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/guest_booking_test.rb",
+      "subtasks": [
+        "Add `qr_code_url` rhino_computed_attributes on server/app/models/rental.rb using the rqrcode gem",
+        "Render the QR + itemised summary in client/src/components/booking/BookingConfirmationPage.tsx",
+        "Register <Route path=\"/booking/confirmation\" element={<BookingConfirmationPage />} /> in client/src/routes/custom.jsx",
+        "DONE: Booking confirm returns qr_code_url (QrCodeService data URI) plus totals; BookingConfirmationPage renders the voucher with the QR image. Verified by server/test/integration/guest_booking_test.rb.",
+        "TESTED: verified by server/test/integration/guest_booking_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-16",
+      "name": "Given a declined card or invalid expiration date in Stripe Elements, When the user clicks confirm, Then the system displays the specific card decline reason without clearing previously entered form fields.",
+      "user_story": "Online Reservation Checkout & Digital Voucher",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/checkout_decline_test.rb",
+      "subtasks": [
+        "Map Stripe decline_code to a message in server/app/services/stripe_payment_service.rb and return 402/422",
+        "Surface the decline message in client/src/components/booking/BookingCheckoutPage.tsx while preserving form state",
+        "DONE: A declined card raises StripePaymentService::PaymentError -> 422 with decline_reason, and no Payment row is written. Verified by server/test/integration/guest_booking_test.rb.",
+        "TESTED: verified by server/test/integration/checkout_decline_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-17",
+      "name": "Guest users can complete checkout and booking confirmation without an account, receiving an automated email voucher containing their reservation reference.",
+      "user_story": "Online Reservation Checkout & Digital Voucher",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/guest_booking_test.rb",
+      "subtasks": [
+        "Make CustomerProfile.user_id nullable and add full_name/email so a guest profile can be created (see gap DATA_MODEL_UX_MISMATCH)",
+        "Add server/app/mailers/booking_mailer.rb with voucher delivery",
+        "Trigger BookingMailer.voucher from the public bookings controller",
+        "DONE: Guest checkout requires no account: the booking creates a user-less CustomerProfile and NotificationService emails the voucher. Verified by server/test/integration/guest_booking_test.rb.",
+        "TESTED: verified by server/test/integration/guest_booking_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-18",
+      "name": "The data model stores license state and the application uses it as described in this story.",
+      "user_story": "Online Reservation Checkout & Digital Voucher",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/models/customer_profile_test.rb",
+      "subtasks": [
+        "Add column `license_state:string` in server/app/models/customer_profile.rb (migration under server/db/migrate/)",
+        "Expose it via rhino_filters/rhino_sorts/rhino_fields on server/app/models/customer_profile.rb",
+        "Assert the column persists and serialises in server/test/models/customer_profile_test.rb",
+        "DONE: customer_profiles.license_state stored and shown on the profile page. Verified by server/test/models/customer_profile_test.rb.",
+        "TESTED: verified by server/test/models/customer_profile_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-19",
+      "name": "The data model stores license expiry date and the application uses it as described in this story.",
+      "user_story": "Online Reservation Checkout & Digital Voucher",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/models/customer_profile_test.rb",
+      "subtasks": [
+        "Add column `license_expiry_date:date` in server/app/models/customer_profile.rb (migration under server/db/migrate/)",
+        "Expose it via rhino_filters/rhino_sorts/rhino_fields on server/app/models/customer_profile.rb",
+        "Assert the column persists and serialises in server/test/models/customer_profile_test.rb",
+        "DONE: customer_profiles.license_expiry_date stored; drives the expiry gate. Verified by server/test/models/customer_profile_test.rb.",
+        "TESTED: verified by server/test/models/customer_profile_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-20",
+      "name": "The data model stores license country and the application uses it as described in this story.",
+      "user_story": "Online Reservation Checkout & Digital Voucher",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/models/customer_profile_test.rb",
+      "subtasks": [
+        "Add column `license_country:string` in server/app/models/customer_profile.rb (migration under server/db/migrate/)",
+        "Expose it via rhino_filters/rhino_sorts/rhino_fields on server/app/models/customer_profile.rb",
+        "Assert the column persists and serialises in server/test/models/customer_profile_test.rb",
+        "DONE: customer_profiles.license_country stored. Verified by server/test/models/customer_profile_test.rb.",
+        "TESTED: verified by server/test/models/customer_profile_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-21",
+      "name": "The data model stores transmission and the application uses it as described in this story.",
+      "user_story": "Online Reservation Checkout & Digital Voucher",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/models/vehicle_category_test.rb",
+      "subtasks": [
+        "Add column `transmission:string` in server/app/models/vehicle_category.rb (migration under server/db/migrate/)",
+        "Expose it via rhino_filters/rhino_sorts/rhino_fields on server/app/models/vehicle_category.rb",
+        "Assert the column persists and serialises in server/test/models/vehicle_category_test.rb",
+        "DONE: vehicle_categories.transmission validated against automatic|manual and surfaced on the class card. Verified by server/test/models/vehicle_category_test.rb.",
+        "TESTED: verified by server/test/models/vehicle_category_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-22",
+      "name": "Given a registered customer at /login, When entering valid email and password credentials, Then the customer is authenticated and redirected to /account/dashboard.",
+      "user_story": "Customer Portal & Booking History Access",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/auth_test.rb",
+      "subtasks": [
+        "Build client/src/components/auth/LoginPage.tsx using useAuth().login and branch on result.success",
+        "Call setOrganization(result.organization_slug) before navigating to /account/dashboard",
+        "Register <Route path=\"/login\" element={<LoginPage />} /> in client/src/routes/custom.jsx",
+        "DONE: POST /api/auth/login returns token + organization_slug; LoginPage calls useAuth().login then setOrganization. Verified by server/test/integration/auth_test.rb.",
+        "TESTED: verified by server/test/integration/auth_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-23",
+      "name": "Unauthenticated users are redirected to /login when accessing /account/dashboard, /account/bookings, or /account/billing.",
+      "user_story": "Customer Portal & Booking History Access",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/account_access_test.rb",
+      "subtasks": [
+        "Wrap the /account/* routes in an authenticated guard component in client/src/routes/custom.jsx that renders <Navigate to=\"/login\" /> when useAuth().isAuthenticated is false",
+        "Add server-side 401 assertions in server/test/integration/account_access_test.rb",
+        "DONE: Every /account/* endpoint is token-protected (401) and the flat routes sit inside AuthenticatedRoute. Verified by server/test/integration/account_access_test.rb.",
+        "TESTED: verified by server/test/integration/account_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-24",
+      "name": "Given an authenticated customer on /account/bookings, When viewing reservations, Then the system displays upcoming pickups, active rentals, and past receipts with downloadable PDF statements.",
+      "user_story": "Customer Portal & Booking History Access",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/account_access_test.rb",
+      "subtasks": [
+        "Build client/src/components/account/AccountBookingsPage.tsx with tabs wired to useModelIndex('rentals', { filters: { status } })",
+        "Add GET /api/:organization/rentals/:id/receipt in server/app/controllers/api/receipts_controller.rb streaming a PDF",
+        "Register <Route path=\"/account/bookings\" element={<AccountBookingsPage />} /> in client/src/routes/custom.jsx",
+        "DONE: Rental index returns the customer/vehicle/due/dates/deposit_status contract keys; AccountBookingsPage renders them with invoice links. Verified by server/test/integration/account_access_test.rb.",
+        "TESTED: verified by server/test/integration/account_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-25",
+      "name": "Given a customer attempting to log in with incorrect credentials, When submitting the login form, Then the system displays an invalid credentials error and does not reveal whether the account email exists.",
+      "user_story": "Customer Portal & Booking History Access",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/auth_test.rb",
+      "subtasks": [
+        "Surface result.error from useAuth().login in client/src/components/auth/LoginPage.tsx without disclosing account existence",
+        "Assert a uniform 401 body in server/test/integration/auth_test.rb",
+        "DONE: Invalid credentials return a uniform 401 'Invalid credentials' for existing and unknown emails. Verified by server/test/integration/auth_test.rb.",
+        "TESTED: verified by server/test/integration/auth_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-26",
+      "name": "Only customer can access /account/dashboard.",
+      "user_story": "Customer Portal & Booking History Access",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/account_access_test.rb",
+      "subtasks": [
+        "Set roles ['customer'] on every /account/* route entry in .codalio/ui-handoff.json",
+        "Gate the /account routes on useUserRole().hasRole('customer') in client/src/routes/custom.jsx",
+        "Grant customers rentals/payments/customer_profiles index+show in the blueprints; deny counter_agent/fleet_manager on /account UI",
+        "Seed a Role row for customer plus a UsersRole in server/db/seeds.rb",
+        "DONE: role_slug_for_validation resolves customer/counter_agent/fleet_manager; the /account/* routes are wrapped in RoleProtectedRoute roles=['customer']. Verified by server/test/integration/account_access_test.rb.",
+        "TESTED: verified by server/test/integration/account_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-27",
+      "name": "The data model stores min rental days and the application uses it as described in this story.",
+      "user_story": "Customer Portal & Booking History Access",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/models/rate_rule_test.rb",
+      "subtasks": [
+        "Add column `min_rental_days:integer default:1` in server/app/models/rate_rule.rb (migration under server/db/migrate/)",
+        "Expose it via rhino_filters/rhino_sorts/rhino_fields on server/app/models/rate_rule.rb",
+        "Assert the column persists and serialises in server/test/models/rate_rule_test.rb",
+        "DONE: rate_rules.min_rental_days stored with a default of 1. Verified by server/test/models/rate_rule_test.rb.",
+        "TESTED: verified by server/test/models/rate_rule_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-28",
+      "name": "Given a counter agent at /counter/departures, When reviewing today's scheduled pickups, Then the queue displays real-time reservation statuses, customer names, reserved classes, and vehicle prep readiness.",
+      "user_story": "Counter Check-Out & Driver Verification",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/check_out_validation_test.rb",
+      "subtasks": [
+        "Add GET /api/:organization/counter/departures in server/app/controllers/api/counter_controller.rb returning today's rentals with customer + category + vehicle",
+        "Build client/src/components/counter/CounterDeparturesPage.tsx from useModelIndex('rentals', { filters: { status: 'confirmed' }, includes: ['customer_profile','vehicle_category','vehicle'] })",
+        "Register <Route path=\"/counter/departures\" element={<CounterDeparturesPage />} /> in client/src/routes/custom.jsx",
+        "DONE: GET /api/:org/counter/departures returns the queue with prep_ready / deposit_secured / agreement_signed / inspection_complete flags and KPIs. Verified by server/test/integration/check_out_validation_test.rb.",
+        "TESTED: verified by server/test/integration/check_out_validation_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-29",
+      "name": "Only counter_agent and fleet_manager can access /counter/departures and /counter/check-out/:reservationId.",
+      "user_story": "Counter Check-Out & Driver Verification",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/rentals_test.rb",
+      "subtasks": [
+        "Set roles ['counter_agent','fleet_manager'] on both handoff entries",
+        "Gate the /counter route group on hasRole('counter_agent')||hasRole('fleet_manager') in client/src/routes/custom.jsx",
+        "Seed Role rows + UsersRole memberships in server/db/seeds.rb",
+        "DONE: counter.departures/returns permissions gate the queues; /counter/* routes are wrapped in RoleProtectedRoute roles=['counter_agent','fleet_manager']. Verified by server/test/integration/rentals_test.rb.",
+        "TESTED: verified by server/test/integration/rentals_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-30",
+      "name": "Given a selected reservation at /counter/check-out/:reservationId, When verifying the customer, Then the agent can scan or enter government ID details, verify age and license expiration date, and link an assigned vehicle by license plate or barcode.",
+      "user_story": "Counter Check-Out & Driver Verification",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/check_out_validation_test.rb",
+      "subtasks": [
+        "Build client/src/components/counter/CounterCheckoutPage.tsx reading useParams().reservationId + useModelShow('rentals', id, { includes: ['customer_profile'] })",
+        "Add `validate :license_not_expired` and a minimum-age check in server/app/models/customer_profile.rb",
+        "PATCH vehicle_id from the plate/barcode lookup via useModelUpdate('rentals')",
+        "Register <Route path=\"/counter/check-out/:reservationId\" element={<CounterCheckoutPage />} /> in client/src/routes/custom.jsx",
+        "DONE: CounterCheckoutPage loads the rental with customer/vehicle, authorizes the deposit and blocks when the licence is expired. Verified by server/test/integration/check_out_validation_test.rb.",
+        "TESTED: verified by server/test/integration/check_out_validation_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-31",
+      "name": "Given an expired driver's license or mismatched renter name, When the agent attempts to confirm check-out, Then the system blocks progression with an explicit validation error requiring supervisor override or updated ID.",
+      "user_story": "Counter Check-Out & Driver Verification",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/check_out_validation_test.rb",
+      "subtasks": [
+        "Return 422 with license/name errors from server/app/models/customer_profile.rb validations",
+        "Block the release-keys gate in client/src/components/counter/CounterCheckoutPage.tsx until valid",
+        "Cover the blocked path in server/test/integration/check_out_validation_test.rb",
+        "DONE: CustomerProfile#license_expired?/license_valid? drive the counter gate; the payload exposes license_expired for the UI hard stop. Verified by server/test/integration/check_out_validation_test.rb.",
+        "TESTED: verified by server/test/integration/check_out_validation_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-32",
+      "name": "The data model stores first name and the application uses it as described in this story.",
+      "user_story": "Counter Check-Out & Driver Verification",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/models/user_test.rb",
+      "subtasks": [
+        "Confirm first_name exists on the Rhino core User model (server/app/models/user.rb) and is seeded",
+        "Assert first_name serialises on the customer association in server/test/integration/rentals_test.rb",
+        "DONE: users.first_name stored; display_name composes it. Verified by server/test/models/user_test.rb.",
+        "TESTED: verified by server/test/models/user_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-33",
+      "name": "The data model stores last name and the application uses it as described in this story.",
+      "user_story": "Counter Check-Out & Driver Verification",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/models/user_test.rb",
+      "subtasks": [
+        "Confirm last_name exists on server/app/models/user.rb and is seeded in server/db/seeds.rb",
+        "Assert last_name serialises on the customer association in server/test/integration/rentals_test.rb",
+        "DONE: users.last_name stored; used for the renter name shown to the agent. Verified by server/test/models/user_test.rb.",
+        "TESTED: verified by server/test/models/user_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-34",
+      "name": "The data model stores season name and the application uses it as described in this story.",
+      "user_story": "Counter Check-Out & Driver Verification",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/models/rate_rule_test.rb",
+      "subtasks": [
+        "Add column `season_name:string` in server/app/models/rate_rule.rb (migration under server/db/migrate/)",
+        "Expose it via rhino_filters/rhino_sorts/rhino_fields on server/app/models/rate_rule.rb",
+        "Assert the column persists and serialises in server/test/models/rate_rule_test.rb",
+        "DONE: rate_rules.season_name stored and classified (base/seasonal/fee/penalty). Verified by server/test/models/rate_rule_test.rb.",
+        "TESTED: verified by server/test/models/rate_rule_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-35",
+      "name": "Given an open check-out record at /counter/check-out/:reservationId, When initiating deposit hold, Then the system communicates with Stripe API to pre-authorize the mandatory security deposit amount based on vehicle class.",
+      "user_story": "Security Deposit Pre-Authorization Hold",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/check_out_validation_test.rb",
+      "subtasks": [
+        "Add server/app/services/stripe_payment_service.rb#authorize_deposit(rental) using the stripe gem",
+        "Add POST /api/:organization/payments/hold in server/app/controllers/api/payments_controller.rb",
+        "Trigger from client/src/components/counter/CounterCheckoutPage.tsx via api.post('/payments/hold', { rental_id })",
+        "DONE: POST /api/:org/payments/hold pre-authorizes VehicleCategory.security_deposit_amount through StripePaymentService. Verified by server/test/integration/check_out_validation_test.rb.",
+        "TESTED: verified by server/test/integration/check_out_validation_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-36",
+      "name": "Given a successful pre-authorization from Stripe, When confirmed, Then the transaction hold ID is attached to the rental record and status updates to 'Deposit Secured'.",
+      "user_story": "Security Deposit Pre-Authorization Hold",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/models/payment_test.rb",
+      "subtasks": [
+        "Create a Payment row with transaction_type deposit_hold, status succeeded, stripe_payment_intent_key set",
+        "Add a `deposit_status` virtual attribute on server/app/models/rental.rb returning Secured/Held/Released/Captured",
+        "Render the DepositStatusBadge from client/src/components/shared/DepositStatusBadge.tsx",
+        "DONE: The hold's payment intent id is stored on the Payment row and Rental#deposit_status reports 'Held'; DepositStatusBadge renders it. Verified by server/test/models/payment_test.rb.",
+        "TESTED: verified by server/test/models/payment_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-37",
+      "name": "Given a card decline or insufficient funds response from Stripe, When authorization fails, Then the UI alerts the agent with the decline reason and allows entering an alternative payment method without losing progress.",
+      "user_story": "Security Deposit Pre-Authorization Hold",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/check_out_validation_test.rb",
+      "subtasks": [
+        "Persist a failed Payment row (status failed) and return the Stripe decline reason",
+        "Show an inline alert + alternate-card affordance in client/src/components/counter/CounterCheckoutPage.tsx",
+        "DONE: A declined card returns 422 with code=card_declined and decline_reason; no payment row is created so the agent can retry. Verified by server/test/integration/check_out_validation_test.rb.",
+        "TESTED: verified by server/test/integration/check_out_validation_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-38",
+      "name": "Only counter_agent and fleet_manager can access security deposit pre-authorization workflows on /counter/check-out/:reservationId.",
+      "user_story": "Security Deposit Pre-Authorization Hold",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/check_out_validation_test.rb",
+      "subtasks": [
+        "Grant counter_agent payments store and fleet_manager payments full in server/.rhino/blueprints/payments.yaml",
+        "Deny the deposit-hold button to other roles in client/src/components/counter/CounterCheckoutPage.tsx via hasRole",
+        "DONE: BaseController#authorize_deposit! requires payments.store AND rentals.update (cross-resource gate). Verified by server/test/integration/check_out_validation_test.rb.",
+        "TESTED: verified by server/test/integration/check_out_validation_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-39",
+      "name": "The data model stores fuel type and the application uses it as described in this story.",
+      "user_story": "Security Deposit Pre-Authorization Hold",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/models/vehicle_test.rb",
+      "subtasks": [
+        "Add column `fuel_type:string` in server/app/models/vehicle.rb (migration under server/db/migrate/)",
+        "Expose it via rhino_filters/rhino_sorts/rhino_fields on server/app/models/vehicle.rb",
+        "Assert the column persists and serialises in server/test/models/vehicle_test.rb",
+        "DONE: vehicles.fuel_type stored and shown on the class card. Verified by server/test/models/vehicle_test.rb.",
+        "TESTED: verified by server/test/models/vehicle_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-40",
+      "name": "The data model stores total paid amount and the application uses it as described in this story.",
+      "user_story": "Security Deposit Pre-Authorization Hold",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/models/payment_test.rb",
+      "subtasks": [
+        "Add column `total_paid_amount:decimal precision:10 scale:2 default:0` in server/app/models/rental.rb (migration under server/db/migrate/)",
+        "Expose it via rhino_filters/rhino_sorts/rhino_fields on server/app/models/rental.rb",
+        "Assert the column persists and serialises in server/test/models/rental_test.rb",
+        "DONE: rentals.total_paid_amount recalculated from succeeded non-hold payments. Verified by server/test/models/payment_test.rb.",
+        "TESTED: verified by server/test/models/payment_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-41",
+      "name": "Given a verified check-out ready for finalization at /counter/agreement, When presenting the tablet to the renter, Then the complete agreement displays daily rates, deposit hold amounts, insurance coverage terms, and condition summary.",
+      "user_story": "Digital Rental Agreement & Touchscreen Signature",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/rentals_test.rb",
+      "subtasks": [
+        "Add GET /api/:organization/rentals/:id/agreement in server/app/controllers/api/agreements_controller.rb returning rates, deposit, coverage and condition summary",
+        "Build client/src/components/counter/CounterAgreementPage.tsx fetching via api.get('/rentals/:id/agreement')",
+        "Register <Route path=\"/counter/agreement\" element={<CounterAgreementPage />} /> in client/src/routes/custom.jsx",
+        "DONE: GET /api/:org/agreements returns rates, deposit, charges, condition_summary and late_policy; CounterAgreementPage renders them. Verified by server/test/integration/rentals_test.rb.",
+        "TESTED: verified by server/test/integration/rentals_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-42",
+      "name": "Given the terms display, When the renter signs on the digital signature canvas and clicks Accept & Sign, Then the signature is captured with a UTC timestamp and embedded into a tamper-evident PDF contract.",
+      "user_story": "Digital Rental Agreement & Touchscreen Signature",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/rentals_test.rb",
+      "subtasks": [
+        "Persist customer_signature_url + customer_signature_timestamp on server/app/models/inspection.rb",
+        "Generate the contract PDF in server/app/services/contract_pdf_service.rb (prawn)",
+        "Capture the signature in client/src/components/counter/CounterAgreementPage.tsx",
+        "DONE: POST /api/:org/agreements/sign stamps agreement_signed_at + the check-out inspection signature and returns the contract digest. Verified by server/test/integration/rentals_test.rb.",
+        "TESTED: verified by server/test/integration/rentals_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-43",
+      "name": "Given agreement signing completion, When Marcus clicks Complete Handover, Then the vehicle status immediately shifts from 'Available' to 'Rented', and an encrypted PDF agreement is automatically emailed to the customer.",
+      "user_story": "Digital Rental Agreement & Touchscreen Signature",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/rentals_test.rb",
+      "subtasks": [
+        "Update Vehicle.status to 'rented' and Rental.status to 'active' in server/app/controllers/api/agreements_controller.rb",
+        "Send the contract via server/app/mailers/agreement_mailer.rb",
+        "Wire the Complete Handover button in client/src/components/counter/CounterAgreementPage.tsx",
+        "DONE: POST /api/:org/rentals/:id/finalize activates the rental, sets the vehicle to rented and emails the executed agreement PDF. Verified by server/test/integration/rentals_test.rb.",
+        "TESTED: verified by server/test/integration/rentals_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-44",
+      "name": "Only counter_agent and fleet_manager can access /counter/agreement.",
+      "user_story": "Digital Rental Agreement & Touchscreen Signature",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/rentals_test.rb",
+      "subtasks": [
+        "Set roles ['counter_agent','fleet_manager'] on the /counter/agreement handoff entry and gate the route",
+        "Deny other roles at the policy layer for inspections update",
+        "Gate the /counter route group in client/src/routes/custom.jsx on hasRole('counter_agent') || hasRole('fleet_manager')",
+        "Assert other roles receive 403 in server/test/integration/counter_access_test.rb",
+        "DONE: agreements.show/sign/complete_handover permissions gate the surface; /counter/agreement is wrapped in the counter role guard. Verified by server/test/integration/rentals_test.rb.",
+        "TESTED: verified by server/test/integration/rentals_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-45",
+      "name": "The data model stores customer signature url and the application uses it as described in this story.",
+      "user_story": "Digital Rental Agreement & Touchscreen Signature",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/rentals_test.rb",
+      "subtasks": [
+        "Add column `customer_signature_url:string` in server/app/models/inspection.rb (migration under server/db/migrate/)",
+        "Expose it via rhino_filters/rhino_sorts/rhino_fields on server/app/models/inspection.rb",
+        "Assert the column persists and serialises in server/test/models/inspection_test.rb",
+        "DONE: inspections.customer_signature_url + customer_signature_timestamp persisted on signing. Verified by server/test/integration/rentals_test.rb.",
+        "TESTED: verified by server/test/integration/rentals_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-46",
+      "name": "Given Marcus on a lot tablet at /inspections/new, When initiating pickup inspection, Then the interface requires logging current odometer mileage and fuel level percentage (0-100%).",
+      "user_story": "Tablet Departure Inspection & Condition Pinning",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/models/inspection_test.rb",
+      "subtasks": [
+        "Validate odometer_reading presence + fuel_percentage inclusion 0..100 in server/app/models/inspection.rb",
+        "Build client/src/components/inspections/InspectionNewPage.tsx with reading inputs and the 4-step InspectionStepper",
+        "Register <Route path=\"/inspections/new\" element={<InspectionNewPage />} /> in client/src/routes/custom.jsx",
+        "DONE: Inspections require odometer + fuel readings to be completed; InspectionNewPage captures them in step 1. Verified by server/test/models/inspection_test.rb.",
+        "TESTED: verified by server/test/models/inspection_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-47",
+      "name": "The app provides an upload UI for departure vehicle condition photos data, accepting JPG and PNG camera captures, and visibly confirms a successful import for required 4-quadrant photos (front, rear, driver, passenger).",
+      "user_story": "Tablet Departure Inspection & Condition Pinning",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/documents_test.rb",
+      "subtasks": [
+        "has_many_attached :photos on server/app/models/inspection.rb with content-type validation image/jpeg,image/png",
+        "Add server/app/controllers/api/inspection_photos_controller.rb accepting multipart uploads",
+        "Enforce the 4-quadrant tally in client/src/components/inspections/InspectionNewPage.tsx",
+        "DONE: POST /api/:org/inspections/:id/photos stores the 4-quadrant captures (REQUIRED_PHOTO_ANGLES) and /documents whitelists JPG/PNG. Verified by server/test/integration/documents_test.rb.",
+        "TESTED: verified by server/test/integration/documents_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-48",
+      "name": "Given existing exterior blemishes, When Marcus taps on the 2D car silhouette pin tool, Then a visual damage marker is placed with severity classification and prompts for a mandatory close-up photo.",
+      "user_story": "Tablet Departure Inspection & Condition Pinning",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/models/damage_record_test.rb",
+      "subtasks": [
+        "Create DamageRecord rows via useModelStore('damage_records') with panel_location + severity enum minor_scratch|dent|deep_gouge|crack|structural",
+        "Build the pin editor in client/src/components/inspections/DamagePinEditor.tsx requiring a close-up photo_url",
+        "DONE: DamageRecord requires a panel location, a severity and a description, and DamagePinEditor places the pin on the 2D silhouette. Verified by server/test/models/damage_record_test.rb.",
+        "TESTED: verified by server/test/models/damage_record_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-49",
+      "name": "Given missing required photos or blank odometer readings, When tapping Finish Inspection, Then the form prevents submission and highlights uncompleted walkaround sections.",
+      "user_story": "Tablet Departure Inspection & Condition Pinning",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/check_out_validation_test.rb",
+      "subtasks": [
+        "Return 422 with field errors from server/app/models/inspection.rb",
+        "Highlight incomplete stepper sections in client/src/components/inspections/InspectionNewPage.tsx",
+        "DONE: POST /api/:org/inspections/:id/finish blocks with 422 and a `missing` list until odometer, fuel and all four photo angles are present. Verified by server/test/integration/check_out_validation_test.rb.",
+        "TESTED: verified by server/test/integration/check_out_validation_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-50",
+      "name": "Only counter_agent and fleet_manager can access /inspections/new.",
+      "user_story": "Tablet Departure Inspection & Condition Pinning",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/rentals_test.rb",
+      "subtasks": [
+        "Set roles ['counter_agent','fleet_manager'] on the /inspections/* handoff entries and gate the route group",
+        "Grant counter_agent inspections store/update in server/.rhino/blueprints/inspections.yaml",
+        "DONE: inspections.store is required; a customer receives 403 on the walkaround endpoints. Verified by server/test/integration/rentals_test.rb.",
+        "TESTED: verified by server/test/integration/rentals_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-51",
+      "name": "Given a counter agent at /inspections/return/:rentalId, When performing inbound inspection, Then the tablet displays original departure photos and pinned blemishes side-by-side with live return camera capture viewports.",
+      "user_story": "Tablet Return Walkaround & Damage Comparison",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/settlement_test.rb",
+      "subtasks": [
+        "Add GET /api/:organization/rentals/:id/inspection_comparison in server/app/controllers/api/inspections_controller.rb returning departure inspection + damage records",
+        "Build the split-screen PhotoComparisonWorkspace in client/src/components/inspections/PhotoEvidenceComparison.tsx",
+        "Register <Route path=\"/inspections/return/:rentalId\" element={<InspectionReturnPage />} /> in client/src/routes/custom.jsx",
+        "DONE: GET /api/:org/rentals/:id/inspection_comparison pairs departure and return captures with odometer/fuel deltas; PhotoEvidenceComparison renders them side by side. Verified by server/test/integration/settlement_test.rb.",
+        "TESTED: verified by server/test/integration/settlement_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-52",
+      "name": "Given newly discovered damage, When Marcus flags a new hotspot on the return vehicle wireframe, Then the system marks it as 'New Damage' and mandates at least one photo with damage description and dimensions.",
+      "user_story": "Tablet Return Walkaround & Damage Comparison",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/models/damage_record_test.rb",
+      "subtasks": [
+        "Set is_pre_existing=false and validate description presence + photo_url presence in server/app/models/damage_record.rb",
+        "Block saving a new pin without a photo in client/src/components/inspections/InspectionReturnPage.tsx",
+        "DONE: A record with is_pre_existing=false is invalid without photo_url (validation 'is required for newly discovered damage'). Verified by server/test/models/damage_record_test.rb.",
+        "TESTED: verified by server/test/models/damage_record_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-53",
+      "name": "Given an inbound vehicle return, When the agent records return odometer reading and fuel percentage, Then the system automatically calculates mileage delta and fuel variance against departure records.",
+      "user_story": "Tablet Return Walkaround & Damage Comparison",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/models/inspection_test.rb",
+      "subtasks": [
+        "Add `mileage_delta` and `fuel_variance` rhino_computed_attributes on server/app/models/inspection.rb",
+        "Render the deltas in client/src/components/inspections/InspectionReturnPage.tsx",
+        "DONE: Return readings are compared to the departure benchmarks; the comparison endpoint computes odometer_delta and fuel_variance_percentage. Verified by server/test/models/inspection_test.rb.",
+        "TESTED: verified by server/test/models/inspection_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-54",
+      "name": "Only counter_agent and fleet_manager can access /inspections/return/:rentalId.",
+      "user_story": "Tablet Return Walkaround & Damage Comparison",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/rentals_test.rb",
+      "subtasks": [
+        "Set roles ['counter_agent','fleet_manager'] on the /inspections/return/:rentalId handoff entry",
+        "Keep the route inside the counter/inspection authenticated group in client/src/routes/custom.jsx",
+        "DONE: inspections permissions gate the return walkaround; /inspections/return/:rentalId is inside the counter role guard. Verified by server/test/integration/rentals_test.rb.",
+        "TESTED: verified by server/test/integration/rentals_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-55",
+      "name": "Given an itemized return balance at /counter/settlement/:rentalId where no surcharges or damage are owed, When Marcus clicks Release Deposit, Then DriveFlow issues an immediate Stripe API release call for the full deposit hold.",
+      "user_story": "Deposit Settlement, Capture & Release",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/settlement_test.rb",
+      "subtasks": [
+        "Add POST /api/:organization/payments/release in server/app/controllers/api/payments_controller.rb calling StripePaymentService.release",
+        "Record a Payment row with transaction_type deposit_release",
+        "Wire the Release Deposit action in client/src/components/counter/CounterSettlementPage.tsx",
+        "DONE: When nothing is owed, settle returns only a deposit_release row for the full hold (StripePaymentService#release). Verified by server/test/integration/settlement_test.rb.",
+        "TESTED: verified by server/test/integration/settlement_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-56",
+      "name": "Given return charges (e.g., refueling fee), When Marcus clicks Capture Charges & Release Difference, Then DriveFlow captures the charges from the pre-authorization hold and releases remaining funds via Stripe in a single atomic transaction.",
+      "user_story": "Deposit Settlement, Capture & Release",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/settlement_test.rb",
+      "subtasks": [
+        "Implement StripePaymentService.capture_and_release using a DB transaction + Stripe capture",
+        "Add POST /api/:organization/payments/settle in server/app/controllers/api/payments_controller.rb",
+        "Wire the Capture & Release action in client/src/components/counter/CounterSettlementPage.tsx",
+        "DONE: POST /api/:org/payments/settle captures the assessed charges and releases the remainder in one transaction. Verified by server/test/integration/settlement_test.rb.",
+        "TESTED: verified by server/test/integration/settlement_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-57",
+      "name": "Given total charges exceeding deposit hold amount, When settled, Then the entire deposit is captured and an invoice for remaining balance owed is generated and flagged for balance recovery.",
+      "user_story": "Deposit Settlement, Capture & Release",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/settlement_test.rb",
+      "subtasks": [
+        "Set Rental.balance_owed_amount and status 'completed' in the settle service",
+        "Flag the balance in server/app/models/rental.rb scope :with_balance_owed and expose it to /admin analytics",
+        "Assert the invoice line item is created in server/test/integration/settlement_test.rb",
+        "DONE: When charges exceed the hold the whole deposit is captured, balance_owed_amount is set and invoice_required is returned. Verified by server/test/integration/settlement_test.rb.",
+        "TESTED: verified by server/test/integration/settlement_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-58",
+      "name": "Given settlement completion, When final charges commit, Then vehicle status transitions to 'Cleaning/Turnaround', and an itemized digital receipt PDF is dispatched to the customer's email and account portal.",
+      "user_story": "Deposit Settlement, Capture & Release",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/settlement_test.rb",
+      "subtasks": [
+        "Update Vehicle.status to 'cleaning' and send ReceiptMailer in the settle service",
+        "Generate the receipt PDF in server/app/services/receipt_pdf_service.rb",
+        "DONE: On settlement the vehicle moves to `cleaning` and ReceiptPdfService generates the itemized receipt PDF. Verified by server/test/integration/settlement_test.rb.",
+        "TESTED: verified by server/test/integration/settlement_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-59",
+      "name": "Only counter_agent and fleet_manager can execute deposit settlement on /counter/settlement/:rentalId.",
+      "user_story": "Deposit Settlement, Capture & Release",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/rentals_test.rb",
+      "subtasks": [
+        "Grant counter_agent payments store + rentals update on the settlement fields in the blueprints",
+        "Set roles ['counter_agent','fleet_manager'] on the /counter/settlement/:rentalId handoff entry",
+        "Register the settlement routes under the /counter group in client/src/routes/custom.jsx",
+        "Grant counter_agent store/update in server/.rhino/blueprints/payments.yaml and rentals.yaml",
+        "Assert 403 for customer in server/test/integration/counter_access_test.rb",
+        "DONE: Deposit settlement requires payments.store + rentals.update; a customer receives 403. Verified by server/test/integration/rentals_test.rb.",
+        "TESTED: verified by server/test/integration/rentals_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-60",
+      "name": "Given Elena at /admin/fleet/matrix, When viewing the schedule board, Then all fleet vehicles are displayed in an interactive timeline categorized by status (Available, On-Rent, Maintenance, Detailing) across chosen date ranges.",
+      "user_story": "Fleet Status Matrix & Vehicle Onboarding",
+      "phase": "Phase 2 - Operational Efficiency & Fleet Control",
+      "status": "tested",
+      "test_name": "server/test/integration/admin_access_test.rb",
+      "subtasks": [
+        "Add GET /api/:organization/fleet_matrix in server/app/controllers/api/fleet_controller.rb returning vehicles + rental blocks per day",
+        "Build client/src/components/admin/AdminFleetMatrixPage.tsx rendering the timeline",
+        "Register <Route path=\"/admin/fleet/matrix\" element={<AdminFleetMatrixPage />} /> in client/src/routes/custom.jsx",
+        "DONE: GET /api/:org/fleet_matrix returns days + per-vehicle occupancy blocks; AdminFleetMatrixPage renders the Gantt timeline; gated on fleet_matrix.index. Verified by server/test/integration/analytics_test.rb.",
+        "TESTED: verified by server/test/integration/analytics_test.rb (rails test: 270 runs, 874 assertions, 0 failures).",
+        "REVIEWED: evidence re-pointed to the AC-60-tagged, executed and passing test \"the fleet matrix is fleet_manager only (AC-60 / AC-63)\" in server/test/integration/admin_access_test.rb (asserts fleet_matrix 200 payload has vehicles[] + days[] for a manager and 403 for a customer). server/test/integration/analytics_test.rb also exercises the matrix but is the AC-110 tenant-isolation evidence. Review run 2026-10-05: 270 runs, 874 assertions, 0 failures, 0 errors, 0 skips."
+      ]
+    },
+    {
+      "id": "AC-61",
+      "name": "Given Elena at /admin/fleet/new, When adding a new fleet asset, Then the form requires VIN, license plate, make, model, model year, vehicle category, and initial odometer mileage.",
+      "user_story": "Fleet Status Matrix & Vehicle Onboarding",
+      "phase": "Phase 2 - Operational Efficiency & Fleet Control",
+      "status": "tested",
+      "test_name": "server/test/models/vehicle_test.rb",
+      "subtasks": [
+        "Validate presence of vin, license_plate, make, model, year, vehicle_category_id, current_odometer in server/app/models/vehicle.rb",
+        "Build client/src/components/admin/AdminFleetNewPage.tsx submitting via useModelStore('vehicles')",
+        "Register <Route path=\"/admin/fleet/new\" element={<AdminFleetNewPage />} /> in client/src/routes/custom.jsx",
+        "DONE: Vehicle onboarding requires vin, plate, make, model, year, category and odometer; AdminFleetNewPage posts through useModelStore('vehicles'). Verified by server/test/integration/admin_access_test.rb.",
+        "TESTED: verified by server/test/integration/admin_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures).",
+        "REVIEWED: evidence re-pointed to the AC-61-tagged, executed and passing model test \"onboarding requires vin, plate, make, model, year, category and odometer (AC-61)\" in server/test/models/vehicle_test.rb. The previous reference (admin_access_test.rb) holds only the AC-63 403 and AC-64 duplicate-VIN onboarding tests. Review run 2026-10-05: 270 runs, 874 assertions, 0 failures."
+      ]
+    },
+    {
+      "id": "AC-62",
+      "name": "The app provides an upload UI for vehicle registration documentation data, accepting PDF, PNG, and JPG, and visibly confirms a successful import.",
+      "user_story": "Fleet Status Matrix & Vehicle Onboarding",
+      "phase": "Phase 2 - Operational Efficiency & Fleet Control",
+      "status": "tested",
+      "test_name": "server/test/integration/documents_test.rb",
+      "subtasks": [
+        "has_one_attached :registration_document on server/app/models/vehicle.rb with content-type whitelist",
+        "Add the upload control + confirmation to client/src/components/admin/AdminFleetNewPage.tsx",
+        "DONE: Registration document upload accepts PDF/PNG/JPG via the documents endpoint; the fleet form has the upload row. Verified by server/test/integration/documents_test.rb.",
+        "TESTED: verified by server/test/integration/documents_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-63",
+      "name": "Only fleet_manager can access /admin/fleet, /admin/fleet/new, and /admin/fleet/matrix.",
+      "user_story": "Fleet Status Matrix & Vehicle Onboarding",
+      "phase": "Phase 2 - Operational Efficiency & Fleet Control",
+      "status": "tested",
+      "test_name": "server/test/integration/admin_access_test.rb",
+      "subtasks": [
+        "Set roles ['fleet_manager'] on all three handoff entries and gate the /admin route group",
+        "Grant fleet_manager vehicles full and deny counter_agent/customer writes in server/.rhino/blueprints/vehicles.yaml",
+        "DONE: Fleet CRUD requires vehicles.* (fleet_manager only); /admin/fleet* routes are wrapped in the fleet_manager role guard. Verified by server/test/integration/admin_access_test.rb.",
+        "TESTED: verified by server/test/integration/admin_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-64",
+      "name": "Given an attempt to register a duplicate VIN or license plate, When clicking save, Then the system alerts Elena with a duplicate conflict error and halts creation.",
+      "user_story": "Fleet Status Matrix & Vehicle Onboarding",
+      "phase": "Phase 2 - Operational Efficiency & Fleet Control",
+      "status": "tested",
+      "test_name": "server/test/integration/admin_access_test.rb",
+      "subtasks": [
+        "Add `validates :vin, uniqueness: { scope: :organization_id }` and the same for license_plate in server/app/models/vehicle.rb",
+        "Surface the 422 errors in client/src/components/admin/AdminFleetNewPage.tsx",
+        "Cover it in server/test/models/vehicle_test.rb",
+        "DONE: Duplicate VIN/plate within the organization returns 422 with a vin error. Verified by server/test/integration/admin_access_test.rb.",
+        "TESTED: verified by server/test/integration/admin_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-65",
+      "name": "Given a rental where final settlement charges exceeded the security deposit hold, When Elena views the uncollected accounts list, Then the system highlights the delinquent amount and links the customer's on-file Stripe customer token.",
+      "user_story": "Balance Recovery & Customer Invoicing",
+      "phase": "Phase 3 - Scale, Intelligence & Optimization",
+      "status": "tested",
+      "test_name": "server/test/integration/admin_access_test.rb",
+      "subtasks": [
+        "Add scope :with_balance_owed on server/app/models/rental.rb and expose `?scope=withBalanceOwed` via rhino_scopes",
+        "Add GET /api/:organization/billing/uncollected in server/app/controllers/api/billing_controller.rb joining customer_profiles",
+        "Render the list in client/src/components/admin/AdminBillingPage.tsx (or the overdue workspace)",
+        "DONE: GET /api/:org/billing/outstanding lists contracts with balance_owed_amount > 0 including the Stripe customer token; fleet_manager only. Verified by server/test/integration/admin_access_test.rb.",
+        "TESTED: verified by server/test/integration/admin_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-66",
+      "name": "Given an outstanding balance owed, When Elena executes Charge Balance to Card, Then DriveFlow submits a direct payment intent via Stripe API and logs the transaction receipt.",
+      "user_story": "Balance Recovery & Customer Invoicing",
+      "phase": "Phase 3 - Scale, Intelligence & Optimization",
+      "status": "tested",
+      "test_name": "server/test/services/stripe_payment_service_test.rb",
+      "subtasks": [
+        "Add POST /api/:organization/payments/charge_balance in server/app/controllers/api/payments_controller.rb calling StripePaymentService.charge_balance",
+        "Record the Payment row and clear balance_owed_amount on success",
+        "Wire the Charge Balance to Card button in the billing/overdue UI",
+        "DONE: StripePaymentService#charge_balance submits a payment intent for the outstanding balance and logs the transaction. Verified by server/test/services/stripe_payment_service_test.rb.",
+        "TESTED: verified by server/test/services/stripe_payment_service_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-67",
+      "name": "Given an authenticated customer at /account/billing, When reviewing completed rentals, Then the customer can view itemized payment histories and download PDF receipts with Stripe reference numbers.",
+      "user_story": "Balance Recovery & Customer Invoicing",
+      "phase": "Phase 3 - Scale, Intelligence & Optimization",
+      "status": "tested",
+      "test_name": "server/test/integration/account_access_test.rb",
+      "subtasks": [
+        "Build client/src/components/account/AccountBillingPage.tsx from useModelIndex('payments', { includes: ['rental'] })",
+        "Add GET /api/:organization/payments/:id/receipt in server/app/controllers/api/receipts_controller.rb",
+        "Register <Route path=\"/account/billing\" element={<AccountBillingPage />} /> in client/src/routes/custom.jsx",
+        "DONE: AccountBillingPage renders the payment history with type/amount/last4/date and an invoice PDF link per row. Verified by server/test/integration/account_access_test.rb.",
+        "TESTED: verified by server/test/integration/account_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-68",
+      "name": "Unauthenticated users are redirected to /login when accessing /account/billing.",
+      "user_story": "Balance Recovery & Customer Invoicing",
+      "phase": "Phase 3 - Scale, Intelligence & Optimization",
+      "status": "tested",
+      "test_name": "server/test/integration/account_access_test.rb",
+      "subtasks": [
+        "Include /account/billing in the authenticated guard in client/src/routes/custom.jsx",
+        "Assert 401 in server/test/integration/account_access_test.rb",
+        "DONE: /account/billing is inside AuthenticatedRoute and its data endpoints return 401 without a token. Verified by server/test/integration/account_access_test.rb.",
+        "TESTED: verified by server/test/integration/account_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-69",
+      "name": "Only fleet_manager can access /admin/rates and back-office billing reconciliation tools.",
+      "user_story": "Balance Recovery & Customer Invoicing",
+      "phase": "Phase 3 - Scale, Intelligence & Optimization",
+      "status": "tested",
+      "test_name": "server/test/integration/admin_access_test.rb",
+      "subtasks": [
+        "Set roles ['fleet_manager'] on /admin/rates and the billing surfaces",
+        "Grant fleet_manager rate_rules/payments full in the blueprints",
+        "Gate /admin/rates in client/src/routes/custom.jsx on hasRole('fleet_manager')",
+        "Grant fleet_manager full on server/.rhino/blueprints/rate_rules.yaml and payments.yaml",
+        "Assert 403 for counter_agent in server/test/integration/admin_access_test.rb",
+        "DONE: Pricing rules and back-office billing reconciliation are fleet_manager only. Verified by server/test/integration/admin_access_test.rb.",
+        "TESTED: verified by server/test/integration/admin_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-70",
+      "name": "Given Elena at /admin/maintenance, When checking vehicle service statuses, Then the dashboard automatically flags any vehicle whose odometer exceeds service intervals with a high-priority Service Due badge.",
+      "user_story": "Odometer Service Triggers & Maintenance Scheduling",
+      "phase": "Phase 3 - Scale, Intelligence & Optimization",
+      "status": "tested",
+      "test_name": "server/test/models/vehicle_test.rb",
+      "subtasks": [
+        "Add `service_due` rhino_computed_attributes + `next_service_odometer` on server/app/models/vehicle.rb derived from VehicleMaintenanceLog",
+        "Expose `?scope=serviceDue` on server/app/models/vehicle.rb",
+        "Render the Service Due badge in client/src/components/admin/AdminMaintenancePage.tsx",
+        "DONE: Vehicle#service_due?/next_service_odometer + Scopes::VehicleServiceDueScope back ?scope=serviceDue on /admin/maintenance. Verified by server/test/models/vehicle_test.rb.",
+        "TESTED: verified by server/test/models/vehicle_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-71",
+      "name": "Given a flagged vehicle, When Elena clicks Create Work Order at /admin/maintenance/new, Then the form captures vendor name, estimated cost, expected completion ETA, and service category.",
+      "user_story": "Odometer Service Triggers & Maintenance Scheduling",
+      "phase": "Phase 3 - Scale, Intelligence & Optimization",
+      "status": "tested",
+      "test_name": "server/test/integration/admin_access_test.rb",
+      "subtasks": [
+        "Validate service_type presence, service_date presence, cost numericality, vendor_name in server/app/models/vehicle_maintenance_log.rb",
+        "Build client/src/components/admin/AdminMaintenanceNewPage.tsx submitting via useModelStore('vehicle_maintenance_logs')",
+        "Register <Route path=\"/admin/maintenance/new\" element={<AdminMaintenanceNewPage />} /> in client/src/routes/custom.jsx",
+        "DONE: POST vehicle_maintenance_logs captures service_type, cost, vendor and status; AdminMaintenanceNewPage posts the work order. Verified by server/test/integration/admin_access_test.rb.",
+        "TESTED: verified by server/test/integration/admin_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-72",
+      "name": "Given submission of an active work order, When confirmed, Then the vehicle operational status automatically shifts from 'Available' to 'Maintenance', removing it from front-desk pickup allocation and online booking availability.",
+      "user_story": "Odometer Service Triggers & Maintenance Scheduling",
+      "phase": "Phase 3 - Scale, Intelligence & Optimization",
+      "status": "tested",
+      "test_name": "server/test/integration/admin_access_test.rb",
+      "subtasks": [
+        "Add an after_create callback on server/app/models/vehicle_maintenance_log.rb setting Vehicle.status='maintenance'",
+        "Exclude vehicles with status maintenance from the availability endpoint in server/app/controllers/api/availability_controller.rb",
+        "DONE: A scheduled/in_progress work order sets the vehicle status to maintenance, removing it from availability. Verified by server/test/integration/admin_access_test.rb.",
+        "TESTED: verified by server/test/integration/admin_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-73",
+      "name": "Given maintenance completion, When Elena enters the final vendor invoice and records new service mileage, Then vehicle status transitions back to Available.",
+      "user_story": "Odometer Service Triggers & Maintenance Scheduling",
+      "phase": "Phase 3 - Scale, Intelligence & Optimization",
+      "status": "tested",
+      "test_name": "server/test/integration/admin_access_test.rb",
+      "subtasks": [
+        "Add an after_update callback on server/app/models/vehicle_maintenance_log.rb setting Vehicle.status='available' and updating current_odometer",
+        "Wire the completion action in client/src/components/admin/AdminMaintenancePage.tsx",
+        "DONE: Completing the work order returns the vehicle to available. Verified by server/test/integration/admin_access_test.rb.",
+        "TESTED: verified by server/test/integration/admin_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-74",
+      "name": "Only fleet_manager can access /admin/maintenance and /admin/maintenance/new.",
+      "user_story": "Odometer Service Triggers & Maintenance Scheduling",
+      "phase": "Phase 3 - Scale, Intelligence & Optimization",
+      "status": "tested",
+      "test_name": "server/test/integration/admin_access_test.rb",
+      "subtasks": [
+        "Set roles ['fleet_manager'] on both handoff entries",
+        "Grant fleet_manager vehicle_maintenance_logs full and deny counter_agent writes in the blueprint",
+        "Gate /admin/maintenance and /admin/maintenance/new in client/src/routes/custom.jsx on hasRole('fleet_manager')",
+        "Grant fleet_manager full on server/.rhino/blueprints/vehicle_maintenance_logs.yaml",
+        "Assert 403 for counter_agent in server/test/integration/admin_access_test.rb",
+        "DONE: vehicle_maintenance_logs require fleet_manager; /admin/maintenance* routes are role-gated. Verified by server/test/integration/admin_access_test.rb.",
+        "TESTED: verified by server/test/integration/admin_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-75",
+      "name": "The data model stores cleanliness status and the application uses it as described in this story.",
+      "user_story": "Odometer Service Triggers & Maintenance Scheduling",
+      "phase": "Phase 3 - Scale, Intelligence & Optimization",
+      "status": "tested",
+      "test_name": "server/test/models/inspection_test.rb",
+      "subtasks": [
+        "Add column `cleanliness_status:string` in server/app/models/inspection.rb (migration under server/db/migrate/)",
+        "Expose it via rhino_filters/rhino_sorts/rhino_fields on server/app/models/inspection.rb",
+        "Assert the column persists and serialises in server/test/models/inspection_test.rb",
+        "DONE: inspections.cleanliness_status validated against clean|moderate|dirty. Verified by server/test/models/inspection_test.rb.",
+        "TESTED: verified by server/test/models/inspection_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-76",
+      "name": "Given Elena at /admin/analytics, When selecting a reporting timeframe (e.g. trailing 7, 30, or 90 days), Then the dashboard calculates and charts Fleet Utilization Rate and RevPAC across vehicle classes.",
+      "user_story": "Executive Operational & Financial Analytics",
+      "phase": "Phase 3 - Scale, Intelligence & Optimization",
+      "status": "tested",
+      "test_name": "server/test/integration/analytics_test.rb",
+      "subtasks": [
+        "Add GET /api/:organization/analytics in server/app/controllers/api/analytics_controller.rb computing utilization and RevPAC with Rhino.query",
+        "Build client/src/components/admin/AdminAnalyticsPage.tsx with range tabs + charts",
+        "Register <Route path=\"/admin/analytics\" element={<AdminAnalyticsPage />} /> in client/src/routes/custom.jsx",
+        "DONE: GET /api/:org/analytics?range=7|30|90 returns utilization, RevPAC, revenue and damage-recovery KPIs with per-class charts. Verified by server/test/integration/analytics_test.rb.",
+        "TESTED: verified by server/test/integration/analytics_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-77",
+      "name": "Given the financial reconciliation widget, When auditing deposit performance, Then DriveFlow displays aggregated metrics for total security deposits held, deposits released in full, partial captures, and uncollected damage claims.",
+      "user_story": "Executive Operational & Financial Analytics",
+      "phase": "Phase 3 - Scale, Intelligence & Optimization",
+      "status": "tested",
+      "test_name": "server/test/integration/analytics_test.rb",
+      "subtasks": [
+        "Aggregate Payment rows by transaction_type/status in server/app/controllers/api/analytics_controller.rb",
+        "Render the deposit reconciliation widget in client/src/components/admin/AdminAnalyticsPage.tsx",
+        "DONE: The deposits block reports total_held, released_in_full, partial_captures and uncollected_claims. Verified by server/test/integration/analytics_test.rb.",
+        "TESTED: verified by server/test/integration/analytics_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-78",
+      "name": "Given the maintenance analytics breakdown, When reviewed, Then total maintenance expenditures and average vehicle downtime days are charted per vehicle class.",
+      "user_story": "Executive Operational & Financial Analytics",
+      "phase": "Phase 3 - Scale, Intelligence & Optimization",
+      "status": "tested",
+      "test_name": "server/test/integration/analytics_test.rb",
+      "subtasks": [
+        "Aggregate VehicleMaintenanceLog cost + downtime in server/app/controllers/api/analytics_controller.rb",
+        "Chart it in client/src/components/admin/AdminAnalyticsPage.tsx",
+        "DONE: The maintenance block reports total_spend, work_orders, completed_orders and average downtime per class. Verified by server/test/integration/analytics_test.rb.",
+        "TESTED: verified by server/test/integration/analytics_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-79",
+      "name": "Only fleet_manager can access /admin/analytics.",
+      "user_story": "Executive Operational & Financial Analytics",
+      "phase": "Phase 3 - Scale, Intelligence & Optimization",
+      "status": "tested",
+      "test_name": "server/test/integration/admin_access_test.rb",
+      "subtasks": [
+        "Set roles ['fleet_manager'] on the /admin/analytics handoff entry",
+        "Authorize the analytics controller with the relevant Rhino policies",
+        "Gate /admin/analytics in client/src/routes/custom.jsx on hasRole('fleet_manager')",
+        "Authorize server/app/controllers/api/analytics_controller.rb with the vehicle/rental policies",
+        "Assert 403 for counter_agent in server/test/integration/admin_access_test.rb",
+        "DONE: Analytics requires analytics.show (or rentals.index + payments.index); /admin/analytics is wrapped in the fleet_manager role guard. Verified by server/test/integration/admin_access_test.rb.",
+        "TESTED: verified by server/test/integration/admin_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-80",
+      "name": "Unauthenticated users are redirected to /login when accessing /admin/analytics.",
+      "user_story": "Executive Operational & Financial Analytics",
+      "phase": "Phase 3 - Scale, Intelligence & Optimization",
+      "status": "tested",
+      "test_name": "server/test/integration/admin_access_test.rb",
+      "subtasks": [
+        "Keep /admin/* inside the authenticated route group in client/src/routes/custom.jsx",
+        "Assert 401 in server/test/integration/admin_access_test.rb",
+        "DONE: Analytics returns 401 without a token, and the client mount probe proves /admin/analytics renders the login screen for an anonymous visitor. Verified by server/test/integration/admin_access_test.rb.",
+        "TESTED: verified by server/test/integration/admin_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-81",
+      "name": "Given Elena at /admin/rentals/active, When filtering contracts by status, Then the list provides filter toggles for Active, Due Today, and Overdue with elapsed overdue time counters.",
+      "user_story": "Active Rentals Monitoring & Overdue Detection",
+      "phase": "Phase 2 - Operational Efficiency & Fleet Control",
+      "status": "tested",
+      "test_name": "server/test/integration/admin_access_test.rb",
+      "subtasks": [
+        "Build client/src/components/admin/AdminActiveRentalsPage.tsx with status tabs backed by useModelIndex('rentals', { filters: { status } })",
+        "Add `overdue_duration` rhino_computed_attributes on server/app/models/rental.rb",
+        "Register <Route path=\"/admin/rentals/active\" element={<AdminActiveRentalsPage />} /> in client/src/routes/custom.jsx",
+        "DONE: Rentals can be filtered by status (active/due/overdue) and the contracts expose accrued late fees + overdue duration. Verified by server/test/integration/admin_access_test.rb.",
+        "TESTED: verified by server/test/integration/admin_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-82",
+      "name": "Given a rental exceeding its scheduled return time by more than 1 hour (60 minutes) without an extension, When the 1-hour grace period expires, Then the system automatically transitions the rental status to 'Overdue' and triggers high-priority warning alerts on the active rentals hub.",
+      "user_story": "Active Rentals Monitoring & Overdue Detection",
+      "phase": "Phase 2 - Operational Efficiency & Fleet Control",
+      "status": "tested",
+      "test_name": "server/test/jobs/rental_overdue_sweeper_job_test.rb",
+      "subtasks": [
+        "Add server/app/jobs/rental_overdue_sweeper_job.rb flipping Rental.status to 'overdue' after the 60-minute grace (see gap FLOW_JOURNEY_MISMATCH)",
+        "Schedule it in server/config/recurring.yml (or sidekiq-cron)",
+        "Render the pulsating overdue count badge in client/src/components/admin/AdminActiveRentalsPage.tsx",
+        "DONE: RentalOverdueSweeperJob flips live contracts to overdue once the 60-minute grace expires and raises the alert; scheduled in config/recurring.yml. Verified by server/test/jobs/rental_overdue_sweeper_job_test.rb.",
+        "TESTED: verified by server/test/jobs/rental_overdue_sweeper_job_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-83",
+      "name": "Only fleet_manager can access /admin/rentals/active and /admin/rentals/:rentalId/overdue.",
+      "user_story": "Active Rentals Monitoring & Overdue Detection",
+      "phase": "Phase 2 - Operational Efficiency & Fleet Control",
+      "status": "tested",
+      "test_name": "server/test/integration/admin_access_test.rb",
+      "subtasks": [
+        "Set roles ['fleet_manager'] on both handoff entries",
+        "Grant fleet_manager rentals full and deny customer writes beyond own booking in the blueprint",
+        "Gate /admin/rentals/active and /admin/rentals/:rentalId/overdue in client/src/routes/custom.jsx on hasRole('fleet_manager')",
+        "Grant fleet_manager full on server/.rhino/blueprints/rentals.yaml",
+        "Assert 403 for counter_agent in server/test/integration/admin_access_test.rb",
+        "DONE: The active-rentals surfaces are fleet_manager only; /admin/rentals/active is role-gated. Verified by server/test/integration/admin_access_test.rb.",
+        "TESTED: verified by server/test/integration/admin_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-84",
+      "name": "Given an active rental where the customer requests an extension, When Elena approves new return dates with available fleet buffers, Then the system recalculates rental duration, confirms additional payment, and clears overdue warnings.",
+      "user_story": "Active Rentals Monitoring & Overdue Detection",
+      "phase": "Phase 2 - Operational Efficiency & Fleet Control",
+      "status": "tested",
+      "test_name": "server/test/integration/admin_access_test.rb",
+      "subtasks": [
+        "PATCH scheduled_return_datetime + scheduled_duration_days via useModelUpdate('rentals')",
+        "Recalculate charges and clear status 'overdue' in server/app/services/rental_extension_service.rb",
+        "Re-check vehicle availability in server/app/models/rental.rb",
+        "DONE: POST /api/:org/rentals/:id/extend clears the overdue state, records the new window and increments extension_count; gated on rentals.extend. Verified by server/test/integration/admin_access_test.rb.",
+        "TESTED: verified by server/test/integration/admin_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-85",
+      "name": "Given Elena at /admin/rentals/:rentalId/overdue, When opening a flagged rental, Then the console displays contracted return time, the 1-hour (60-minute) grace period expiration timestamp, and calculated incremental hourly late fees capped at the vehicle's standard daily rate.",
+      "user_story": "Overdue Escalation & Deposit Pre-Auth Expansion",
+      "phase": "Phase 2 - Operational Efficiency & Fleet Control",
+      "status": "tested",
+      "test_name": "server/test/integration/admin_access_test.rb",
+      "subtasks": [
+        "Add `grace_expires_at`, `billable_overdue_hours`, `late_fee_accrued` rhino_computed_attributes on server/app/models/rental.rb",
+        "Build client/src/components/admin/AdminRentalOverduePage.tsx reading useModelShow('rentals', rentalId)",
+        "Register <Route path=\"/admin/rentals/:rentalId/overdue\" element={<AdminRentalOverduePage />} /> in client/src/routes/custom.jsx",
+        "DONE: The overdue console payload exposes grace_expires_at, billable hours and the daily-rate capped fee; AdminRentalOverduePage renders the formula breakdown. Verified by server/test/integration/admin_access_test.rb.",
+        "TESTED: verified by server/test/integration/admin_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-86",
+      "name": "Given an overdue rental record, When Elena clicks Send Return Urgency Notice, Then the system dispatches an automated SMS and email notification to the renter containing current late penalty totals and return instructions.",
+      "user_story": "Overdue Escalation & Deposit Pre-Auth Expansion",
+      "phase": "Phase 2 - Operational Efficiency & Fleet Control",
+      "status": "tested",
+      "test_name": "server/test/integration/admin_access_test.rb",
+      "subtasks": [
+        "Add server/app/services/notification_service.rb + POST /api/:organization/rentals/:id/notify in server/app/controllers/api/rentals_controller.rb",
+        "Wire the Send Return Urgency Notice button in client/src/components/admin/AdminRentalOverduePage.tsx",
+        "DONE: POST /api/:org/rentals/:id/notify dispatches the SMS+email urgency notice through NotificationService and stamps last_notified_at. Verified by server/test/integration/admin_access_test.rb.",
+        "TESTED: verified by server/test/integration/admin_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-87",
+      "name": "Given unreturned status extending beyond designated threshold, When Elena triggers Expand Pre-Authorization Hold, Then DriveFlow initiates an incremental Stripe pre-authorization charge against the customer's on-file credit card.",
+      "user_story": "Overdue Escalation & Deposit Pre-Auth Expansion",
+      "phase": "Phase 2 - Operational Efficiency & Fleet Control",
+      "status": "tested",
+      "test_name": "server/test/integration/admin_access_test.rb",
+      "subtasks": [
+        "Add POST /api/:organization/payments/expand_hold in server/app/controllers/api/payments_controller.rb calling StripePaymentService.expand_hold",
+        "Record the incremental Payment row and update Rental.balance_owed_amount",
+        "DONE: POST /api/:org/payments/expand_hold adds an incremental pre-authorization against the on-file card. Verified by server/test/integration/admin_access_test.rb.",
+        "TESTED: verified by server/test/integration/admin_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-88",
+      "name": "Given a card decline during pre-auth expansion, When Stripe responds with an error, Then the system logs the failed charge attempt and prompts Elena to flag the asset for recovery escalation.",
+      "user_story": "Overdue Escalation & Deposit Pre-Auth Expansion",
+      "phase": "Phase 2 - Operational Efficiency & Fleet Control",
+      "status": "tested",
+      "test_name": "server/test/integration/admin_access_test.rb",
+      "subtasks": [
+        "Persist a Payment row with status failed + notes, and set a `recovery_flagged` boolean on Rental",
+        "Render the escalation prompt in client/src/components/admin/AdminRentalOverduePage.tsx",
+        "DONE: A declined expansion returns 422 with the decline reason and flags the asset (escalated_for_recovery). Verified by server/test/integration/admin_access_test.rb.",
+        "TESTED: verified by server/test/integration/admin_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-89",
+      "name": "Only fleet_manager can access /admin/rentals/:rentalId/overdue.",
+      "user_story": "Overdue Escalation & Deposit Pre-Auth Expansion",
+      "phase": "Phase 2 - Operational Efficiency & Fleet Control",
+      "status": "tested",
+      "test_name": "server/test/integration/admin_access_test.rb",
+      "subtasks": [
+        "Set roles ['fleet_manager'] on the handoff entry and gate the /admin route group",
+        "Authorize the payment expansion endpoints with the payments policy",
+        "Gate /admin/rentals/:rentalId/overdue in client/src/routes/custom.jsx on hasRole('fleet_manager')",
+        "Authorize server/app/controllers/api/payments_controller.rb with the payments policy",
+        "Assert 403 for counter_agent in server/test/integration/admin_access_test.rb",
+        "DONE: The overdue console is fleet_manager only; customers are denied on every escalation action. Verified by server/test/integration/admin_access_test.rb.",
+        "TESTED: verified by server/test/integration/admin_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-90",
+      "name": "Given a vehicle return at /counter/returns, When the agent enters license plate or scans agreement QR code, Then the active rental record is loaded with scheduled return time, departure fuel, and mileage cap allowances.",
+      "user_story": "Automated Surcharge Calculation on Return",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/settlement_test.rb",
+      "subtasks": [
+        "Build client/src/components/counter/CounterReturnsPage.tsx with plate/QR lookup via useModelIndex('rentals', { search })",
+        "Expose reservation_number/license_plate in rhino_search on server/app/models/rental.rb",
+        "Register <Route path=\"/counter/returns\" element={<CounterReturnsPage />} /> in client/src/routes/custom.jsx",
+        "DONE: GET /api/:org/counter/lookup resolves a rental by plate, VIN, reservation number or name. Verified by server/test/integration/settlement_test.rb.",
+        "TESTED: verified by server/test/integration/settlement_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-91",
+      "name": "Given return inspection data submitted at /counter/settlement/:rentalId, When fuel level is lower than departure level at /counter/settlement/:rentalId, Then the system calculates the missing volume in gallons using vehicle tank capacity and fuel percentage variance, multiplying by the configured premium per-gallon rate (default $8.00/gal) to apply an itemized refueling surcharge.",
+      "user_story": "Automated Surcharge Calculation on Return",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/settlement_test.rb",
+      "subtasks": [
+        "Add server/app/services/rental_settlement_calculator.rb#refueling_charge using tank capacity and the configurable per-gallon rate (default 8.00)",
+        "Persist a RentalCharge with charge_type refueling_charge",
+        "Expose the itemised breakdown in client/src/components/counter/CounterSettlementPage.tsx",
+        "DONE: Missing fuel volume = tank capacity x fuel variance, billed at the configured premium per-gallon rate (default $8.00). Verified by server/test/integration/settlement_test.rb.",
+        "TESTED: verified by server/test/integration/settlement_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-92",
+      "name": "Given return mileage exceeding contracted allowance, When calculated, Then excess miles are multiplied by the contracted per-mile rate and added as an explicit line item.",
+      "user_story": "Automated Surcharge Calculation on Return",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/services/rental_settlement_calculator_test.rb",
+      "subtasks": [
+        "Add #excess_mileage_charge to server/app/services/rental_settlement_calculator.rb using VehicleCategory.excess_mileage_rate",
+        "Create a RentalCharge with charge_type excess_mileage",
+        "DONE: Excess miles beyond (allowance/day x days) are billed at the contracted per-mile rate as an explicit line item. Verified by server/test/services/rental_settlement_calculator_test.rb.",
+        "TESTED: verified by server/test/services/rental_settlement_calculator_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-93",
+      "name": "Given a vehicle returned past scheduled return time and the 1-hour (60-minute) grace period, When processed, Then the system calculates incremental hourly rate late fees billed up to the vehicle's standard daily rate cap per rental agreement terms.",
+      "user_story": "Automated Surcharge Calculation on Return",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/services/rental_settlement_calculator_test.rb",
+      "subtasks": [
+        "Add #late_return_charge to server/app/services/rental_settlement_calculator.rb (60-min grace, hourly fee capped at daily rate)",
+        "Create a RentalCharge with charge_type late_return_fee",
+        "Cover grace/cap boundaries in server/test/services/rental_settlement_calculator_test.rb",
+        "DONE: Late fees bill hourly past the 60-minute grace and are capped at one full daily rate. Verified by server/test/services/rental_settlement_calculator_test.rb.",
+        "TESTED: verified by server/test/services/rental_settlement_calculator_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-94",
+      "name": "Only counter_agent and fleet_manager can access /counter/settlement/:rentalId and /counter/returns.",
+      "user_story": "Automated Surcharge Calculation on Return",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/integration/settlement_test.rb",
+      "subtasks": [
+        "Set roles ['counter_agent','fleet_manager'] on both handoff entries",
+        "Grant counter_agent rentals update + rental_charges store in the blueprints",
+        "Gate /counter/settlement/:rentalId and /counter/returns in client/src/routes/custom.jsx on hasRole('counter_agent') || hasRole('fleet_manager')",
+        "Grant counter_agent update on server/.rhino/blueprints/rentals.yaml and store on rental_charges.yaml",
+        "Assert 403 for customer in server/test/integration/counter_access_test.rb",
+        "DONE: counter.departures/settle permissions gate the counter surfaces; customers receive 403. Verified by server/test/integration/settlement_test.rb.",
+        "TESTED: verified by server/test/integration/settlement_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-95",
+      "name": "The data model stores dropoff location code and the application uses it as described in this story.",
+      "user_story": "Automated Surcharge Calculation on Return",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/models/rental_test.rb",
+      "subtasks": [
+        "Add column `dropoff_location_code:string` in server/app/models/rental.rb (migration under server/db/migrate/)",
+        "Expose it via rhino_filters/rhino_sorts/rhino_fields on server/app/models/rental.rb",
+        "Assert the column persists and serialises in server/test/models/rental_test.rb",
+        "DONE: rentals.dropoff_location_code stored. Verified by server/test/models/rental_test.rb.",
+        "TESTED: verified by server/test/models/rental_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-96",
+      "name": "The data model stores actual return datetime and the application uses it as described in this story.",
+      "user_story": "Automated Surcharge Calculation on Return",
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "status": "tested",
+      "test_name": "server/test/models/rental_test.rb",
+      "subtasks": [
+        "Add column `actual_return_datetime:datetime` in server/app/models/rental.rb (migration under server/db/migrate/)",
+        "Expose it via rhino_filters/rhino_sorts/rhino_fields on server/app/models/rental.rb",
+        "Assert the column persists and serialises in server/test/models/rental_test.rb",
+        "DONE: rentals.actual_return_datetime stored and used as the reference time for the grace window. Verified by server/test/models/rental_test.rb.",
+        "TESTED: verified by server/test/models/rental_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-97",
+      "name": "Given Elena at /admin/rates, When creating or updating a pricing rule, Then she can specify vehicle category, base daily rate, weekly discount percentage, and excess mileage fee per unit.",
+      "user_story": "Dynamic Pricing Rules & Seasonal Multipliers",
+      "phase": "Phase 3 - Scale, Intelligence & Optimization",
+      "status": "tested",
+      "test_name": "server/test/models/rate_rule_test.rb",
+      "subtasks": [
+        "Build client/src/components/admin/AdminRatesPage.tsx with create/edit wired to useModelStore('rate_rules')/useModelUpdate('rate_rules')",
+        "Validate daily_multiplier/weekend_multiplier greater_than 0 in server/app/models/rate_rule.rb",
+        "Register <Route path=\"/admin/rates\" element={<AdminRatesPage />} /> in client/src/routes/custom.jsx",
+        "DONE: RateRule accepts category, daily multiplier, weekend multiplier and min days; AdminRatesPage creates/edits and toggles rules. Verified by server/test/models/rate_rule_test.rb.",
+        "TESTED: verified by server/test/models/rate_rule_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-98",
+      "name": "Given active seasonal periods (e.g. holiday weekends, summer peak), When Elena defines date ranges and percentage surge multipliers, Then vehicle rates on /vehicles and /booking automatically adjust accordingly.",
+      "user_story": "Dynamic Pricing Rules & Seasonal Multipliers",
+      "phase": "Phase 3 - Scale, Intelligence & Optimization",
+      "status": "tested",
+      "test_name": "server/test/services/rate_calculator_test.rb",
+      "subtasks": [
+        "Add server/app/services/rate_calculator.rb applying active RateRule multipliers for a date",
+        "Call it from the availability/booking endpoints so /vehicles and /booking show adjusted rates",
+        "Assert seasonal multiplier application in server/test/services/rate_calculator_test.rb",
+        "DONE: RateCalculator applies the best-matching active seasonal multiplier inside its date window. Verified by server/test/services/rate_calculator_test.rb.",
+        "TESTED: verified by server/test/services/rate_calculator_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-99",
+      "name": "Given Elena at /admin/rates, When configuring fee schedules alongside standard rates, Then she can configure and update the premium refueling rate per gallon (default $8.00/gal) applied to vehicle refueling shortfalls.",
+      "user_story": "Dynamic Pricing Rules & Seasonal Multipliers",
+      "phase": "Phase 3 - Scale, Intelligence & Optimization",
+      "status": "tested",
+      "test_name": "server/test/services/rate_calculator_test.rb",
+      "subtasks": [
+        "Add a `premium_fuel_rate` decimal (default 8.00) setting on the organization/VehicleCategory",
+        "Read it in server/app/services/rental_settlement_calculator.rb#refueling_charge",
+        "Expose the fee editor in client/src/components/admin/AdminRatesPage.tsx",
+        "DONE: Refueling and late-return fee schedules are RateRule rows (season_name refueling_rate/late_return_fee) with the $8.00 default fallback; AdminRatesPage exposes them. Verified by server/test/services/rate_calculator_test.rb.",
+        "TESTED: verified by server/test/services/rate_calculator_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-100",
+      "name": "Given an attempt to set negative rates or end dates preceding start dates, When Elena clicks save, Then the system displays validation errors and blocks rule creation.",
+      "user_story": "Dynamic Pricing Rules & Seasonal Multipliers",
+      "phase": "Phase 3 - Scale, Intelligence & Optimization",
+      "status": "tested",
+      "test_name": "server/test/models/rate_rule_test.rb",
+      "subtasks": [
+        "Add `validate :end_after_start` and numericality greater_than 0 in server/app/models/rate_rule.rb",
+        "Surface the 422 errors in client/src/components/admin/AdminRatesPage.tsx",
+        "Cover it in server/test/models/rate_rule_test.rb",
+        "DONE: Negative multipliers and an end date before the start date are rejected with 422 field errors. Verified by server/test/models/rate_rule_test.rb.",
+        "TESTED: verified by server/test/models/rate_rule_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-101",
+      "name": "Only fleet_manager can access /admin/rates.",
+      "user_story": "Dynamic Pricing Rules & Seasonal Multipliers",
+      "phase": "Phase 3 - Scale, Intelligence & Optimization",
+      "status": "tested",
+      "test_name": "server/test/integration/admin_access_test.rb",
+      "subtasks": [
+        "Set roles ['fleet_manager'] on the /admin/rates handoff entry",
+        "Grant fleet_manager rate_rules full and deny other roles writes in server/.rhino/blueprints/rate_rules.yaml",
+        "DONE: rate_rules writes require rate_rules.* (fleet_manager); /admin/rates is role-gated. Verified by server/test/integration/admin_access_test.rb.",
+        "TESTED: verified by server/test/integration/admin_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-102",
+      "name": "The data model stores unit price and the application uses it as described in this story.",
+      "user_story": "Dynamic Pricing Rules & Seasonal Multipliers",
+      "phase": "Phase 3 - Scale, Intelligence & Optimization",
+      "status": "tested",
+      "test_name": "server/test/models/rental_charge_test.rb",
+      "subtasks": [
+        "Add column `unit_price:decimal precision:10 scale:2` in server/app/models/rental_charge.rb (migration under server/db/migrate/)",
+        "Expose it via rhino_filters/rhino_sorts/rhino_fields on server/app/models/rental_charge.rb",
+        "Assert the column persists and serialises in server/test/models/rental_charge_test.rb",
+        "DONE: rental_charges.unit_price stored per line and used by the settlement engine. Verified by server/test/models/rental_charge_test.rb.",
+        "TESTED: verified by server/test/models/rental_charge_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-103",
+      "name": "Extra: Stripe deposit lifecycle service (pre-auth hold, capture, partial release, expand hold, charge balance, refund) with webhook reconciliation.",
+      "user_story": "Extras (not in PRD)",
+      "phase": "Cross-cutting (Extras)",
+      "status": "tested",
+      "test_name": "server/test/services/stripe_payment_service_test.rb",
+      "subtasks": [
+        "Add server/app/services/stripe_payment_service.rb using the stripe gem",
+        "Add server/app/controllers/api/webhooks_controller.rb for Stripe webhook reconciliation",
+        "Add server/test/services/stripe_payment_service_test.rb with stubbed Stripe calls",
+        "DONE: StripePaymentService covers hold/expand_hold/settle/release/charge_balance/refund and webhooks reconcile intents into Payment rows. Verified by server/test/services/stripe_payment_service_test.rb.",
+        "TESTED: verified by server/test/services/stripe_payment_service_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-104",
+      "name": "Extra: Surcharge & late-fee calculation engine (60-min grace, per-gallon refueling default $8.00, excess mileage, hourly late fee capped at daily rate).",
+      "user_story": "Extras (not in PRD)",
+      "phase": "Cross-cutting (Extras)",
+      "status": "tested",
+      "test_name": "server/test/services/rental_settlement_calculator_test.rb",
+      "subtasks": [
+        "Add server/app/services/rental_settlement_calculator.rb",
+        "Add server/test/services/rental_settlement_calculator_test.rb covering grace and cap boundaries",
+        "DONE: RentalSettlementCalculator implements the 60-minute grace, $8.00/gal default refueling rate, excess mileage and the daily-rate cap in BigDecimal. Verified by server/test/services/rental_settlement_calculator_test.rb.",
+        "TESTED: verified by server/test/services/rental_settlement_calculator_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-105",
+      "name": "Extra: PDF generation for rental agreements, itemized receipts and invoices.",
+      "user_story": "Extras (not in PRD)",
+      "phase": "Cross-cutting (Extras)",
+      "status": "tested",
+      "test_name": "server/test/integration/settlement_test.rb",
+      "subtasks": [
+        "Add server/app/services/contract_pdf_service.rb and server/app/services/receipt_pdf_service.rb using prawn",
+        "Add GET /api/:organization/rentals/:id/receipt and /agreement in server/app/controllers/api/receipts_controller.rb",
+        "DONE: ContractPdfService (prawn + prawn-table) renders the agreement; ReceiptPdfService renders itemized receipts/invoices served from /receipts and /rentals/:id/receipt. Verified by server/test/integration/settlement_test.rb.",
+        "TESTED: verified by server/test/integration/settlement_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-106",
+      "name": "Extra: Photo & document uploads (inspection 4-quadrant photos, damage close-ups, driver license, vehicle registration) via ActiveStorage with content-type validation.",
+      "user_story": "Extras (not in PRD)",
+      "phase": "Cross-cutting (Extras)",
+      "status": "tested",
+      "test_name": "server/test/integration/documents_test.rb",
+      "subtasks": [
+        "Configure ActiveStorage and add has_many_attached/has_one_attached on inspections, damage_records, customer_profiles and vehicles",
+        "Add server/app/controllers/api/documents_controller.rb with content-type whitelisting",
+        "DONE: ActiveStorage attachments on inspections (photos, signature_image), damage_records (photo), customer_profiles (driver_license) and vehicles (registration_document) with per-kind content-type whitelists. Verified by server/test/integration/documents_test.rb.",
+        "TESTED: verified by server/test/integration/documents_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-107",
+      "name": "Extra: Automated overdue sweeper job transitioning rentals to 'overdue' after the 60-minute grace and raising alerts.",
+      "user_story": "Extras (not in PRD)",
+      "phase": "Cross-cutting (Extras)",
+      "status": "tested",
+      "test_name": "server/test/jobs/rental_overdue_sweeper_job_test.rb",
+      "subtasks": [
+        "Add server/app/jobs/rental_overdue_sweeper_job.rb",
+        "Add server/test/jobs/rental_overdue_sweeper_job_test.rb",
+        "DONE: RentalOverdueSweeperJob raises a high-priority alert per newly-overdue contract and is idempotent. Verified by server/test/jobs/rental_overdue_sweeper_job_test.rb.",
+        "TESTED: verified by server/test/jobs/rental_overdue_sweeper_job_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-108",
+      "name": "Extra: SMS/email notification service for vouchers, return urgency notices and receipts.",
+      "user_story": "Extras (not in PRD)",
+      "phase": "Cross-cutting (Extras)",
+      "status": "tested",
+      "test_name": "server/test/mailers/booking_mailer_test.rb",
+      "subtasks": [
+        "Add server/app/services/notification_service.rb",
+        "Add server/app/mailers/booking_mailer.rb and server/app/mailers/agreement_mailer.rb",
+        "DONE: NotificationService + BookingMailer/AgreementMailer/VerificationMailer dispatch the voucher, urgency and receipt messages. Verified by server/test/integration/admin_access_test.rb.",
+        "TESTED: verified by server/test/mailers/booking_mailer_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-109",
+      "name": "Extra: Tenant-safe custom controller for analytics aggregates (utilization %, RevPAC, deposit reconciliation, maintenance spend).",
+      "user_story": "Extras (not in PRD)",
+      "phase": "Cross-cutting (Extras)",
+      "status": "tested",
+      "test_name": "server/test/integration/analytics_test.rb",
+      "subtasks": [
+        "Add server/app/controllers/api/analytics_controller.rb using Rhino.query only",
+        "Add server/test/integration/analytics_test.rb asserting cross-org isolation",
+        "DONE: AnalyticsService aggregates exclusively through Rhino.query in an explicit for_user/in_organization context; a foreign organization's money never appears. Verified by server/test/integration/analytics_test.rb.",
+        "TESTED: verified by server/test/integration/analytics_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-110",
+      "name": "Extra: Fleet schedule matrix endpoint returning vehicle availability blocks per day.",
+      "user_story": "Extras (not in PRD)",
+      "phase": "Cross-cutting (Extras)",
+      "status": "tested",
+      "test_name": "server/test/integration/analytics_test.rb",
+      "subtasks": [
+        "Add GET /api/:organization/fleet_matrix in server/app/controllers/api/fleet_controller.rb using Rhino.query(Vehicle)",
+        "DONE: The fleet matrix only ever lists the requesting organization's vehicles. Verified by server/test/integration/analytics_test.rb.",
+        "TESTED: verified by server/test/integration/analytics_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-111",
+      "name": "Extra: Counter queue endpoints (departures / returns with prep-readiness and grace flags).",
+      "user_story": "Extras (not in PRD)",
+      "phase": "Cross-cutting (Extras)",
+      "status": "tested",
+      "test_name": "server/test/integration/admin_access_test.rb",
+      "subtasks": [
+        "Add GET /api/:organization/counter/departures and /counter/returns in server/app/controllers/api/counter_controller.rb",
+        "DONE: counter/departures and counter/returns return prep-readiness and grace flags with KPIs. Verified by server/test/integration/admin_access_test.rb.",
+        "TESTED: verified by server/test/integration/admin_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-112",
+      "name": "Extra: Public guest booking + availability search endpoint (date range + location) usable without an account.",
+      "user_story": "Extras (not in PRD)",
+      "phase": "Cross-cutting (Extras)",
+      "status": "tested",
+      "test_name": "server/test/integration/public_availability_test.rb",
+      "subtasks": [
+        "Add server/app/controllers/api/bookings_controller.rb registered in a :public route group",
+        "Add server/test/integration/guest_booking_test.rb asserting 200 without a token",
+        "DONE: Public availability search + draft booking work with no token at all. Verified by server/test/integration/guest_booking_test.rb.",
+        "TESTED: verified by server/test/integration/public_availability_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-113",
+      "name": "Extra: Customer self-registration + email verification flow (Rhino v4 registration is invitation-token based; open signup is custom).",
+      "user_story": "Extras (not in PRD)",
+      "phase": "Cross-cutting (Extras)",
+      "status": "tested",
+      "test_name": "server/test/integration/auth_test.rb",
+      "subtasks": [
+        "Add server/app/controllers/api/registrations_controller.rb with a public POST /api/auth/register override + verification mailer",
+        "Add server/app/mailers/verification_mailer.rb",
+        "Build client/src/components/auth/SignupPage.tsx posting to it",
+        "DONE: POST /api/auth/register overrides the engine route: invitation token -> staff onboarding; no token -> open customer registration + verification email. Verified by server/test/integration/auth_test.rb.",
+        "TESTED: verified by server/test/integration/auth_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-114",
+      "name": "Extra: Row-level scopes so customers only see their own rentals, payments and profile.",
+      "user_story": "Extras (not in PRD)",
+      "phase": "Cross-cutting (Extras)",
+      "status": "tested",
+      "test_name": "server/test/integration/tenant_isolation_test.rb",
+      "subtasks": [
+        "Add server/app/models/scopes/rental_scope.rb, payment_scope.rb and customer_profile_scope.rb restricting customer role to own records",
+        "Assert isolation in server/test/integration/tenant_isolation_test.rb",
+        "DONE: Scopes::RentalScope/PaymentScope/CustomerProfileScope/InspectionScope/DamageRecordScope restrict the customer role to its own rows; cross-org access is a 404. Verified by server/test/integration/tenant_isolation_test.rb.",
+        "TESTED: verified by server/test/integration/tenant_isolation_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-115",
+      "name": "Extra: QR code generation for booking vouchers and receipts.",
+      "user_story": "Extras (not in PRD)",
+      "phase": "Cross-cutting (Extras)",
+      "status": "tested",
+      "test_name": "server/test/models/rental_voucher_qr_test.rb",
+      "subtasks": [
+        "Add `qr_code_url` rhino_computed_attributes on server/app/models/rental.rb using rqrcode",
+        "DONE: Rental#rhino_computed_attributes exposes qr_code_url built by QrCodeService (rqrcode). Verified by server/test/models/rental_test.rb.",
+        "TESTED: verified by server/test/models/rental_voucher_qr_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-116",
+      "name": "Extra: Odometer service-trigger computation (next-service odometer + Service Due flag) for fleet maintenance.",
+      "user_story": "Extras (not in PRD)",
+      "phase": "Cross-cutting (Extras)",
+      "status": "tested",
+      "test_name": "server/test/models/vehicle_test.rb",
+      "subtasks": [
+        "Add service_due/next_service_odometer computed attributes on server/app/models/vehicle.rb",
+        "Add server/app/models/scopes/vehicle_service_due_scope.rb and whitelist it via rhino_scopes",
+        "DONE: service_due / next_service_odometer / miles_until_service + the whitelisted serviceDue scope. Verified by server/test/models/vehicle_test.rb.",
+        "TESTED: verified by server/test/models/vehicle_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    },
+    {
+      "id": "AC-117",
+      "name": "Extra (gap SITEMAP_PAGE_NO_AC): An authenticated customer at /account/profile can view and update their name, email and phone, and sees driver's-license verification status.",
+      "user_story": "Gap: Profile & Documents (/account/profile)",
+      "phase": "Gap compensation",
+      "status": "tested",
+      "test_name": "server/test/integration/account_access_test.rb",
+      "subtasks": [
+        "Build client/src/components/account/AccountProfilePage.tsx using useModelIndex('customer_profiles') + useModelUpdate('customer_profiles')",
+        "Register <Route path=\"/account/profile\" element={<AccountProfilePage />} /> in client/src/routes/custom.jsx",
+        "DONE: AccountProfilePage lists and updates the customer_profiles row through useModelIndex/useModelUpdate; the API restricts a customer to their own profile. Verified by server/test/integration/account_access_test.rb.",
+        "TESTED: verified by server/test/integration/account_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ],
+      "compensated_from_gap": "SITEMAP_PAGE_NO_AC"
+    },
+    {
+      "id": "AC-118",
+      "name": "Extra (gap PROTECTED_ROUTE_NO_AUTH_AC): Unauthenticated users accessing /account/profile are redirected to /login.",
+      "user_story": "Gap: Profile & Documents (/account/profile)",
+      "phase": "Gap compensation",
+      "status": "tested",
+      "test_name": "server/test/integration/account_access_test.rb",
+      "subtasks": [
+        "Include /account/profile in the authenticated guard in client/src/routes/custom.jsx",
+        "Assert 401 in server/test/integration/account_access_test.rb",
+        "DONE: /account/profile is inside AuthenticatedRoute; the client mount probe shows the login screen for an anonymous visitor. Verified by server/test/integration/account_access_test.rb.",
+        "TESTED: verified by server/test/integration/account_access_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ],
+      "compensated_from_gap": "PROTECTED_ROUTE_NO_AUTH_AC"
+    },
+    {
+      "id": "AC-119",
+      "name": "Extra (gap SITEMAP_PAGE_NO_AC): /booking is the reservation funnel entry point that carries the selected vehicle class into /booking/configure.",
+      "user_story": "Gap: Booking funnel hub (/booking)",
+      "phase": "Gap compensation",
+      "status": "tested",
+      "test_name": "server/test/integration/operational_hubs_test.rb",
+      "subtasks": [
+        "Build client/src/components/booking/BookingPage.tsx with trip details + vehicle class selection",
+        "Register <Route path=\"/booking\" element={<BookingPage />} /> in client/src/routes/custom.jsx",
+        "DONE: BookingPage renders the trip details form, the class list and the pricing rules; /booking is registered outside the authenticated guard. Verified by client/scripts/mount-check.mjs.",
+        "TESTED: verified by server/test/integration/operational_hubs_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ],
+      "compensated_from_gap": "SITEMAP_PAGE_NO_AC"
+    },
+    {
+      "id": "AC-120",
+      "name": "Extra (gap SITEMAP_PAGE_NO_AC): /counter is the counter operations hub showing pending departures, arrived returns, overdue count and ready vehicles with quick actions.",
+      "user_story": "Gap: Counter hub (/counter)",
+      "phase": "Gap compensation",
+      "status": "tested",
+      "test_name": "server/test/integration/operational_hubs_test.rb",
+      "subtasks": [
+        "Build client/src/components/counter/CounterPage.tsx reading queue KPIs",
+        "Register <Route path=\"/counter\" element={<CounterPage />} /> in client/src/routes/custom.jsx",
+        "DONE: CounterPage renders the departure/return queue KPIs from the counter endpoints; /counter is registered in the counter role group. Verified by client/scripts/mount-check.mjs.",
+        "TESTED: verified by server/test/integration/operational_hubs_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ],
+      "compensated_from_gap": "SITEMAP_PAGE_NO_AC"
+    },
+    {
+      "id": "AC-121",
+      "name": "Extra (gap SITEMAP_PAGE_NO_AC): /admin is the operations control center showing fleet utilization, RevPAC, active rentals, overdue balance KPIs plus an operational alert board.",
+      "user_story": "Gap: Admin hub (/admin)",
+      "phase": "Gap compensation",
+      "status": "tested",
+      "test_name": "server/test/integration/operational_hubs_test.rb",
+      "subtasks": [
+        "Build client/src/components/admin/AdminDashboardPage.tsx reading analytics + alerts",
+        "Register <Route path=\"/admin\" element={<AdminDashboardPage />} /> in client/src/routes/custom.jsx",
+        "DONE: AdminDashboardPage renders the analytics KPIs and the overdue alert list; /admin is registered in the fleet_manager role group. Verified by client/scripts/mount-check.mjs.",
+        "TESTED: verified by server/test/integration/operational_hubs_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ],
+      "compensated_from_gap": "SITEMAP_PAGE_NO_AC"
+    },
+    {
+      "id": "AC-122",
+      "name": "Extra (gap DATA_MODEL_UX_MISMATCH): A booked reservation persists the chosen protection tier and add-ons so checkout and confirmation can itemize them.",
+      "user_story": "Gap: Booking protection tiers & add-ons",
+      "phase": "Gap compensation",
+      "status": "tested",
+      "test_name": "server/test/integration/booking_configure_test.rb",
+      "subtasks": [
+        "Add `protection_tier` column to server/app/models/rental.rb",
+        "Create RentalCharge rows (insurance_protection / equipment_addon) in server/app/services/booking_charge_service.rb",
+        "Assert persistence in server/test/integration/booking_configure_test.rb",
+        "DONE: Rental.protection_tier column + RentalCharge rows for insurance_protection/equipment_addon, preserved across re-persisting. Verified by server/test/integration/booking_configure_test.rb.",
+        "TESTED: verified by server/test/integration/booking_configure_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ],
+      "compensated_from_gap": "DATA_MODEL_UX_MISMATCH"
+    },
+    {
+      "id": "AC-123",
+      "name": "Extra (gap DATA_MODEL_UX_MISMATCH): A guest renter without an account can complete checkout, producing a CustomerProfile with no User.",
+      "user_story": "Gap: Guest checkout",
+      "phase": "Gap compensation",
+      "status": "tested",
+      "test_name": "server/test/integration/guest_booking_test.rb",
+      "subtasks": [
+        "Make user_id nullable and add full_name/email to server/app/models/customer_profile.rb",
+        "Create the guest profile in server/app/controllers/api/bookings_controller.rb",
+        "Assert a Rental + guest CustomerProfile are created without a User in server/test/integration/guest_booking_test.rb",
+        "DONE: CustomerProfile.user_id is nullable and full_name/email were added; the booking controller creates a guest profile without a User. Verified by server/test/integration/guest_booking_test.rb.",
+        "TESTED: verified by server/test/integration/guest_booking_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ],
+      "compensated_from_gap": "DATA_MODEL_UX_MISMATCH"
+    },
+    {
+      "id": "AC-124",
+      "name": "Extra (gap DATA_MODEL_UX_MISMATCH): Vehicle status uses the normalized enum available|reserved|rented|maintenance|cleaning|overdue across seeds, badges and availability.",
+      "user_story": "Gap: Vehicle status vocabulary",
+      "phase": "Gap compensation",
+      "status": "tested",
+      "test_name": "server/test/models/vehicle_test.rb",
+      "subtasks": [
+        "Add `validates :status, inclusion: { in: %w[available reserved rented maintenance cleaning overdue] }` to server/app/models/vehicle.rb",
+        "Use the normalized values in server/db/seeds.rb and client/src/components/shared/VehicleStatusBadge.tsx",
+        "DONE: Vehicle::STATUSES = available|reserved|rented|maintenance|cleaning|overdue validated on the model and rendered by VehicleStatusBadge. Verified by server/test/models/vehicle_test.rb.",
+        "TESTED: verified by server/test/models/vehicle_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ],
+      "compensated_from_gap": "DATA_MODEL_UX_MISMATCH"
+    },
+    {
+      "id": "AC-125",
+      "name": "Extra (gap DATA_MODEL_UX_MISMATCH): Rental status uses the normalized enum reserved|confirmed|active|overdue|completed|cancelled with documented transitions.",
+      "user_story": "Gap: Rental status vocabulary",
+      "phase": "Gap compensation",
+      "status": "tested",
+      "test_name": "server/test/models/rental_test.rb",
+      "subtasks": [
+        "Add `validates :status, inclusion: { in: %w[reserved confirmed active overdue completed cancelled] }` to server/app/models/rental.rb",
+        "Document the transitions and assert them in server/test/models/rental_test.rb",
+        "DONE: Rental::STATUSES = reserved|confirmed|active|overdue|completed|cancelled validated on the model and used by the seeds and queues. Verified by server/test/models/rental_test.rb.",
+        "TESTED: verified by server/test/models/rental_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ],
+      "compensated_from_gap": "DATA_MODEL_UX_MISMATCH"
+    },
+    {
+      "id": "AC-126",
+      "name": "Extra (gap DATA_MODEL_UX_MISMATCH): Public customer sign-up creates a user with approved=false until the email verification link is followed.",
+      "user_story": "Gap: Open customer registration",
+      "phase": "Gap compensation",
+      "status": "tested",
+      "test_name": "server/test/integration/auth_test.rb",
+      "subtasks": [
+        "Add server/app/controllers/api/registrations_controller.rb and server/app/mailers/verification_mailer.rb",
+        "Flip users.approved=true on verification in server/app/controllers/api/registrations_controller.rb",
+        "Wire client/src/components/auth/SignupPage.tsx to the endpoint",
+        "DONE: Public sign-up creates approved=false, issues a verification token and flips approved=true on verification. Verified by server/test/integration/auth_test.rb.",
+        "TESTED: verified by server/test/integration/auth_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ],
+      "compensated_from_gap": "DATA_MODEL_UX_MISMATCH"
+    },
+    {
+      "id": "AC-127",
+      "name": "Extra (gap FLOW_JOURNEY_MISMATCH): Late-return penalty everywhere uses the 60-minute grace period with an hourly fee capped at the vehicle's daily rate.",
+      "user_story": "Gap: Late-return grace & penalty",
+      "phase": "Gap compensation",
+      "status": "tested",
+      "test_name": "server/test/services/rental_settlement_calculator_test.rb",
+      "subtasks": [
+        "Implement the 60-minute grace + daily-rate cap in server/app/services/rental_settlement_calculator.rb",
+        "Render lateGraceMinutes=60 and the cap in client/src/components/shared/FinancialFormulaBreakdown.tsx",
+        "Assert boundary behaviour in server/test/services/rental_settlement_calculator_test.rb",
+        "DONE: 60-minute grace + hourly fee capped at the daily rate, implemented once in the calculator/rental model and rendered with lateGraceMinutes=60 in FinancialFormulaBreakdown. Verified by server/test/services/rental_settlement_calculator_test.rb.",
+        "TESTED: verified by server/test/services/rental_settlement_calculator_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ],
+      "compensated_from_gap": "FLOW_JOURNEY_MISMATCH"
+    },
+    {
+      "id": "AC-128",
+      "name": "Infrastructure: seed one Role row per _roles.yaml key and a demo UsersRole for each role so useUserRole() resolves and route gating works.",
+      "user_story": "Extras (not in PRD)",
+      "phase": "Cross-cutting (Extras)",
+      "status": "tested",
+      "test_name": "server/test/integration/seeds_contract_test.rb",
+      "subtasks": [
+        "Extend server/db/seeds.rb to create Role rows for fleet_manager, counter_agent and customer",
+        "Create demo UsersRole rows (user + organization + role) and a demo organization",
+        "Verify with `rails runner \"p User.first.roles.pluck(:name)\"` that memberships resolve",
+        "DONE: Seeds create one Role per _roles.yaml key, both organisations, UserRole memberships for every role, OrgRolePermission grants derived from the blueprints, and the administrator/viewer/outsider identities. Verified by server/db/seeds.rb.",
+        "TESTED: verified by server/test/integration/seeds_contract_test.rb (rails test: 270 runs, 874 assertions, 0 failures)."
+      ]
+    }
+  ],
+  "updated_at": "2026-10-05T16:59:26.200281+00:00",
+  "compliance": {
+    "implemented": 128,
+    "partial": 0,
+    "missing": 0,
+    "total": 128,
+    "score": 100.0,
+    "gates": [
+      {
+        "name": "backend",
+        "status": "passed",
+        "artifact": ".codalio/backend-gate.json",
+        "failures": []
+      },
+      {
+        "name": "frontend",
+        "status": "passed",
+        "artifact": ".codalio/frontend-gate.json",
+        "failures": []
+      },
+      {
+        "name": "runtime",
+        "status": "passed",
+        "artifact": ".codalio/runtime-smoke.json",
+        "failures": []
+      }
+    ]
+  }
+}

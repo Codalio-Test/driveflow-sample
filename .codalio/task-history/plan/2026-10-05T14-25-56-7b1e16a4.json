@@ -1,0 +1,32 @@
+[
+  {
+    "title": "PRD integrity audit \u2192 write .codalio/prd-integrity-report.json",
+    "notes": "11 gaps (4 high, 4 medium, 3 low); role_registry customer/counter_agent/fleet_manager; 7-row coverage matrix.",
+    "status": "done"
+  },
+  {
+    "title": "Inspect workspace + prior artifacts",
+    "notes": "No prior plan/index; UI prototype present with 30 flat-route pages; no source-repo.",
+    "status": "done"
+  },
+  {
+    "title": "Design data model + write blueprints",
+    "notes": "_roles.yaml + 11 model YAMLs, all parse; host-runtime CRUD contract satisfied on Location.",
+    "status": "done"
+  },
+  {
+    "title": "Design permissions + identify Extras",
+    "notes": "Per-role CRUD/field surfaces in blueprints; 16 Extras + ownership rules + 4 functional gaps documented in plan.",
+    "status": "done"
+  },
+  {
+    "title": "Screens + UI handoff",
+    "notes": "30 screens planned; ui-handoff.json with data_contract on all pages + 116 action-contract entries.",
+    "status": "done"
+  },
+  {
+    "title": "Acceptance criteria + plan + index",
+    "notes": "128 criteria (102 PRD / 15 Extras / 11 gap), .rhino-plan.md with 128-row Per-AC map, index.json.",
+    "status": "done"
+  }
+]

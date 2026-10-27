@@ -1,0 +1,10 @@
+import { JSDOM } from 'jsdom';
+const dom = new JSDOM('<!doctype html><html><body></body></html>', { url: process.env.BASE + '/' });
+const XHR = dom.window.XMLHttpRequest;
+const xhr = new XHR();
+xhr.open('GET', '/api/demo-org/me');
+xhr.setRequestHeader('Authorization', `Bearer ${process.env.TOKEN}`);
+xhr.onload = () => { console.log('status', xhr.status, String(xhr.responseText).slice(0, 80)); process.exit(0); };
+xhr.onerror = (e) => { console.log('xhr error', e?.message ?? e); process.exit(0); };
+xhr.send();
+setTimeout(() => { console.log('timeout'); process.exit(0); }, 8000);

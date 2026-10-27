@@ -1,0 +1,2238 @@
+{
+  "name": "DriveFlow",
+  "elevator_pitch": "DriveFlow is a modern, unified vehicle rental management platform built for independent rental operators, regional agencies, and their customers. Traditional car rental operations leak revenue through fragmented spreadsheets, paper inspection forms that fail to capture pre-existing versus new vehicle damage, uncollected late return fees, and manual payment reconciliations. DriveFlow eliminates these bottlenecks with an intuitive online customer booking portal, a tablet-optimized digital inspection workflow with photo evidence and fuel/mileage tracking, and automated Stripe billing for security deposit pre-authorizations, damage claims, and overdue penalties. By centralizing the entire rental lifecycle into a single web application, DriveFlow empowers rental businesses to increase fleet utilization, cut turnaround times by 65%, and protect asset value while delivering a seamless, transparent experience for renters.",
+  "problem_statement": "Independent and mid-sized vehicle rental agencies struggle with fragmented, manual operational workflows that lead to severe revenue loss, operational friction, and customer disputes:\n\n1. Paper-Based Inspections & Damage Disputes: Check-in and check-out condition inspections rely on paper clipboards and low-fidelity notes. When returns have dents, scratches, or missing fuel, disputes erupt because staff cannot produce time-stamped visual proof of pre-existing condition, leading to unrecovered repair costs.\n2. Disconnected Payment & Deposit Handling: Security deposits and incidentals are tracked across separate terminal slips or manual card authorizations, causing failed authorizations, delayed release complaints, or lost recovery on tolls and late fees.\n3. Spreadsheets & Disjointed Scheduling: Vehicle availability, maintenance schedules, and turnover cleaning are tracked in disconnected spreadsheets, resulting in double-bookings, vehicle idle time, and lower fleet utilization.\n4. Unenforced Late Return & Excess Mileage Penalties: Counter staff lack automated alerts for overdue rentals, causing vehicles to stay out days past contract expiration without automated compounding fees or immediate recovery alerts.\n5. Inefficient Customer Experience: Renters face lengthy counter wait times for manual document scanning, paper contracts, and manual payment processing instead of streamlined digital check-in.",
+  "solution": "DriveFlow replaces paper clipboards, disconnected card terminals, and manual spreadsheets with an integrated, tablet- and desktop-optimized web platform:\n\n1. Digital Photo-Verified Inspections: Counter staff use tablet browsers to capture starting and ending odometer readings, fuel tank percentages, and 360-degree high-resolution photos with marked damage hotspots, establishing incontrovertible condition logs.\n2. Automated Stripe Financial Pipeline: Seamlessly pre-authorizes credit card security deposits at booking or counter check-out, processes digital signatures, automatically calculates fuel/excess mileage surcharges upon check-in, and reconciles balance settlements or captures deposit claims in one click.\n3. Real-Time Fleet & Reservation Management: A live fleet matrix tracks every vehicle's exact state (available, reserved, on-rent, maintenance, detailing) with automated turnaround scheduling and dynamic calendar-based availability.\n4. Smart Overdue & Incident Monitoring: Automated alerts flag vehicles exceeding their scheduled return window, instantly applying configurable late return penalties, updating billing balances, and notifying both operations staff and the customer.\n5. Frictionless Renter Journey: Customers enjoy a responsive web booking engine for instant reservations, transparent add-ons (insurance, GPS, child seats), digital driver's license upload, and immediate digital rental summaries.",
+  "vision": "DriveFlow will evolve into the definitive operating system for independent, franchise, and commercial vehicle rental operators worldwide. Beyond core reservation and inspection workflows, the platform will expand to include connected telematics and IoT hardware integration (remote keyless lock/unlock, real-time GPS tracking, automated odometer and fuel telemetry without manual entry), AI-assisted computer vision that automatically flags newly introduced scratches or dents by comparing departure and arrival photos, and an integrated peer-to-peer and corporate B2B fleet-sharing portal. By automating the entire operational lifecycle from booking to maintenance, DriveFlow will enable operators of any size to run high-margin, dispute-free rental operations with the efficiency of modern tech-first mobility leaders.",
+  "competitors": "- HQ Rental Software: Established, feature-dense car rental ERP with strong backend accounting, but exhibits a dated user interface, steep learning curve for counter staff, and slow mobile tablet performance during physical inspections.\n- Navotar: Traditional car rental software with fleet tracking and reservation modules; lacks modern real-time photo-comparison inspection flows and has rigid checkout payment customization.\n- Rentyst: Cloud-based rental management platform targeted at small agencies; offers clean reservation management but has limited automated overdue penalty workflows and minimal advanced deposit claim reconciliation.\n- Turo Host Tools / Commercial Host Platforms: Seamless mobile app experience for peer-to-peer sharing, but locked to Turo's marketplace, taking heavy commission percentages and lacking custom independent business rate engines, physical fleet operations tooling, and dedicated merchant account control.",
+  "success_metrics": "- Fleet Utilization Rate: Maintain average fleet utilization >= 82% across all available vehicle classes.\n- Counter Check-In/Check-Out Turnaround: Reduce average customer vehicle pickup time to < 4 minutes and return inspection time to < 3 minutes.\n- Damage Recovery Rate: Increase recovery of damage repair costs to >= 95% supported by time-stamped photo audit trails.\n- Overdue Payment & Revenue Leakage Reduction: Reduce uncollected late return fees and unbilled fuel/mileage charges to < 1.5% of gross billings.\n- Deposit Reconciliation Speed: 100% of non-disputed security deposits automatically released or reconciled within 2 hours of return inspection completion.",
+  "design_principles": "### Core Design Principles for DriveFlow\n\n1. **Inspection Defensibility & Incontrovertible Photo Evidence**\n   Every inspection touchpoint (pickup departure and check-in return) must stand up to credit card chargeback audits, legal scrutiny, and customer dispute resolution. High-resolution, multi-angle photos with immutable timestamps, geolocation tags, and visual damage pin overlays on interactive 2D vehicle silhouettes eliminate subjective disagreements. If a scratch, dent, or fuel shortfall was not photographed, pinned, and acknowledged during the walkaround, it cannot be billed. Departure photos must be displayed side-by-side with return photos to eliminate doubt.\n\n2. **Frictionless Counter Velocity (Under 90-Second Handover)**\n   Counter lines severely degrade customer satisfaction and operational efficiency. Counter agent and lot attendant workflows are architected for rapid, high-speed execution: keyboard-first navigation for desktop workstations, single-tap barcode/license scanning, and one-thumb touch targets for tablets. All primary handover steps—ID verification, Stripe deposit pre-authorization, quick condition logging, and digital agreement signing—must execute within a linear 90-second flow with zero unnecessary modals or redundant data entry.\n\n3. **Transparent Real-Time Billing & Deposit State Visibility**\n   Opaque fees and unexpected credit card charges destroy customer trust. The UI must provide unambiguous, real-time visibility into security deposit states (Pre-Authorized / Held, Released, Captured, Partially Refunded) and line-item breakdowns. Automated charges—such as fuel top-up fees, excess mileage penalties, and overdue hourly surcharges—are calculated dynamically from explicit mathematical formulas and displayed to both agent and renter before financial settlement.\n\n4. **Role-Tailored Ergonomic Adaptation (Outdoor Lot Agility vs. Desktop Control Power)**\n   Field attendants operate outdoors under direct sunlight, glare, and varying weather conditions while walking around vehicles; fleet managers analyze dense operational metrics across multi-monitor desktop setups. UI ergonomics dynamically specialize: high-contrast inspection screens with minimum 48px touch targets, camera-first triggers, offline cache resilience, and haptic feedback for lot staff, contrasted with dense multi-column grids, bulk actions, and split-screen schedule matrices for back-office administrators.\n\n5. **Fail-Safe Operational & Financial Safeguards**\n   Vehicles represent high-value mobile capital assets. DriveFlow enforces strict procedural gates: no keys may be released without an active Stripe deposit pre-authorization hold and an executed digital contract signature. The interface enforces clear linear progression (Vehicle Assignment -> Payment Authorization -> Condition Walkaround -> Electronic Signature -> Key Handover) with prominent visual warnings when exceptions occur (e.g., mismatched fuel readings or overdue return flags).",
+  "sitemap": "- Public Portal & Home (/) - Public discovery landing page with search bar, featured vehicle classes, and promotional offers\n  - Browse Vehicles & Availability (/vehicles) - Filterable fleet catalog displaying available vehicle classes, models, daily rates, fuel types, and specifications\n  - Booking Funnel (/booking) - Customer reservation configuration and booking funnel\n    - Configure Reservation (/booking/configure) - Select protection tier (Basic, Standard, Full), accessories (child seats, GPS), and mileage allowances\n      - Reservation Checkout (/booking/checkout) - Payment card entry via Stripe Elements, driver license image upload, and terms consent\n      - Booking Confirmation (/booking/confirmation) - Booking confirmation voucher with QR code, pickup instructions, and reservation reference\n  - Customer Sign-Up (/signup) - Public customer registration with name, email, phone, and secure password\n  - Login (/login) - Unified authentication portal for retail renters and staff team members\n  - Customer Account Dashboard (/account/dashboard) - Self-service customer account portal for managing reservations and payments\n    - Customer Bookings (/account/bookings) - Active bookings, upcoming pickups, and past rental receipt history with downloadable PDFs\n    - Billing & Invoices (/account/billing) - Saved payment cards, security deposit status history, and itemized billing statements\n    - Profile & Documents (/account/profile) - Customer personal profile, contact information, and verified driver's license documentation\n- Counter Operations Portal (/counter) - Counter staff operational hub for managing customer handovers and inspections\n  - Departures Queue (/counter/departures) - Real-time dispatch board showing scheduled pickups, customer arrival statuses, and assigned bays\n    - Counter Check-Out Detail (/counter/check-out/:reservationId) - Identity validation, driver's license capture, vehicle key assignment, and Stripe deposit pre-authorization hold\n  - Digital Rental Agreement (/counter/agreement) - Tablet-optimized electronic rental agreement review, terms acknowledgment, and digital touchscreen signature\n  - Returns Queue (/counter/returns) - Inbound vehicle return tracking list, quick plate lookup, and turnaround cleaning queue\n    - Return Settlement & Invoicing (/counter/settlement/:rentalId) - Itemized calculation of refueling shortfalls, excess mileage fees, damage claims, and final Stripe deposit capture or release\n  - New Pickup Inspection (/inspections/new) - Tablet walkaround for departure pickup: record odometer, fuel level %, 360-degree photos, and tap-to-pin damage hotspots\n    - Return Walkaround Audit (/inspections/return/:rentalId) - Tablet-optimized walkaround for inbound returns with side-by-side departure photo comparison, new damage tagging, and odometer/fuel audit\n- Fleet Admin Console (/admin) - Back-office operations management and fleet administration console\n  - Fleet Management (/admin/fleet) - Comprehensive fleet asset directory with statuses (Available, On-Rent, Maintenance, Detailing), location, and specs\n    - Add Fleet Vehicle (/admin/fleet/new) - Vehicle onboarding modal/page for VIN entry, plate, make/model, class, initial odometer, and registration docs\n    - Fleet Schedule Matrix (/admin/fleet/matrix) - Interactive visual timeline and Gantt-style dispatch matrix showing vehicle availability, turnover, and assignments\n  - Dynamic Pricing & Rates (/admin/rates) - Multi-tier pricing engine: base daily rates, weekend surge multipliers, seasonal rules, and insurance fee schedules\n  - Active Rentals Hub (/admin/rentals/active) - Live operational tracker of active rental contracts, rental extensions, overdue breaches, and security deposit statuses\n    - Overdue Rental Resolution (/admin/rentals/:rentalId/overdue) - Overdue rental intervention console: grace period breakdown, automated late penalty calculator, customer SMS/email alerts, and Stripe pre-auth expansion\n  - Maintenance Hub (/admin/maintenance) - Preventative maintenance scheduler tracking odometer service triggers, oil changes, tire rotations, and open repair work orders\n    - Create Maintenance Order (/admin/maintenance/new) - Create maintenance service order, log vendor quotation, set vehicle status to 'Maintenance', and set return ETA\n  - Operational & Financial Analytics (/admin/analytics) - Executive performance dashboard: fleet utilization %, RevPAC, unrecovered damage claims, and revenue analytics",
+  "navigation_design": "### Navigation Architecture & Design Patterns\n\nDriveFlow implements a role-partitioned, responsive navigation framework tailored to distinct operational contexts: desktop counter velocity, rugged outdoor tablet agility, and friction-free retail booking.\n\n---\n\n### 1. Role-Based Navigation Structures & Boundaries\n\n#### A. Retail Renter Surface (Public & Customer Portal)\n- **Top Navigation Bar (Sticky Desktop & Mobile)**:\n  - Brand Logo (navigates to `/`).\n  - Search / Date Selector Widget (quick-filter popup).\n  - Primary Links: `Browse Fleet` (`/vehicles`), `How It Works`, `Support`.\n  - Authenticated Customer Dropdown: `My Bookings` (`/account/bookings`), `Payment Methods & Billing` (`/account/billing`), `Profile & Verification` (`/account/profile`), `Log Out`.\n  - Unauthenticated State: `Sign In` (`/login`) and `Create Account` (`/signup`) CTA buttons.\n- **Reservation Funnel Navigation (`/booking/*`)**:\n  - Horizontal progress breadcrumb: `1. Select Vehicle` -> `2. Protection & Options` (`/booking/configure`) -> `3. Review & Checkout` (`/booking/checkout`) -> `4. Confirmed` (`/booking/confirmation`).\n  - Sticky reservation price drawer (docked at desktop sidebar; bottom expandable sheet on mobile) displaying itemized base rate, insurance tier, taxes, and deposit hold requirement in real time.\n\n#### B. Counter Agent Portal (`/counter/*` and `/inspections/*`)\n- **Default Landing**: `/counter/departures` (Today's Scheduled Departures).\n- **Persistent Left Navigation Sidebar (Desktop 64px collapsed / 240px expanded)**:\n  - `Departures Queue` (`/counter/departures`) with live counter badge (e.g., `12 Pending`).\n  - `Returns Queue` (`/counter/returns`) with status badge (e.g., `4 Arrived`, `2 Overdue`).\n  - `New Walkaround Inspection` (`/inspections/new`) quick-action button.\n  - `Agreement Signing` (`/counter/agreement`).\n  - `Settlement & Billing` (`/counter/settlement/:rentalId`).\n- **Global Counter Utility Header**:\n  - Global Search Input: instant auto-complete query across VIN, License Plate, Reservation #, Customer Last Name, or Phone Number (shortcut: `CMD/CTRL + K`).\n  - Active Lot Location Switcher (e.g., \"Airport Terminal 1 Hub\").\n  - Emergency Alert Bell: Real-time badge notifications for overdue returns and failed Stripe pre-authorizations.\n  - User avatar with role tag (\"Counter Agent\") and quick lock/switch agent toggle.\n\n#### C. Fleet Operations & Admin Portal (`/admin/*`)\n- **Default Landing**: `/admin/fleet/matrix` (Live Fleet Schedule Matrix).\n- **Persistent Administrative Left Sidebar (260px)**:\n  - **Operations Section**:\n    - `Live Fleet Matrix` (`/admin/fleet/matrix`): Gantt-style vehicle timeline.\n    - `Fleet Inventory` (`/admin/fleet`): Tabular master directory with sub-link `+ Add Vehicle` (`/admin/fleet/new`).\n    - `Active Rentals & Overdue` (`/admin/rentals/active`): Filterable contract list with distinct pulsating red count badge for overdue rentals (`/admin/rentals/:rentalId/overdue`).\n  - **Fleet Health & Logistics**:\n    - `Maintenance Hub` (`/admin/maintenance`): Service alerts with sub-link `+ New Work Order` (`/admin/maintenance/new`).\n  - **Revenue & Rules**:\n    - `Dynamic Pricing & Rates` (`/admin/rates`): Multi-tier seasonal and class rates.\n    - `Analytics & RevPAC` (`/admin/analytics`): Utilization charts and Stripe transaction logs.\n  - **System**:\n    - `Branch Settings`, `Staff Access Control`, `Stripe Gateway Settings`.\n\n---\n\n### 2. Tablet Lot Inspection Suite Navigation Patterns (`/inspections/*`)\n\nLot attendants conducting outdoor walkarounds require an ergonomic, distraction-free tablet interface optimized for one-handed operation:\n\n- **Fullscreen Focus Mode**:\n  - The standard desktop left sidebar and utility header automatically collapse upon entering `/inspections/new` or `/inspections/return/:rentalId`.\n  - High-contrast header displays: Vehicle License Plate, Assigned Stall #, Model Name, and an prominent \"Exit Inspection\" abort button with unsaved change confirmation.\n- **Top Linear Step Indicator**:\n  - 4-step segmented stepper: `1. Odometer & Fuel` -> `2. Exterior 360° Photos` -> `3. Pin Damage Hotspots` -> `4. Renter Sign-Off`.\n- **Bottom Fixed Action Bar (Sticky 72px Ergonomic Lot Bar)**:\n  - Minimum 48px touch targets designed for gloved or outdoor thumb interaction.\n  - Secondary Back button (left), Ambient Flashlight / Camera Exposure toggle (center-left), Skip/Flag note (center-right), and primary high-visibility Next CTA button (e.g., `Next: Pin Blemishes ->` or `Complete & Review Agreement`).\n- **Side-by-Side Inspection View (Return Inspection `/inspections/return/:rentalId`)**:\n  - Split-screen comparison component: Left pane shows the timestamped departure photo taken at check-out; right pane provides the live camera viewfinder for the identical angle (Front, Driver Side, Rear, Passenger Side).\n  - Tap-to-compare overlay slider with difference toggle to immediately confirm whether a bumper scratch is pre-existing or new.\n\n---\n\n### 3. Contextual Components, Badges & Breadcrumb Trails\n\n- **Interactive Vehicle Status Badges**:\n  - `Available / Ready`: Solid Green `#10B981` with checkmark.\n  - `Reserved / Pick-Up Due`: Solid Blue `#3B82F6` with clock icon.\n  - `On-Rent / Active`: Neutral Indigo `#6366F1`.\n  - `Return Overdue`: Pulsating High-Visibility Red `#EF4444` with warning triangle.\n  - `Turnaround / Detailing`: Warm Purple `#8B5CF6` with sparkle icon.\n  - `Maintenance Hold`: Amber `#F59E0B` with wrench icon.\n- **Financial & Deposit Status Badges**:\n  - `Stripe Hold Active`: Emerald green pill with lock icon.\n  - `Hold Expiring Soon (<24h)`: Amber pill with urgent clock.\n  - `Deposit Captured`: Indigo pill with checkmark.\n  - `Hold Released`: Slate gray outlined badge.\n- **Breadcrumb Hierarchy**:\n  - Every child view renders explicit top breadcrumbs:\n    - Example 1: `Admin > Active Rentals > Overdue Management (REN-5021)`\n    - Example 2: `Counter > Departures Queue > Check-Out (RES-8492)`\n    - Example 3: `Admin > Maintenance > Work Orders > New Order`\n  - Breadcrumb roots allow instant fallback without discarding draft state (draft walkaround photos and form inputs are cached in local browser storage).",
+  "key_features": [
+    {
+      "feature_name": "Online Customer Booking Engine & Account Portal",
+      "feature_description": "Responsive customer-facing reservation system with real-time vehicle category and model search by date, time, and location, transparent line-item rate calculation (base rate, protection tiers, add-ons, taxes), secure Stripe checkout, and self-service booking management."
+    },
+    {
+      "feature_name": "Tablet-Optimized Digital Inspection & Condition Audit",
+      "feature_description": "Guided check-out and check-in inspection workflow capturing odometer mileage, fuel/battery percentage, visual body-panel damage pinning, and time-stamped photo uploads with side-by-side departure versus return image comparison."
+    },
+    {
+      "feature_name": "Check-Out, Identity Verification & Digital Agreement",
+      "feature_description": "Counter agent workflow for customer identity verification, driver's license recording, automated pre-authorization of card security deposits via Stripe, electronic contract generation, and touch-screen digital signature capture."
+    },
+    {
+      "feature_name": "Check-In, Automated Surcharges & Settlement Engine",
+      "feature_description": "Instant return processing that compares actual return timestamp, mileage, and fuel level against departure benchmarks. Enforces an automated refueling surcharge policy calculating missing fuel volume based on vehicle fuel tank capacity and fuel gauge variance when returned with less fuel than at departure, automatically charging a premium per-gallon rate (default $8.00 per gallon). Concurrently enforces an automated late return policy with a 60-minute (1-hour) grace period past scheduled drop-off time (vehicles returned past the 1-hour grace period automatically incur incremental hourly rate charges capped at the daily rate maximum), excess mileage fees, and automated Stripe deposit settlement or damage claim capture."
+    },
+    {
+      "feature_name": "Active Fleet Dashboard & Overdue Tracking",
+      "feature_description": "Live operations control board monitoring fleet status (available, on-rent, maintenance, cleaning), scheduled pickups, and real-time return schedules. Incorporates a 60-minute (1-hour) grace period past the scheduled drop-off time before triggering overdue rental alerts, automatically accruing hourly rate penalties (up to the daily rate maximum) on late contracts, and enabling immediate staff escalation and balance recovery."
+    },
+    {
+      "feature_name": "Integrated Payments & Multi-Tier Pricing Management",
+      "feature_description": "Stripe-backed financial module managing pre-authorizations, card charges, refunds, automated invoicing, outstanding balance recovery, and flexible rate rule configuration—including vehicle class rental rates (daily, weekly, seasonal), excess mileage charges, and configurable fee schedules such as the premium per-gallon refueling rate (default $8.00 per gallon)."
+    },
+    {
+      "feature_name": "Fleet Analytics, Maintenance & Audit Reporting",
+      "feature_description": "Comprehensive back-office operational reporting on fleet utilization percentages, revenue per available vehicle day (RevPAC), maintenance scheduling triggers based on odometer thresholds, and damage claim recovery rates."
+    }
+  ],
+  "user_personas": [
+    {
+      "name": "Marcus Vance",
+      "goals": [
+        "Process morning customer pickup and drop-off lines in under 90 seconds per party",
+        "Capture incontrovertible damage and fuel records on tablet to eliminate counter arguments",
+        "Instantly locate ready-to-rent vehicles on the lot without leaving the front counter",
+        "Complete digital agreement signatures and Stripe pre-authorizations seamlessly"
+      ],
+      "age_role": "28, counter agent (application role: counter_agent)",
+      "pain_points": [
+        "Lengthy disputes with renters over pre-existing bumper scratches and wheel scuffs",
+        "Slow, disjointed software requiring toggling between card swipe terminals and contract paperwork",
+        "Screen glare and tiny clickable buttons when performing tablet walkarounds in bright sunlight",
+        "Performing manual mental math for fractional fuel tank deficits and excess mileage tiers"
+      ],
+      "preferred_device": "10.9-inch Rugged iPad / Android Tablet with high-brightness display for lot walkarounds, plus dual-screen desktop workstation at the front counter"
+    },
+    {
+      "name": "Elena Rostova",
+      "goals": [
+        "Maintain fleet utilization rate above 88% while minimizing unrented idle days",
+        "Instantly identify overdue vehicles and automate compounding late penalty collection",
+        "Enforce preventative vehicle maintenance based on live odometer thresholds",
+        "Gain real-time visibility into revenue per available vehicle day (RevPAC) and deposit balances"
+      ],
+      "age_role": "44, fleet operations manager (application role: fleet_manager)",
+      "pain_points": [
+        "Revenue leakage caused by unbilled late return hours and unrecovered cosmetic damage",
+        "Fragmented spreadsheets causing accidental double-bookings and delayed vehicle turnaround detailing",
+        "Complex credit card chargeback disputes resulting from missing departure condition photos",
+        "Lack of consolidated multi-location visibility into fleet readiness and maintenance downtime"
+      ],
+      "preferred_device": "Dual-monitor 27-inch desktop workstation running Google Chrome on macOS/Windows"
+    },
+    {
+      "name": "David Chen",
+      "goals": [
+        "Reserve a guaranteed vehicle class in under two minutes with 100% upfront, transparent pricing",
+        "Bypass long airport counter queues and pick up vehicle keys without aggressive insurance upsells",
+        "Receive an immediate digital departure condition receipt and prompt security deposit release upon return",
+        "Access transparent itemized invoices and reservation management on mobile web"
+      ],
+      "age_role": "35, retail renter (application role: customer)",
+      "pain_points": [
+        "Surprise fees at the counter for compulsory add-ons, refueling fees, or minor wear-and-tear",
+        "Unsubstantiated damage claims for pre-existing scratches days after returning the car",
+        "Unexplained, lingering credit card deposit holds that lock up personal credit lines",
+        "Tedious manual document re-entry at the counter after already completing online booking"
+      ],
+      "preferred_device": "iPhone 15 Pro (Mobile Safari) while traveling; MacBook Pro (Desktop Chrome) for advance vacation planning"
+    }
+  ],
+  "user_stories": [
+    {
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "title": "Vehicle Search & Reservation Configuration",
+      "user_story": {
+        "as_a": "customer",
+        "i_want": "to search available vehicle classes by pickup date, time, and location and configure protection packages and add-ons",
+        "so_that": "I can select the right car with transparent upfront pricing and reserve it without unexpected fees"
+      },
+      "key_feature": "Online Customer Booking Engine & Account Portal",
+      "acceptance_criteria": [
+        "Given a guest or customer on /vehicles, When they input pickup and return dates, times, and branch location, Then the system displays matching available vehicle categories with clear daily base rates, vehicle specifications, and seating capacity.",
+        "Given a selected vehicle class, When navigating to /booking/configure, Then the user can choose protection tiers (Basic, Standard, Full) and add-ons (child safety seat, additional driver) with real-time recalculation of total cost.",
+        "Given an unauthenticated user on /vehicles or /booking/configure, Then Guest users can search and configure vehicle reservations without an account.",
+        "Given a user attempting to reserve without selecting dates or selecting a past return date, When submitting the search, Then the system displays inline validation errors highlighting invalid date ranges and prevents proceeding.",
+        "The data model stores postal code and the application uses it as described in this story.",
+        "The data model stores date of birth and the application uses it as described in this story.",
+        "The data model stores approved and the application uses it as described in this story.",
+        "The data model stores color and the application uses it as described in this story.",
+        "The data model stores notes and the application uses it as described in this story.",
+        "The data model stores quantity and the application uses it as described in this story.",
+        "The data model stores repaired and the application uses it as described in this story.",
+        "The data model stores baggage capacity and the application uses it as described in this story."
+      ]
+    },
+    {
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "title": "Online Reservation Checkout & Digital Voucher",
+      "user_story": {
+        "as_a": "customer",
+        "i_want": "to submit my personal details, upload my driver's license, and secure the reservation using Stripe payment card processing",
+        "so_that": "my booking is confirmed instantly and I receive a pickup voucher with all reservation details"
+      },
+      "key_feature": "Online Customer Booking Engine & Account Portal",
+      "acceptance_criteria": [
+        "Given a configured reservation at /booking/checkout, When the user inputs primary driver details and card credentials into the Stripe Elements widget, Then the payment authorization is processed securely and the reservation is committed to confirmed status.",
+        "The app provides an upload UI for driver's license documentation data, accepting PNG, JPG, and PDF, and visibly confirms a successful import with document preview.",
+        "Given a successful payment authorization, When the transaction commits, Then the user is redirected to /booking/confirmation displaying an itemized summary, pickup instructions, and a scannable booking QR code.",
+        "Given a declined card or invalid expiration date in Stripe Elements, When the user clicks confirm, Then the system displays the specific card decline reason without clearing previously entered form fields.",
+        "Guest users can complete checkout and booking confirmation without an account, receiving an automated email voucher containing their reservation reference.",
+        "The data model stores license state and the application uses it as described in this story.",
+        "The data model stores license expiry date and the application uses it as described in this story.",
+        "The data model stores license country and the application uses it as described in this story.",
+        "The data model stores transmission and the application uses it as described in this story."
+      ]
+    },
+    {
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "title": "Customer Portal & Booking History Access",
+      "user_story": {
+        "as_a": "customer",
+        "i_want": "to log into my customer portal to review active bookings, past rental receipts, and stored payment profiles",
+        "so_that": "I have transparent self-service records of all my rental transactions and charges"
+      },
+      "key_feature": "Online Customer Booking Engine & Account Portal",
+      "acceptance_criteria": [
+        "Given a registered customer at /login, When entering valid email and password credentials, Then the customer is authenticated and redirected to /account/dashboard.",
+        "Unauthenticated users are redirected to /login when accessing /account/dashboard, /account/bookings, or /account/billing.",
+        "Given an authenticated customer on /account/bookings, When viewing reservations, Then the system displays upcoming pickups, active rentals, and past receipts with downloadable PDF statements.",
+        "Given a customer attempting to log in with incorrect credentials, When submitting the login form, Then the system displays an invalid credentials error and does not reveal whether the account email exists.",
+        "Only customer can access /account/dashboard.",
+        "The data model stores min rental days and the application uses it as described in this story."
+      ]
+    },
+    {
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "title": "Counter Check-Out & Driver Verification",
+      "user_story": {
+        "as_a": "counter_agent",
+        "i_want": "to locate customer reservations from the departures queue, verify physical driver's licenses, and assign available vehicles",
+        "so_that": "only authorized drivers receive vehicles and turnaround time at the counter remains under 90 seconds"
+      },
+      "key_feature": "Check-Out, Identity Verification & Digital Agreement",
+      "acceptance_criteria": [
+        "Given a counter agent at /counter/departures, When reviewing today's scheduled pickups, Then the queue displays real-time reservation statuses, customer names, reserved classes, and vehicle prep readiness.",
+        "Only counter_agent and fleet_manager can access /counter/departures and /counter/check-out/:reservationId.",
+        "Given a selected reservation at /counter/check-out/:reservationId, When verifying the customer, Then the agent can scan or enter government ID details, verify age and license expiration date, and link an assigned vehicle by license plate or barcode.",
+        "Given an expired driver's license or mismatched renter name, When the agent attempts to confirm check-out, Then the system blocks progression with an explicit validation error requiring supervisor override or updated ID.",
+        "The data model stores first name and the application uses it as described in this story.",
+        "The data model stores last name and the application uses it as described in this story.",
+        "The data model stores season name and the application uses it as described in this story."
+      ]
+    },
+    {
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "title": "Security Deposit Pre-Authorization Hold",
+      "user_story": {
+        "as_a": "counter_agent",
+        "i_want": "to execute an automated Stripe credit card pre-authorization hold for the security deposit prior to vehicle release",
+        "so_that": "the company holds secured funds against potential incidentals, fuel shortfall, or damage"
+      },
+      "key_feature": "Check-Out, Identity Verification & Digital Agreement",
+      "acceptance_criteria": [
+        "Given an open check-out record at /counter/check-out/:reservationId, When initiating deposit hold, Then the system communicates with Stripe API to pre-authorize the mandatory security deposit amount based on vehicle class.",
+        "Given a successful pre-authorization from Stripe, When confirmed, Then the transaction hold ID is attached to the rental record and status updates to 'Deposit Secured'.",
+        "Given a card decline or insufficient funds response from Stripe, When authorization fails, Then the UI alerts the agent with the decline reason and allows entering an alternative payment method without losing progress.",
+        "Only counter_agent and fleet_manager can access security deposit pre-authorization workflows on /counter/check-out/:reservationId.",
+        "The data model stores fuel type and the application uses it as described in this story.",
+        "The data model stores total paid amount and the application uses it as described in this story."
+      ]
+    },
+    {
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "title": "Digital Rental Agreement & Touchscreen Signature",
+      "user_story": {
+        "as_a": "counter_agent",
+        "i_want": "to present the itemized rental terms on a counter or tablet display for instant customer digital signature",
+        "so_that": "we execute a binding electronic contract without paper waste and immediately advance the rental to active status"
+      },
+      "key_feature": "Check-Out, Identity Verification & Digital Agreement",
+      "acceptance_criteria": [
+        "Given a verified check-out ready for finalization at /counter/agreement, When presenting the tablet to the renter, Then the complete agreement displays daily rates, deposit hold amounts, insurance coverage terms, and condition summary.",
+        "Given the terms display, When the renter signs on the digital signature canvas and clicks Accept & Sign, Then the signature is captured with a UTC timestamp and embedded into a tamper-evident PDF contract.",
+        "Given agreement signing completion, When Marcus clicks Complete Handover, Then the vehicle status immediately shifts from 'Available' to 'Rented', and an encrypted PDF agreement is automatically emailed to the customer.",
+        "Only counter_agent and fleet_manager can access /counter/agreement.",
+        "The data model stores customer signature url and the application uses it as described in this story."
+      ]
+    },
+    {
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "title": "Tablet Departure Inspection & Condition Pinning",
+      "user_story": {
+        "as_a": "counter_agent",
+        "i_want": "to perform a guided tablet walkaround capturing odometer, fuel %, and photo-documented body blemishes",
+        "so_that": "departure vehicle condition is definitively established before the renter leaves the lot"
+      },
+      "key_feature": "Tablet-Optimized Digital Inspection & Condition Audit",
+      "acceptance_criteria": [
+        "Given Marcus on a lot tablet at /inspections/new, When initiating pickup inspection, Then the interface requires logging current odometer mileage and fuel level percentage (0-100%).",
+        "The app provides an upload UI for departure vehicle condition photos data, accepting JPG and PNG camera captures, and visibly confirms a successful import for required 4-quadrant photos (front, rear, driver, passenger).",
+        "Given existing exterior blemishes, When Marcus taps on the 2D car silhouette pin tool, Then a visual damage marker is placed with severity classification and prompts for a mandatory close-up photo.",
+        "Given missing required photos or blank odometer readings, When tapping Finish Inspection, Then the form prevents submission and highlights uncompleted walkaround sections.",
+        "Only counter_agent and fleet_manager can access /inspections/new."
+      ]
+    },
+    {
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "title": "Tablet Return Walkaround & Damage Comparison",
+      "user_story": {
+        "as_a": "counter_agent",
+        "i_want": "to conduct the return walkaround comparing return condition photos side-by-side with departure photos",
+        "so_that": "any new damage or scratches are immediately detected and documented with indisputable photographic evidence"
+      },
+      "key_feature": "Tablet-Optimized Digital Inspection & Condition Audit",
+      "acceptance_criteria": [
+        "Given a counter agent at /inspections/return/:rentalId, When performing inbound inspection, Then the tablet displays original departure photos and pinned blemishes side-by-side with live return camera capture viewports.",
+        "Given newly discovered damage, When Marcus flags a new hotspot on the return vehicle wireframe, Then the system marks it as 'New Damage' and mandates at least one photo with damage description and dimensions.",
+        "Given an inbound vehicle return, When the agent records return odometer reading and fuel percentage, Then the system automatically calculates mileage delta and fuel variance against departure records.",
+        "Only counter_agent and fleet_manager can access /inspections/return/:rentalId."
+      ]
+    },
+    {
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "title": "Deposit Settlement, Capture & Release",
+      "user_story": {
+        "as_a": "counter_agent",
+        "i_want": "to settle the Stripe deposit hold by capturing assessed surcharge balances and releasing the remaining amount immediately",
+        "so_that": "renters receive an instantaneous itemized final invoice and deposit release notification"
+      },
+      "key_feature": "Check-In, Automated Surcharges & Settlement Engine",
+      "acceptance_criteria": [
+        "Given an itemized return balance at /counter/settlement/:rentalId where no surcharges or damage are owed, When Marcus clicks Release Deposit, Then DriveFlow issues an immediate Stripe API release call for the full deposit hold.",
+        "Given return charges (e.g., refueling fee), When Marcus clicks Capture Charges & Release Difference, Then DriveFlow captures the charges from the pre-authorization hold and releases remaining funds via Stripe in a single atomic transaction.",
+        "Given total charges exceeding deposit hold amount, When settled, Then the entire deposit is captured and an invoice for remaining balance owed is generated and flagged for balance recovery.",
+        "Given settlement completion, When final charges commit, Then vehicle status transitions to 'Cleaning/Turnaround', and an itemized digital receipt PDF is dispatched to the customer's email and account portal.",
+        "Only counter_agent and fleet_manager can execute deposit settlement on /counter/settlement/:rentalId."
+      ]
+    },
+    {
+      "phase": "Phase 2 - Operational Efficiency & Fleet Control",
+      "title": "Fleet Status Matrix & Vehicle Onboarding",
+      "user_story": {
+        "as_a": "fleet_manager",
+        "i_want": "to view an interactive timeline matrix of all fleet assets and onboard new vehicles with VIN, registration, and initial mileage",
+        "so_that": "I maintain real-time visibility over asset turnaround and dispatch readiness across the facility"
+      },
+      "key_feature": "Active Fleet Dashboard & Overdue Tracking",
+      "acceptance_criteria": [
+        "Given Elena at /admin/fleet/matrix, When viewing the schedule board, Then all fleet vehicles are displayed in an interactive timeline categorized by status (Available, On-Rent, Maintenance, Detailing) across chosen date ranges.",
+        "Given Elena at /admin/fleet/new, When adding a new fleet asset, Then the form requires VIN, license plate, make, model, model year, vehicle category, and initial odometer mileage.",
+        "The app provides an upload UI for vehicle registration documentation data, accepting PDF, PNG, and JPG, and visibly confirms a successful import.",
+        "Only fleet_manager can access /admin/fleet, /admin/fleet/new, and /admin/fleet/matrix.",
+        "Given an attempt to register a duplicate VIN or license plate, When clicking save, Then the system alerts Elena with a duplicate conflict error and halts creation."
+      ]
+    },
+    {
+      "phase": "Phase 3 - Scale, Intelligence & Optimization",
+      "title": "Balance Recovery & Customer Invoicing",
+      "user_story": {
+        "as_a": "fleet_manager",
+        "i_want": "to track uncollected post-rental balances, trigger secondary Stripe payment captures, and generate downloadable tax invoices",
+        "so_that": "the business recovers overdue accounts receivable and provides complete financial transparency"
+      },
+      "key_feature": "Integrated Payments & Multi-Tier Pricing Management",
+      "acceptance_criteria": [
+        "Given a rental where final settlement charges exceeded the security deposit hold, When Elena views the uncollected accounts list, Then the system highlights the delinquent amount and links the customer's on-file Stripe customer token.",
+        "Given an outstanding balance owed, When Elena executes Charge Balance to Card, Then DriveFlow submits a direct payment intent via Stripe API and logs the transaction receipt.",
+        "Given an authenticated customer at /account/billing, When reviewing completed rentals, Then the customer can view itemized payment histories and download PDF receipts with Stripe reference numbers.",
+        "Unauthenticated users are redirected to /login when accessing /account/billing.",
+        "Only fleet_manager can access /admin/rates and back-office billing reconciliation tools."
+      ]
+    },
+    {
+      "phase": "Phase 3 - Scale, Intelligence & Optimization",
+      "title": "Odometer Service Triggers & Maintenance Scheduling",
+      "user_story": {
+        "as_a": "fleet_manager",
+        "i_want": "to monitor mileage thresholds and auto-flag vehicles needing oil changes, brake inspections, or tire rotations into maintenance work orders",
+        "so_that": "fleet safety is guaranteed, asset lifespans are maximized, and unserviced cars are never dispatched to renters"
+      },
+      "key_feature": "Fleet Analytics, Maintenance & Audit Reporting",
+      "acceptance_criteria": [
+        "Given Elena at /admin/maintenance, When checking vehicle service statuses, Then the dashboard automatically flags any vehicle whose odometer exceeds service intervals with a high-priority Service Due badge.",
+        "Given a flagged vehicle, When Elena clicks Create Work Order at /admin/maintenance/new, Then the form captures vendor name, estimated cost, expected completion ETA, and service category.",
+        "Given submission of an active work order, When confirmed, Then the vehicle operational status automatically shifts from 'Available' to 'Maintenance', removing it from front-desk pickup allocation and online booking availability.",
+        "Given maintenance completion, When Elena enters the final vendor invoice and records new service mileage, Then vehicle status transitions back to Available.",
+        "Only fleet_manager can access /admin/maintenance and /admin/maintenance/new.",
+        "The data model stores cleanliness status and the application uses it as described in this story."
+      ]
+    },
+    {
+      "phase": "Phase 3 - Scale, Intelligence & Optimization",
+      "title": "Executive Operational & Financial Analytics",
+      "user_story": {
+        "as_a": "fleet_manager",
+        "i_want": "to review executive dashboards tracking daily fleet utilization %, RevPAC, unrecovered damage claims, and deposit reconciliations",
+        "so_that": "I can make data-driven decisions on fleet resizing, rate optimizations, and operational cost controls"
+      },
+      "key_feature": "Fleet Analytics, Maintenance & Audit Reporting",
+      "acceptance_criteria": [
+        "Given Elena at /admin/analytics, When selecting a reporting timeframe (e.g. trailing 7, 30, or 90 days), Then the dashboard calculates and charts Fleet Utilization Rate and RevPAC across vehicle classes.",
+        "Given the financial reconciliation widget, When auditing deposit performance, Then DriveFlow displays aggregated metrics for total security deposits held, deposits released in full, partial captures, and uncollected damage claims.",
+        "Given the maintenance analytics breakdown, When reviewed, Then total maintenance expenditures and average vehicle downtime days are charted per vehicle class.",
+        "Only fleet_manager can access /admin/analytics.",
+        "Unauthenticated users are redirected to /login when accessing /admin/analytics."
+      ]
+    },
+    {
+      "phase": "Phase 2 - Operational Efficiency & Fleet Control",
+      "title": "Active Rentals Monitoring & Overdue Detection",
+      "user_story": {
+        "as_a": "fleet_manager",
+        "i_want": "to monitor all active rental agreements in real time and immediately identify contracts exceeding scheduled return deadlines",
+        "so_that": "our operations team can take immediate recovery action before vehicle loss or unbilled usage escalates"
+      },
+      "key_feature": "Active Fleet Dashboard & Overdue Tracking",
+      "acceptance_criteria": [
+        "Given Elena at /admin/rentals/active, When filtering contracts by status, Then the list provides filter toggles for Active, Due Today, and Overdue with elapsed overdue time counters.",
+        "Given a rental exceeding its scheduled return time by more than 1 hour (60 minutes) without an extension, When the 1-hour grace period expires, Then the system automatically transitions the rental status to 'Overdue' and triggers high-priority warning alerts on the active rentals hub.",
+        "Only fleet_manager can access /admin/rentals/active and /admin/rentals/:rentalId/overdue.",
+        "Given an active rental where the customer requests an extension, When Elena approves new return dates with available fleet buffers, Then the system recalculates rental duration, confirms additional payment, and clears overdue warnings."
+      ]
+    },
+    {
+      "phase": "Phase 2 - Operational Efficiency & Fleet Control",
+      "title": "Overdue Escalation & Deposit Pre-Auth Expansion",
+      "user_story": {
+        "as_a": "fleet_manager",
+        "i_want": "to review overdue rental details, dispatch automated urgency notices via SMS/email, and expand Stripe pre-authorization holds",
+        "so_that": "we protect agency revenue exposure and encourage rapid return of delinquent vehicles"
+      },
+      "key_feature": "Active Fleet Dashboard & Overdue Tracking",
+      "acceptance_criteria": [
+        "Given Elena at /admin/rentals/:rentalId/overdue, When opening a flagged rental, Then the console displays contracted return time, the 1-hour (60-minute) grace period expiration timestamp, and calculated incremental hourly late fees capped at the vehicle's standard daily rate.",
+        "Given an overdue rental record, When Elena clicks Send Return Urgency Notice, Then the system dispatches an automated SMS and email notification to the renter containing current late penalty totals and return instructions.",
+        "Given unreturned status extending beyond designated threshold, When Elena triggers Expand Pre-Authorization Hold, Then DriveFlow initiates an incremental Stripe pre-authorization charge against the customer's on-file credit card.",
+        "Given a card decline during pre-auth expansion, When Stripe responds with an error, Then the system logs the failed charge attempt and prompts Elena to flag the asset for recovery escalation.",
+        "Only fleet_manager can access /admin/rentals/:rentalId/overdue."
+      ]
+    },
+    {
+      "phase": "Phase 1 - MVP: Operational Foundation & Revenue Capture",
+      "title": "Automated Surcharge Calculation on Return",
+      "user_story": {
+        "as_a": "counter_agent",
+        "i_want": "the system to automatically calculate refueling deficits, excess mileage charges, and late return penalties upon check-in",
+        "so_that": "settlement billing is 100% accurate without manual math errors or counter delays"
+      },
+      "key_feature": "Check-In, Automated Surcharges & Settlement Engine",
+      "acceptance_criteria": [
+        "Given a vehicle return at /counter/returns, When the agent enters license plate or scans agreement QR code, Then the active rental record is loaded with scheduled return time, departure fuel, and mileage cap allowances.",
+        "Given return inspection data submitted at /counter/settlement/:rentalId, When fuel level is lower than departure level at /counter/settlement/:rentalId, Then the system calculates the missing volume in gallons using vehicle tank capacity and fuel percentage variance, multiplying by the configured premium per-gallon rate (default $8.00/gal) to apply an itemized refueling surcharge.",
+        "Given return mileage exceeding contracted allowance, When calculated, Then excess miles are multiplied by the contracted per-mile rate and added as an explicit line item.",
+        "Given a vehicle returned past scheduled return time and the 1-hour (60-minute) grace period, When processed, Then the system calculates incremental hourly rate late fees billed up to the vehicle's standard daily rate cap per rental agreement terms.",
+        "Only counter_agent and fleet_manager can access /counter/settlement/:rentalId and /counter/returns.",
+        "The data model stores dropoff location code and the application uses it as described in this story.",
+        "The data model stores actual return datetime and the application uses it as described in this story."
+      ]
+    },
+    {
+      "phase": "Phase 3 - Scale, Intelligence & Optimization",
+      "title": "Dynamic Pricing Rules & Seasonal Multipliers",
+      "user_story": {
+        "as_a": "fleet_manager",
+        "i_want": "to configure base daily rates, weekend surge multipliers, seasonal date ranges, and vehicle class rate cards",
+        "so_that": "we maximize rental revenue during peak demand periods while maintaining competitive pricing"
+      },
+      "key_feature": "Integrated Payments & Multi-Tier Pricing Management",
+      "acceptance_criteria": [
+        "Given Elena at /admin/rates, When creating or updating a pricing rule, Then she can specify vehicle category, base daily rate, weekly discount percentage, and excess mileage fee per unit.",
+        "Given active seasonal periods (e.g. holiday weekends, summer peak), When Elena defines date ranges and percentage surge multipliers, Then vehicle rates on /vehicles and /booking automatically adjust accordingly.",
+        "Given Elena at /admin/rates, When configuring fee schedules alongside standard rates, Then she can configure and update the premium refueling rate per gallon (default $8.00/gal) applied to vehicle refueling shortfalls.",
+        "Given an attempt to set negative rates or end dates preceding start dates, When Elena clicks save, Then the system displays validation errors and blocks rule creation.",
+        "Only fleet_manager can access /admin/rates.",
+        "The data model stores unit price and the application uses it as described in this story."
+      ]
+    }
+  ],
+  "user_flows": [
+    {
+      "steps": [
+        "[Retail Renter] Navigate to /vehicles to view available fleet by pickup and drop-off dates and location",
+        "[Retail Renter] Select vehicle class, review daily rates and specifications, and proceed to /booking/configure",
+        "[Retail Renter] Select protection package and add-on accessories (child seat, additional driver)",
+        "[Retail Renter] Enter renter details, upload driver's license images, and provide payment card details at /booking/checkout",
+        "[Retail Renter] Confirm reservation and receive digital booking confirmation and voucher at /booking/confirmation"
+      ],
+      "flow_name": "Customer Online Reservation & Booking",
+      "primary_role": "customer",
+      "auth_required": false
+    },
+    {
+      "steps": [
+        "[Retail Renter] Navigate to /signup and submit name, email, phone number, and password",
+        "[Retail Renter] Verify email address via verification link redirecting to /login",
+        "[Retail Renter] Log in with credentials to access /account/dashboard",
+        "[Retail Renter] View active reservations, past rental receipts, and stored payment methods at /account/bookings"
+      ],
+      "flow_name": "Customer Account Sign-Up & Authentication",
+      "primary_role": "customer",
+      "auth_required": false
+    },
+    {
+      "steps": [
+        "[Counter Agent] Log in and navigate to /counter/departures to select the scheduled reservation",
+        "[Counter Agent] Verify customer government ID and validate driver's license details at /counter/check-out/:reservationId",
+        "[Counter Agent] Trigger Stripe card pre-authorization hold for security deposit",
+        "[Counter Agent] Perform vehicle walkaround on tablet: record starting odometer mileage, fuel level percentage, and photograph existing blemishes at /inspections/new",
+        "[Counter Agent] Present digital rental agreement to customer for on-screen signature at /counter/agreement",
+        "[Counter Agent] Complete handover, update vehicle status to 'rented', and dispatch agreement copy via email"
+      ],
+      "flow_name": "Staff Vehicle Check-Out & Pickup Inspection",
+      "primary_role": "counter_agent",
+      "auth_required": true
+    },
+    {
+      "steps": [
+        "[Counter Agent] Navigate to /counter/returns and locate returning vehicle by license plate or agreement number",
+        "[Counter Agent] Open return inspection on tablet at /inspections/return/:rentalId",
+        "[Counter Agent] Record ending odometer reading and fuel level percentage; system automatically compares against checkout values",
+        "[Counter Agent] Photograph vehicle exterior and interior; flag any new damage and link repair estimate photos",
+        "[Counter Agent] Review itemized return billing at /counter/settlement/:rentalId (fuel refill charge, excess mileage, damage charges)",
+        "[Counter Agent] Submit settlement to capture appropriate amount from Stripe deposit hold, release remainder, and issue final invoice"
+      ],
+      "flow_name": "Staff Vehicle Check-In, Damage/Fuel Reconciliation & Final Settlement",
+      "primary_role": "counter_agent",
+      "auth_required": true
+    },
+    {
+      "steps": [
+        "[Fleet Operations Manager] Navigate to /admin/fleet to view vehicle master list and operational statuses",
+        "[Fleet Operations Manager] Click 'Add Vehicle' and enter VIN, make, model, year, license plate, initial mileage, and registration details at /admin/fleet/new",
+        "[Fleet Operations Manager] Navigate to /admin/rates to configure base daily rates, weekend multipliers, seasonal surcharges, and mileage caps",
+        "[Fleet Operations Manager] Save rate rules and verify updated pricing across active vehicle classes on the fleet schedule matrix at /admin/fleet/matrix"
+      ],
+      "flow_name": "Fleet Inventory & Dynamic Rate Configuration",
+      "primary_role": "fleet_manager",
+      "auth_required": true
+    },
+    {
+      "steps": [
+        "[Fleet Operations Manager] Navigate to /admin/rentals/active to monitor active contracts and filter by overdue status",
+        "[Fleet Operations Manager] Open overdue rental detail at /admin/rentals/:rentalId/overdue to review contract grace period and automated penalty charges",
+        "[Fleet Operations Manager] Trigger automated late return SMS/email notification to renter and log customer contact attempt",
+        "[Fleet Operations Manager] Adjust penalty line items or trigger incremental pre-authorization hold on customer's card via Stripe",
+        "[Fleet Operations Manager] Escalate unreturned vehicle to recovery status or update expected return time"
+      ],
+      "flow_name": "Overdue/Late Rental Management & Balance Recovery",
+      "primary_role": "fleet_manager",
+      "auth_required": true
+    },
+    {
+      "steps": [
+        "[Fleet Operations Manager] Navigate to /admin/analytics to review fleet utilization %, RevPAC, and outstanding accounts receivable",
+        "[Fleet Operations Manager] Navigate to /admin/maintenance to review vehicles flagged by odometer service thresholds",
+        "[Fleet Operations Manager] Schedule maintenance work order, set vehicle status to 'maintenance', and assign technician vendor at /admin/maintenance/new",
+        "[Fleet Operations Manager] Mark maintenance completed, record servicing invoice, and return vehicle to 'available' inventory"
+      ],
+      "flow_name": "Fleet Analytics, Maintenance Scheduling & Audit",
+      "primary_role": "fleet_manager",
+      "auth_required": true
+    }
+  ],
+  "target_audience": [
+    {
+      "name": "Counter Agent",
+      "pain_points": [
+        "Time-consuming paperwork causing counter queues",
+        "Customer arguments over pre-existing vehicle scratches and dents",
+        "Manual math errors calculating fuel top-up and excess mileage fees",
+        "Clunky software requiring multiple windows for payments and reservations"
+      ],
+      "demographics": "Front-desk rental representatives and field lot attendants operating on desktop workstations and tablet browsers at rental facilities.",
+      "needs_and_goals": [
+        "Rapid customer check-in and check-out turnaround",
+        "Foolproof tablet vehicle inspection with photo logging",
+        "Instant driver license verification and contract signature",
+        "Clear view of today's arrivals, departures, and vehicle readiness"
+      ]
+    },
+    {
+      "name": "Fleet Operations Manager",
+      "pain_points": [
+        "Revenue leakage from uncollected damage and unbilled late return hours",
+        "Spreadsheet errors leading to double-bookings and idle vehicles",
+        "Complex deposit reconciliation and chargeback exposure",
+        "Lack of centralized operational visibility across multiple locations"
+      ],
+      "demographics": "Operations directors, fleet supervisors, and business administrators managing inventory, pricing, asset protection, and financial reconciliation.",
+      "needs_and_goals": [
+        "Maximize fleet utilization rates and vehicle revenue per day",
+        "Automated tracking of overdue vehicles and late fee recovery",
+        "Comprehensive maintenance logs and scheduled service reminders",
+        "Accurate reporting on revenue, deposits held, and unpaid customer balances"
+      ]
+    },
+    {
+      "name": "Retail Renter",
+      "pain_points": [
+        "Surprise charges at the counter for insurance, fuel, or minor scratches",
+        "Long counter queues after long flights or urgent transit needs",
+        "Delayed or unexplained security deposit holds on credit cards",
+        "Opaque return procedures with no immediate receipt or inspection sign-off"
+      ],
+      "demographics": "Leisure travelers, local replacement renters, and corporate business travelers seeking quick, transparent vehicle rentals.",
+      "needs_and_goals": [
+        "Frictionless vehicle browsing and clear upfront pricing without hidden fees",
+        "Fast pickup process without long lines or redundant document presentation",
+        "Transparent condition reports to ensure no unjust damage charges",
+        "Prompt release of security deposits following vehicle return"
+      ]
+    }
+  ],
+  "user_journeys": [
+    {
+      "steps": [
+        {
+          "actor": "Counter Agent",
+          "description": "Marcus opens /counter/departures on his counter workstation, selects David Chen's scheduled reservation, and reviews vehicle allocation."
+        },
+        {
+          "actor": "Counter Agent",
+          "description": "Navigates to /counter/check-out/RES-8492, verifies David's government ID and driver's license details, and executes the Stripe credit card security deposit pre-authorization hold."
+        },
+        {
+          "actor": "Counter Agent",
+          "description": "Picks up the lot tablet, navigates to /inspections/new, scans the vehicle barcode on lot bay 14, and inputs current odometer (14,250 mi) and fuel level (100%)."
+        },
+        {
+          "actor": "Counter Agent",
+          "description": "Conducts the 360-degree walkaround with David, captures 4 required exterior photos, tags a pre-existing 2-inch paint chip on the rear bumper using the 2D car silhouette pin tool, and snaps a close-up photo."
+        },
+        {
+          "actor": "Counter Agent",
+          "description": "Opens /counter/agreement on the tablet, presents the terms, and prompts David to review the pinned condition and sign digitally on the touch screen."
+        },
+        {
+          "actor": "Counter Agent",
+          "description": "Finalizes check-out; system marks vehicle status to 'rented', generates an encrypted PDF rental agreement, and hands keys to David in under 90 seconds."
+        }
+      ],
+      "context": "Marcus Vance processes a scheduled customer check-out during the morning rush, conducting a quick tablet walkaround, pinning pre-existing scratches, and executing an electronic contract.",
+      "trigger": "Customer arrives at rental counter desk for scheduled morning vehicle pickup."
+    },
+    {
+      "steps": [
+        {
+          "actor": "Fleet Operations Manager",
+          "description": "Elena views /admin/fleet/matrix and /admin/rentals/active, filtering by status 'Overdue' to pinpoint vehicle classes and customer accounts in breach."
+        },
+        {
+          "actor": "Fleet Operations Manager",
+          "description": "Drills into /admin/rentals/REN-5021/overdue, where DriveFlow displays contract return deadline (10:00 AM), 30-minute grace period expiry, and automated $75/hr late penalty calculations."
+        },
+        {
+          "actor": "Fleet Operations Manager",
+          "description": "Reviews customer contact attempts, clicks 'Send Return Urgency Notice' via automated SMS/email, and triggers an incremental $250 Stripe pre-authorization hold to protect agency exposure."
+        },
+        {
+          "actor": "Fleet Operations Manager",
+          "description": "Navigates to /admin/maintenance to review odometer service thresholds, noting two returned sedans requiring 15k-mile oil changes, and generates work orders at /admin/maintenance/new."
+        },
+        {
+          "actor": "Fleet Operations Manager",
+          "description": "Accesses /admin/analytics to audit daily RevPAC, fleet utilization rate (91.4%), and total security deposits currently held versus captured."
+        }
+      ],
+      "context": "Elena Rostova monitors active fleet operations, identifies vehicles exceeding return deadlines, applies late penalties, orders preventative maintenance, and reviews financial metrics.",
+      "trigger": "Automated operations alert flags a vehicle 90 minutes past scheduled return time without an authorized extension."
+    },
+    {
+      "steps": [
+        {
+          "actor": "Retail Renter",
+          "description": "David visits /vehicles, enters pickup/drop-off dates and city location, compares vehicle classes, and filters for 'Executive Sedan'."
+        },
+        {
+          "actor": "Retail Renter",
+          "description": "Proceeds to /booking/configure, selects Premium Roadside Protection and toll pass add-on, reviewing clear line-item totals with zero hidden fees."
+        },
+        {
+          "actor": "Retail Renter",
+          "description": "Navigates to /booking/checkout, enters personal details, uploads his driver's license image, and authorizes the reservation payment via integrated Stripe Elements."
+        },
+        {
+          "actor": "Retail Renter",
+          "description": "Receives instant confirmation voucher with QR code at /booking/confirmation, and checks his reservation record at /account/bookings."
+        },
+        {
+          "actor": "Retail Renter",
+          "description": "Arrives at rental desk, verifies ID with Marcus, reviews pre-existing blemish photos on the tablet at /counter/agreement, and executes e-signature."
+        },
+        {
+          "actor": "Retail Renter",
+          "description": "Returns vehicle to lot at /counter/returns; Marcus inspects vehicle at /inspections/return/REN-8492, confirms zero new damage and full fuel tank, and triggers settlement at /counter/settlement/REN-8492."
+        },
+        {
+          "actor": "Retail Renter",
+          "description": "David receives an instant digital receipt and Stripe notification that his $300 security deposit hold has been released in full."
+        }
+      ],
+      "context": "David Chen books a premium sedan online, completes fast lot pickup, and experiences transparent return inspection with immediate deposit release.",
+      "trigger": "David needs to secure a rental vehicle for an upcoming out-of-town business roadshow."
+    }
+  ],
+  "phasing": [
+    {
+      "features": [
+        "Online Customer Booking Engine & Account Portal",
+        "Tablet-Optimized Digital Inspection & Condition Audit",
+        "Check-Out, Identity Verification & Digital Agreement",
+        "Check-In, Automated Surcharges & Settlement Engine"
+      ],
+      "rationale": "Establishes the core transactional backbone for DriveFlow: public vehicle discovery and online reservation booking, counter check-out with driver verification and digital contract execution, tablet-guided walkaround inspections with photo evidence, and return check-in with automated surcharge calculation and security deposit settlement.",
+      "phase_name": "Phase 1 - MVP: Operational Foundation & Revenue Capture"
+    },
+    {
+      "features": [
+        "Active Fleet Dashboard & Overdue Tracking"
+      ],
+      "rationale": "Empowers fleet operators with centralized visibility over real-time vehicle dispatch, status lifecycles, proactive overdue return monitoring, automated renter notifications, and accelerated turnaround management to maximize operational velocity and minimize asset loss.",
+      "phase_name": "Phase 2 - Operational Efficiency & Fleet Control"
+    },
+    {
+      "features": [
+        "Integrated Payments & Multi-Tier Pricing Management",
+        "Fleet Analytics, Maintenance & Audit Reporting"
+      ],
+      "rationale": "Delivers enterprise-grade scaling through dynamic demand-based rate rules, advanced automated payment reconciliation and balance collection, preventative maintenance lifecycle tracking triggered by odometer thresholds, and executive RevPAC and fleet utilization analytics.",
+      "phase_name": "Phase 3 - Scale, Intelligence & Optimization"
+    }
+  ],
+  "mermaid_erd_diagram": "erDiagram\nUser {\n  INT id\n  TIMESTAMP created_at\n  TIMESTAMP updated_at\n}\nOrganization {\n  INT id\n  TIMESTAMP created_at\n  TIMESTAMP updated_at\n}\nRole {\n  INT id\n  TIMESTAMP created_at\n  TIMESTAMP updated_at\n}\nUsersRole {\n  INT id\n  TIMESTAMP created_at\n  TIMESTAMP updated_at\n}\nLocation {\n  INT organization_id\n  VARCHAR name\n  VARCHAR code\n  VARCHAR address\n  VARCHAR city\n  VARCHAR state\n  VARCHAR postal_code\n  VARCHAR phone\n  VARCHAR email\n  BOOLEAN is_active\n}\nVehicleCategory {\n  INT organization_id\n  VARCHAR name\n  VARCHAR code\n  TEXT description\n  DECIMAL base_daily_rate\n  DECIMAL security_deposit_amount\n  INT mileage_allowance_per_day\n  DECIMAL excess_mileage_rate\n  DECIMAL late_hourly_fee\n  INT passenger_capacity\n  INT baggage_capacity\n  VARCHAR transmission\n}\nCustomerProfile {\n  INT organization_id\n  INT user_id\n  VARCHAR license_number\n  VARCHAR license_state\n  DATE license_expiry_date\n  VARCHAR license_country\n  BOOLEAN license_verified\n  VARCHAR stripe_customer_token\n  VARCHAR phone_number\n  DATE date_of_birth\n  VARCHAR address\n}\nRateRule {\n  INT organization_id\n  INT vehicle_category_id\n  VARCHAR name\n  VARCHAR season_name\n  DATE start_date\n  DATE end_date\n  DECIMAL daily_multiplier\n  DECIMAL weekend_multiplier\n  INT min_rental_days\n  BOOLEAN is_active\n}\nVehicle {\n  INT organization_id\n  INT vehicle_category_id\n  INT location_id\n  VARCHAR vin\n  VARCHAR license_plate\n  VARCHAR make\n  VARCHAR model\n  INT year\n  VARCHAR color\n  INT current_odometer\n  INT fuel_percentage\n  VARCHAR fuel_type\n  VARCHAR status\n}\nVehicleMaintenanceLog {\n  INT organization_id\n  INT vehicle_id\n  INT user_id\n  VARCHAR service_type\n  DATE service_date\n  INT odometer_at_service\n  DECIMAL cost\n  VARCHAR vendor_name\n  VARCHAR status\n  TEXT notes\n}\nRental {\n  INT organization_id\n  INT customer_profile_id\n  INT vehicle_category_id\n  INT vehicle_id\n  INT location_id\n  VARCHAR reservation_number\n  TIMESTAMP pickup_datetime\n  TIMESTAMP scheduled_return_datetime\n  TIMESTAMP actual_return_datetime\n  INT scheduled_duration_days\n  VARCHAR status\n  INT initial_odometer\n  INT final_odometer\n  INT initial_fuel_percentage\n  INT final_fuel_percentage\n  DECIMAL total_charges_amount\n  DECIMAL total_paid_amount\n  DECIMAL balance_owed_amount\n  VARCHAR dropoff_location_code\n}\nInspection {\n  INT organization_id\n  INT rental_id\n  INT vehicle_id\n  INT user_id\n  VARCHAR inspection_type\n  INT odometer_reading\n  INT fuel_percentage\n  VARCHAR cleanliness_status\n  VARCHAR customer_signature_url\n  TIMESTAMP customer_signature_timestamp\n  TEXT notes\n  TIMESTAMP performed_at\n}\nRentalCharge {\n  INT organization_id\n  INT rental_id\n  VARCHAR charge_type\n  VARCHAR description\n  DECIMAL unit_price\n  DECIMAL quantity\n  DECIMAL amount\n}\nPayment {\n  INT organization_id\n  INT rental_id\n  INT customer_profile_id\n  VARCHAR stripe_payment_intent_key\n  VARCHAR stripe_charge_key\n  VARCHAR transaction_type\n  DECIMAL amount\n  VARCHAR status\n  VARCHAR payment_method_last4\n  TIMESTAMP processed_at\n  VARCHAR notes\n}\nDamageRecord {\n  INT organization_id\n  INT inspection_id\n  INT vehicle_id\n  VARCHAR panel_location\n  VARCHAR severity\n  TEXT description\n  VARCHAR photo_url\n  BOOLEAN is_pre_existing\n  DECIMAL repair_cost_estimate\n  BOOLEAN repaired\n}\nOrganization }o--o{ User : \"M:N\"\nUser ||--o{ UsersRole : \"1:N\"\nOrganization ||--o{ UsersRole : \"1:N\"\nRole ||--o{ UsersRole : \"1:N\"\nOrganization ||--o{ Location : \"1:N\"\nLocation ||--o{ Vehicle : \"1:N\"\nLocation ||--o{ Rental : \"1:N\"\nOrganization ||--o{ VehicleCategory : \"1:N\"\nVehicleCategory ||--o{ Vehicle : \"1:N\"\nVehicleCategory ||--o{ RateRule : \"1:N\"\nVehicleCategory ||--o{ Rental : \"1:N\"\nOrganization ||--o{ CustomerProfile : \"1:N\"\nUser ||--o{ CustomerProfile : \"1:N\"\nCustomerProfile ||--o{ Rental : \"1:N\"\nCustomerProfile ||--o{ Payment : \"1:N\"\nOrganization ||--o{ RateRule : \"1:N\"\nOrganization ||--o{ Vehicle : \"1:N\"\nVehicle ||--o{ Rental : \"1:N\"\nVehicle ||--o{ Inspection : \"1:N\"\nVehicle ||--o{ DamageRecord : \"1:N\"\nVehicle ||--o{ VehicleMaintenanceLog : \"1:N\"\nOrganization ||--o{ VehicleMaintenanceLog : \"1:N\"\nUser ||--o{ VehicleMaintenanceLog : \"1:N\"\nOrganization ||--o{ Rental : \"1:N\"\nRental ||--o{ Inspection : \"1:N\"\nRental ||--o{ RentalCharge : \"1:N\"\nRental ||--o{ Payment : \"1:N\"\nOrganization ||--o{ Inspection : \"1:N\"\nUser ||--o{ Inspection : \"1:N\"\nInspection ||--o{ DamageRecord : \"1:N\"\nOrganization ||--o{ RentalCharge : \"1:N\"\nOrganization ||--o{ Payment : \"1:N\"\nOrganization ||--o{ DamageRecord : \"1:N\"",
+  "schema": [
+    {
+      "model": "User",
+      "table": "users",
+      "provided_by": "rhino_project_core",
+      "rhino_owner": "organization"
+    },
+    {
+      "model": "Organization",
+      "table": "organizations",
+      "provided_by": "rhino_project_organizations",
+      "rhino_owner": "organization",
+      "associations": [
+        {
+          "name": "users",
+          "type": "has_and_belongs_to_many"
+        }
+      ]
+    },
+    {
+      "model": "Role",
+      "table": "roles",
+      "provided_by": "rhino_project_organizations",
+      "rhino_owner": "organization"
+    },
+    {
+      "model": "UsersRole",
+      "table": "users_roles",
+      "provided_by": "rhino_project_organizations",
+      "rhino_owner": "organization",
+      "associations": [
+        {
+          "name": "user",
+          "type": "belongs_to"
+        },
+        {
+          "name": "organization",
+          "type": "belongs_to"
+        },
+        {
+          "name": "role",
+          "type": "belongs_to"
+        }
+      ]
+    },
+    {
+      "model": "Location",
+      "table": "locations",
+      "columns": [
+        {
+          "name": "organization_id",
+          "type": "references"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "code",
+          "type": "string"
+        },
+        {
+          "name": "address",
+          "type": "string"
+        },
+        {
+          "name": "city",
+          "type": "string"
+        },
+        {
+          "name": "state",
+          "type": "string"
+        },
+        {
+          "name": "postal_code",
+          "type": "string"
+        },
+        {
+          "name": "phone",
+          "type": "string"
+        },
+        {
+          "name": "email",
+          "type": "string"
+        },
+        {
+          "name": "is_active",
+          "type": "boolean"
+        }
+      ],
+      "rhino_owner": "organization",
+      "validations": [],
+      "associations": [
+        {
+          "name": "organization",
+          "type": "belongs_to"
+        },
+        {
+          "name": "vehicles",
+          "type": "has_many"
+        },
+        {
+          "name": "rentals",
+          "type": "has_many"
+        }
+      ]
+    },
+    {
+      "model": "VehicleCategory",
+      "table": "vehicle_categories",
+      "columns": [
+        {
+          "name": "organization_id",
+          "type": "references"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "code",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "type": "text"
+        },
+        {
+          "name": "base_daily_rate",
+          "type": "decimal"
+        },
+        {
+          "name": "security_deposit_amount",
+          "type": "decimal"
+        },
+        {
+          "name": "mileage_allowance_per_day",
+          "type": "integer"
+        },
+        {
+          "name": "excess_mileage_rate",
+          "type": "decimal"
+        },
+        {
+          "name": "late_hourly_fee",
+          "type": "decimal"
+        },
+        {
+          "name": "passenger_capacity",
+          "type": "integer"
+        },
+        {
+          "name": "baggage_capacity",
+          "type": "integer"
+        },
+        {
+          "name": "transmission",
+          "type": "string"
+        }
+      ],
+      "rhino_owner": "organization",
+      "validations": [],
+      "associations": [
+        {
+          "name": "organization",
+          "type": "belongs_to"
+        },
+        {
+          "name": "vehicles",
+          "type": "has_many"
+        },
+        {
+          "name": "rate_rules",
+          "type": "has_many"
+        },
+        {
+          "name": "rentals",
+          "type": "has_many"
+        }
+      ]
+    },
+    {
+      "model": "CustomerProfile",
+      "table": "customer_profiles",
+      "columns": [
+        {
+          "name": "organization_id",
+          "type": "references"
+        },
+        {
+          "name": "user_id",
+          "type": "references"
+        },
+        {
+          "name": "license_number",
+          "type": "string"
+        },
+        {
+          "name": "license_state",
+          "type": "string"
+        },
+        {
+          "name": "license_expiry_date",
+          "type": "date"
+        },
+        {
+          "name": "license_country",
+          "type": "string"
+        },
+        {
+          "name": "license_verified",
+          "type": "boolean"
+        },
+        {
+          "name": "stripe_customer_token",
+          "type": "string"
+        },
+        {
+          "name": "phone_number",
+          "type": "string"
+        },
+        {
+          "name": "date_of_birth",
+          "type": "date"
+        },
+        {
+          "name": "address",
+          "type": "string"
+        }
+      ],
+      "rhino_owner": "organization",
+      "validations": [],
+      "associations": [
+        {
+          "name": "organization",
+          "type": "belongs_to"
+        },
+        {
+          "name": "user",
+          "type": "belongs_to"
+        },
+        {
+          "name": "rentals",
+          "type": "has_many"
+        },
+        {
+          "name": "payments",
+          "type": "has_many"
+        }
+      ]
+    },
+    {
+      "model": "RateRule",
+      "table": "rate_rules",
+      "columns": [
+        {
+          "name": "organization_id",
+          "type": "references"
+        },
+        {
+          "name": "vehicle_category_id",
+          "type": "references"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "season_name",
+          "type": "string"
+        },
+        {
+          "name": "start_date",
+          "type": "date"
+        },
+        {
+          "name": "end_date",
+          "type": "date"
+        },
+        {
+          "name": "daily_multiplier",
+          "type": "decimal"
+        },
+        {
+          "name": "weekend_multiplier",
+          "type": "decimal"
+        },
+        {
+          "name": "min_rental_days",
+          "type": "integer"
+        },
+        {
+          "name": "is_active",
+          "type": "boolean"
+        }
+      ],
+      "rhino_owner": "organization",
+      "validations": [
+        "validates :name, presence: true",
+        "validates :daily_multiplier, numericality: { greater_than: 0 }",
+        "validates :weekend_multiplier, numericality: { greater_than: 0 }"
+      ],
+      "associations": [
+        {
+          "name": "organization",
+          "type": "belongs_to"
+        },
+        {
+          "name": "vehicle_category",
+          "type": "belongs_to"
+        }
+      ],
+      "rails_model_generation_command_line": "rails generate model RateRule organization:references vehicle_category:references name:string season_name:string start_date:date end_date:date daily_multiplier:decimal weekend_multiplier:decimal min_rental_days:integer is_active:boolean"
+    },
+    {
+      "model": "Vehicle",
+      "table": "vehicles",
+      "columns": [
+        {
+          "name": "organization_id",
+          "type": "references"
+        },
+        {
+          "name": "vehicle_category_id",
+          "type": "references"
+        },
+        {
+          "name": "location_id",
+          "type": "references"
+        },
+        {
+          "name": "vin",
+          "type": "string"
+        },
+        {
+          "name": "license_plate",
+          "type": "string"
+        },
+        {
+          "name": "make",
+          "type": "string"
+        },
+        {
+          "name": "model",
+          "type": "string"
+        },
+        {
+          "name": "year",
+          "type": "integer"
+        },
+        {
+          "name": "color",
+          "type": "string"
+        },
+        {
+          "name": "current_odometer",
+          "type": "integer"
+        },
+        {
+          "name": "fuel_percentage",
+          "type": "integer"
+        },
+        {
+          "name": "fuel_type",
+          "type": "string"
+        },
+        {
+          "name": "status",
+          "type": "string"
+        }
+      ],
+      "rhino_owner": "organization",
+      "validations": [],
+      "associations": [
+        {
+          "name": "organization",
+          "type": "belongs_to"
+        },
+        {
+          "name": "vehicle_category",
+          "type": "belongs_to"
+        },
+        {
+          "name": "location",
+          "type": "belongs_to"
+        },
+        {
+          "name": "rentals",
+          "type": "has_many"
+        },
+        {
+          "name": "inspections",
+          "type": "has_many"
+        },
+        {
+          "name": "damage_records",
+          "type": "has_many"
+        },
+        {
+          "name": "vehicle_maintenance_logs",
+          "type": "has_many"
+        }
+      ]
+    },
+    {
+      "model": "VehicleMaintenanceLog",
+      "table": "vehicle_maintenance_logs",
+      "columns": [
+        {
+          "name": "organization_id",
+          "type": "references"
+        },
+        {
+          "name": "vehicle_id",
+          "type": "references"
+        },
+        {
+          "name": "user_id",
+          "type": "references"
+        },
+        {
+          "name": "service_type",
+          "type": "string"
+        },
+        {
+          "name": "service_date",
+          "type": "date"
+        },
+        {
+          "name": "odometer_at_service",
+          "type": "integer"
+        },
+        {
+          "name": "cost",
+          "type": "decimal"
+        },
+        {
+          "name": "vendor_name",
+          "type": "string"
+        },
+        {
+          "name": "status",
+          "type": "string"
+        },
+        {
+          "name": "notes",
+          "type": "text"
+        }
+      ],
+      "rhino_owner": "organization",
+      "validations": [
+        "validates :service_type, presence: true",
+        "validates :service_date, presence: true",
+        "validates :odometer_at_service, numericality: { greater_than_or_equal_to: 0 }",
+        "validates :cost, numericality: { greater_than_or_equal_to: 0 }",
+        "validates :status, inclusion: { in: %w[scheduled in_progress completed] }"
+      ],
+      "associations": [
+        {
+          "name": "organization",
+          "type": "belongs_to"
+        },
+        {
+          "name": "vehicle",
+          "type": "belongs_to"
+        },
+        {
+          "name": "user",
+          "type": "belongs_to"
+        }
+      ],
+      "rails_model_generation_command_line": "rails generate model VehicleMaintenanceLog organization:references vehicle:references user:references service_type:string service_date:date odometer_at_service:integer cost:decimal vendor_name:string status:string notes:text"
+    },
+    {
+      "model": "Rental",
+      "table": "rentals",
+      "columns": [
+        {
+          "name": "organization_id",
+          "type": "references"
+        },
+        {
+          "name": "customer_profile_id",
+          "type": "references"
+        },
+        {
+          "name": "vehicle_category_id",
+          "type": "references"
+        },
+        {
+          "name": "vehicle_id",
+          "type": "references"
+        },
+        {
+          "name": "location_id",
+          "type": "references"
+        },
+        {
+          "name": "reservation_number",
+          "type": "string"
+        },
+        {
+          "name": "pickup_datetime",
+          "type": "datetime"
+        },
+        {
+          "name": "scheduled_return_datetime",
+          "type": "datetime"
+        },
+        {
+          "name": "actual_return_datetime",
+          "type": "datetime"
+        },
+        {
+          "name": "scheduled_duration_days",
+          "type": "integer"
+        },
+        {
+          "name": "status",
+          "type": "string"
+        },
+        {
+          "name": "initial_odometer",
+          "type": "integer"
+        },
+        {
+          "name": "final_odometer",
+          "type": "integer"
+        },
+        {
+          "name": "initial_fuel_percentage",
+          "type": "integer"
+        },
+        {
+          "name": "final_fuel_percentage",
+          "type": "integer"
+        },
+        {
+          "name": "total_charges_amount",
+          "type": "decimal"
+        },
+        {
+          "name": "total_paid_amount",
+          "type": "decimal"
+        },
+        {
+          "name": "balance_owed_amount",
+          "type": "decimal"
+        },
+        {
+          "name": "dropoff_location_code",
+          "type": "string"
+        }
+      ],
+      "rhino_owner": "organization",
+      "validations": [],
+      "associations": [
+        {
+          "name": "organization",
+          "type": "belongs_to"
+        },
+        {
+          "name": "customer_profile",
+          "type": "belongs_to"
+        },
+        {
+          "name": "vehicle_category",
+          "type": "belongs_to"
+        },
+        {
+          "name": "vehicle",
+          "type": "belongs_to"
+        },
+        {
+          "name": "location",
+          "type": "belongs_to"
+        },
+        {
+          "name": "inspections",
+          "type": "has_many"
+        },
+        {
+          "name": "rental_charges",
+          "type": "has_many"
+        },
+        {
+          "name": "payments",
+          "type": "has_many"
+        }
+      ]
+    },
+    {
+      "model": "Inspection",
+      "table": "inspections",
+      "columns": [
+        {
+          "name": "organization_id",
+          "type": "references"
+        },
+        {
+          "name": "rental_id",
+          "type": "references"
+        },
+        {
+          "name": "vehicle_id",
+          "type": "references"
+        },
+        {
+          "name": "user_id",
+          "type": "references"
+        },
+        {
+          "name": "inspection_type",
+          "type": "string"
+        },
+        {
+          "name": "odometer_reading",
+          "type": "integer"
+        },
+        {
+          "name": "fuel_percentage",
+          "type": "integer"
+        },
+        {
+          "name": "cleanliness_status",
+          "type": "string"
+        },
+        {
+          "name": "customer_signature_url",
+          "type": "string"
+        },
+        {
+          "name": "customer_signature_timestamp",
+          "type": "datetime"
+        },
+        {
+          "name": "notes",
+          "type": "text"
+        },
+        {
+          "name": "performed_at",
+          "type": "datetime"
+        }
+      ],
+      "rhino_owner": "organization",
+      "validations": [],
+      "associations": [
+        {
+          "name": "organization",
+          "type": "belongs_to"
+        },
+        {
+          "name": "rental",
+          "type": "belongs_to"
+        },
+        {
+          "name": "vehicle",
+          "type": "belongs_to"
+        },
+        {
+          "name": "user",
+          "type": "belongs_to"
+        },
+        {
+          "name": "damage_records",
+          "type": "has_many"
+        }
+      ]
+    },
+    {
+      "model": "RentalCharge",
+      "table": "rental_charges",
+      "columns": [
+        {
+          "name": "organization_id",
+          "type": "references"
+        },
+        {
+          "name": "rental_id",
+          "type": "references"
+        },
+        {
+          "name": "charge_type",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "unit_price",
+          "type": "decimal"
+        },
+        {
+          "name": "quantity",
+          "type": "decimal"
+        },
+        {
+          "name": "amount",
+          "type": "decimal"
+        }
+      ],
+      "rhino_owner": "organization",
+      "validations": [
+        "validates :charge_type, inclusion: { in: %w[base_rate insurance_protection equipment_addon excess_mileage refueling_charge late_return_fee damage_claim sales_tax] }",
+        "validates :description, presence: true",
+        "validates :amount, numericality: true"
+      ],
+      "associations": [
+        {
+          "name": "organization",
+          "type": "belongs_to"
+        },
+        {
+          "name": "rental",
+          "type": "belongs_to"
+        }
+      ],
+      "rails_model_generation_command_line": "rails generate model RentalCharge organization:references rental:references charge_type:string description:string unit_price:decimal quantity:decimal amount:decimal"
+    },
+    {
+      "model": "Payment",
+      "table": "payments",
+      "columns": [
+        {
+          "name": "organization_id",
+          "type": "references"
+        },
+        {
+          "name": "rental_id",
+          "type": "references"
+        },
+        {
+          "name": "customer_profile_id",
+          "type": "references"
+        },
+        {
+          "name": "stripe_payment_intent_key",
+          "type": "string"
+        },
+        {
+          "name": "stripe_charge_key",
+          "type": "string"
+        },
+        {
+          "name": "transaction_type",
+          "type": "string"
+        },
+        {
+          "name": "amount",
+          "type": "decimal"
+        },
+        {
+          "name": "status",
+          "type": "string"
+        },
+        {
+          "name": "payment_method_last4",
+          "type": "string"
+        },
+        {
+          "name": "processed_at",
+          "type": "datetime"
+        },
+        {
+          "name": "notes",
+          "type": "string"
+        }
+      ],
+      "rhino_owner": "organization",
+      "validations": [
+        "validates :transaction_type, inclusion: { in: %w[deposit_hold deposit_capture deposit_release rental_payment overdue_settlement] }",
+        "validates :amount, numericality: { greater_than: 0 }",
+        "validates :status, inclusion: { in: %w[succeeded pending failed refunded] }"
+      ],
+      "associations": [
+        {
+          "name": "organization",
+          "type": "belongs_to"
+        },
+        {
+          "name": "rental",
+          "type": "belongs_to"
+        },
+        {
+          "name": "customer_profile",
+          "type": "belongs_to"
+        }
+      ],
+      "rails_model_generation_command_line": "rails generate model Payment organization:references rental:references customer_profile:references stripe_payment_intent_key:string stripe_charge_key:string transaction_type:string amount:decimal status:string payment_method_last4:string processed_at:datetime notes:string"
+    },
+    {
+      "model": "DamageRecord",
+      "table": "damage_records",
+      "columns": [
+        {
+          "name": "organization_id",
+          "type": "references"
+        },
+        {
+          "name": "inspection_id",
+          "type": "references"
+        },
+        {
+          "name": "vehicle_id",
+          "type": "references"
+        },
+        {
+          "name": "panel_location",
+          "type": "string"
+        },
+        {
+          "name": "severity",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "type": "text"
+        },
+        {
+          "name": "photo_url",
+          "type": "string"
+        },
+        {
+          "name": "is_pre_existing",
+          "type": "boolean"
+        },
+        {
+          "name": "repair_cost_estimate",
+          "type": "decimal"
+        },
+        {
+          "name": "repaired",
+          "type": "boolean"
+        }
+      ],
+      "rhino_owner": "organization",
+      "validations": [
+        "validates :panel_location, presence: true",
+        "validates :severity, inclusion: { in: %w[minor_scratch dent deep_gouge crack structural] }",
+        "validates :description, presence: true"
+      ],
+      "associations": [
+        {
+          "name": "organization",
+          "type": "belongs_to"
+        },
+        {
+          "name": "inspection",
+          "type": "belongs_to"
+        },
+        {
+          "name": "vehicle",
+          "type": "belongs_to"
+        }
+      ],
+      "rails_model_generation_command_line": "rails generate model DamageRecord organization:references inspection:references vehicle:references panel_location:string severity:string description:text photo_url:string is_pre_existing:boolean repair_cost_estimate:decimal repaired:boolean"
+    }
+  ],
+  "sample_data": [
+    {
+      "rows": [
+        {
+          "id": 1,
+          "city": "San Francisco",
+          "code": "SFO-01",
+          "name": "San Francisco International Airport Branch",
+          "email": "sfo-branch@driveflow.com",
+          "phone": "+1-650-555-0144",
+          "state": "CA",
+          "address": "780 North Access Rd, Terminal 2",
+          "is_active": true,
+          "postal_code": "94128",
+          "organization_id": 1
+        },
+        {
+          "id": 2,
+          "city": "Los Angeles",
+          "code": "LAX-01",
+          "name": "Los Angeles International Airport Hub",
+          "email": "lax-branch@driveflow.com",
+          "phone": "+1-310-555-0188",
+          "state": "CA",
+          "address": "9610 Airport Blvd",
+          "is_active": true,
+          "postal_code": "90045",
+          "organization_id": 1
+        },
+        {
+          "id": 3,
+          "city": "San Francisco",
+          "code": "SF-DWTN",
+          "name": "Downtown San Francisco Financial District",
+          "email": "downtown-sf@driveflow.com",
+          "phone": "+1-415-555-0160",
+          "state": "CA",
+          "address": "500 Market Street",
+          "is_active": true,
+          "postal_code": "94105",
+          "organization_id": 1
+        }
+      ],
+      "table_name": "locations"
+    },
+    {
+      "rows": [
+        {
+          "id": 1,
+          "code": "CFAR",
+          "name": "Compact SUV",
+          "description": "Compact AWD SUV with versatile cargo space, lane assist, and 34 MPG efficiency.",
+          "transmission": "automatic",
+          "base_daily_rate": 68.5,
+          "late_hourly_fee": 25,
+          "organization_id": 1,
+          "baggage_capacity": 3,
+          "passenger_capacity": 5,
+          "excess_mileage_rate": 0.35,
+          "security_deposit_amount": 300,
+          "mileage_allowance_per_day": 200
+        },
+        {
+          "id": 2,
+          "code": "PCAR",
+          "name": "Premium Electric Sedan",
+          "description": "Premium long-range electric sedan featuring autopilot navigation and supercharging capability.",
+          "transmission": "automatic",
+          "base_daily_rate": 115,
+          "late_hourly_fee": 35,
+          "organization_id": 1,
+          "baggage_capacity": 2,
+          "passenger_capacity": 5,
+          "excess_mileage_rate": 0.45,
+          "security_deposit_amount": 500,
+          "mileage_allowance_per_day": 250
+        },
+        {
+          "id": 3,
+          "code": "STAR",
+          "name": "Convertible Sports",
+          "description": "Iconic convertible sports coupe with power-retractable soft top and 5.0L V8 powertrain.",
+          "transmission": "automatic",
+          "base_daily_rate": 135,
+          "late_hourly_fee": 40,
+          "organization_id": 1,
+          "baggage_capacity": 2,
+          "passenger_capacity": 4,
+          "excess_mileage_rate": 0.55,
+          "security_deposit_amount": 600,
+          "mileage_allowance_per_day": 175
+        }
+      ],
+      "table_name": "vehicle_categories"
+    },
+    {
+      "rows": [
+        {
+          "id": 1,
+          "address": "742 Evergreen Terrace, San Francisco, CA 94107",
+          "user_id": 4,
+          "phone_number": "+1-415-555-0192",
+          "date_of_birth": "1988-06-14",
+          "license_state": "CA",
+          "license_number": "CA-D8829104",
+          "license_country": "USA",
+          "organization_id": 1,
+          "license_verified": true,
+          "license_expiry_date": "2027-08-31",
+          "stripe_customer_token": "cus_N8x2j9Ka0Lmp12"
+        },
+        {
+          "id": 2,
+          "address": "10880 Wilshire Blvd, Los Angeles, CA 90024",
+          "user_id": 5,
+          "phone_number": "+1-310-555-0199",
+          "date_of_birth": "1992-11-03",
+          "license_state": "CA",
+          "license_number": "CA-F4920199",
+          "license_country": "USA",
+          "organization_id": 1,
+          "license_verified": true,
+          "license_expiry_date": "2026-12-15",
+          "stripe_customer_token": "cus_P92kLm39Qq01Az"
+        },
+        {
+          "id": 3,
+          "address": "350 5th Avenue, New York, NY 10118",
+          "user_id": 6,
+          "phone_number": "+1-212-555-0177",
+          "date_of_birth": "1985-03-22",
+          "license_state": "NY",
+          "license_number": "NY-940284712",
+          "license_country": "USA",
+          "organization_id": 1,
+          "license_verified": false,
+          "license_expiry_date": "2024-02-10",
+          "stripe_customer_token": "cus_R11bTy66We78Xy"
+        }
+      ],
+      "table_name": "customer_profiles"
+    },
+    {
+      "rows": [
+        {
+          "id": "1",
+          "uid": "user1@example.com",
+          "name": "User 1",
+          "email": "user1@example.com",
+          "approved": "true",
+          "provider": "email",
+          "last_name": "Last1",
+          "created_at": "2026-10-04T14:39:38.355939+00:00",
+          "first_name": "First1",
+          "updated_at": "2026-10-04T14:39:38.355939+00:00",
+          "sign_in_count": "5",
+          "profile_completed": "true",
+          "encrypted_password": "hashed_password_1",
+          "allow_password_change": "false"
+        },
+        {
+          "id": "2",
+          "uid": "user2@example.com",
+          "name": "User 2",
+          "email": "user2@example.com",
+          "approved": "false",
+          "provider": "email",
+          "last_name": "Last2",
+          "created_at": "2026-10-04T14:39:38.355962+00:00",
+          "first_name": "First2",
+          "updated_at": "2026-10-04T14:39:38.355962+00:00",
+          "sign_in_count": "10",
+          "profile_completed": "false",
+          "encrypted_password": "hashed_password_2",
+          "allow_password_change": "false"
+        }
+      ],
+      "table_name": "users"
+    },
+    {
+      "rows": [
+        {
+          "id": "1",
+          "name": "Organization 1",
+          "created_at": "2026-10-04T14:39:38.356023+00:00",
+          "updated_at": "2026-10-04T14:39:38.356023+00:00"
+        },
+        {
+          "id": "2",
+          "name": "Organization 2",
+          "created_at": "2026-10-04T14:39:38.356033+00:00",
+          "updated_at": "2026-10-04T14:39:38.356033+00:00"
+        }
+      ],
+      "table_name": "organizations"
+    },
+    {
+      "rows": [
+        {
+          "id": "1",
+          "name": "Role 1",
+          "created_at": "2026-10-04T14:39:38.356062+00:00",
+          "updated_at": "2026-10-04T14:39:38.356062+00:00"
+        },
+        {
+          "id": "2",
+          "name": "Admin Role 2",
+          "created_at": "2026-10-04T14:39:38.356069+00:00",
+          "updated_at": "2026-10-04T14:39:38.356069+00:00"
+        }
+      ],
+      "table_name": "roles"
+    },
+    {
+      "rows": [
+        {
+          "id": "1",
+          "role_id": "1",
+          "user_id": "1",
+          "created_at": "2026-10-04T14:39:38.356322+00:00",
+          "updated_at": "2026-10-04T14:39:38.356322+00:00",
+          "organization_id": "1"
+        },
+        {
+          "id": "2",
+          "role_id": "2",
+          "user_id": "2",
+          "created_at": "2026-10-04T14:39:38.356337+00:00",
+          "updated_at": "2026-10-04T14:39:38.356337+00:00",
+          "organization_id": "1"
+        }
+      ],
+      "table_name": "users_roles"
+    },
+    {
+      "rows": [
+        {
+          "id": 1,
+          "name": "Standard Year-Round Rate",
+          "end_date": "2025-12-31",
+          "is_active": true,
+          "start_date": "2025-01-01",
+          "season_name": "regular",
+          "min_rental_days": 1,
+          "organization_id": 1,
+          "daily_multiplier": 1,
+          "weekend_multiplier": 1.15,
+          "vehicle_category_id": 1
+        },
+        {
+          "id": 2,
+          "name": "Summer Peak Demand Surcharge",
+          "end_date": "2025-08-31",
+          "is_active": true,
+          "start_date": "2025-06-01",
+          "season_name": "summer_peak",
+          "min_rental_days": 3,
+          "organization_id": 1,
+          "daily_multiplier": 1.35,
+          "weekend_multiplier": 1.25,
+          "vehicle_category_id": 3
+        },
+        {
+          "id": 3,
+          "name": "EV Business Travel Rate",
+          "end_date": "2025-12-31",
+          "is_active": true,
+          "start_date": "2025-01-01",
+          "season_name": "standard_ev",
+          "min_rental_days": 2,
+          "organization_id": 1,
+          "daily_multiplier": 1.2,
+          "weekend_multiplier": 1.1,
+          "vehicle_category_id": 2
+        }
+      ],
+      "table_name": "rate_rules"
+    },
+    {
+      "rows": [
+        {
+          "id": 1,
+          "vin": "2T3C1RFV2NW089102",
+          "make": "Toyota",
+          "year": 2023,
+          "color": "Magnetic Gray Metallic",
+          "model": "RAV4 XLE",
+          "status": "available",
+          "fuel_type": "gasoline",
+          "location_id": 1,
+          "license_plate": "8TRV902",
+          "fuel_percentage": 100,
+          "organization_id": 1,
+          "current_odometer": 24150,
+          "vehicle_category_id": 1
+        },
+        {
+          "id": 2,
+          "vin": "5YJ3E1EB5NF204819",
+          "make": "Tesla",
+          "year": 2023,
+          "color": "Pearl White Multi-Coat",
+          "model": "Model 3 Long Range",
+          "status": "rented",
+          "fuel_type": "electric",
+          "location_id": 1,
+          "license_plate": "9TSL411",
+          "fuel_percentage": 92,
+          "organization_id": 1,
+          "current_odometer": 18420,
+          "vehicle_category_id": 2
+        },
+        {
+          "id": 3,
+          "vin": "1FA6P8CF9N5108394",
+          "make": "Ford",
+          "year": 2022,
+          "color": "Race Red",
+          "model": "Mustang GT Premium Convertible",
+          "status": "cleaning",
+          "fuel_type": "gasoline",
+          "location_id": 2,
+          "license_plate": "7MST883",
+          "fuel_percentage": 45,
+          "organization_id": 1,
+          "current_odometer": 12800,
+          "vehicle_category_id": 3
+        },
+        {
+          "id": 4,
+          "vin": "2T3DWRFV4PW391054",
+          "make": "Toyota",
+          "year": 2022,
+          "color": "Silver Sky Metallic",
+          "model": "RAV4 Hybrid",
+          "status": "maintenance",
+          "fuel_type": "gasoline",
+          "location_id": 1,
+          "license_plate": "8TYT339",
+          "fuel_percentage": 80,
+          "organization_id": 1,
+          "current_odometer": 31250,
+          "vehicle_category_id": 1
+        }
+      ],
+      "table_name": "vehicles"
+    },
+    {
+      "rows": [
+        {
+          "id": 1,
+          "cost": 185,
+          "notes": "Synthetic 0W-20 oil and OEM filter replacement, multi-point brake pad inspection (8mm remaining).",
+          "status": "completed",
+          "user_id": 3,
+          "vehicle_id": 1,
+          "vendor_name": "Bay City Fleet Care",
+          "service_date": "2025-03-15",
+          "service_type": "oil_change",
+          "organization_id": 1,
+          "odometer_at_service": 20100
+        },
+        {
+          "id": 2,
+          "cost": 450,
+          "notes": "Rear brake rotor resurfacing and pad replacement following 30,000-mile maintenance alert.",
+          "status": "in_progress",
+          "user_id": 3,
+          "vehicle_id": 4,
+          "vendor_name": "Precision Toyota Auto Center",
+          "service_date": "2025-05-08",
+          "service_type": "brake_service",
+          "organization_id": 1,
+          "odometer_at_service": 31250
+        },
+        {
+          "id": 3,
+          "cost": 65,
+          "notes": "Front-to-rear tire rotation, pressure calibration to 36 PSI, tread depth 7/32nds.",
+          "status": "completed",
+          "user_id": 3,
+          "vehicle_id": 2,
+          "vendor_name": "Tesla Service Burlingame",
+          "service_date": "2025-04-02",
+          "service_type": "tire_rotation",
+          "organization_id": 1,
+          "odometer_at_service": 15000
+        }
+      ],
+      "table_name": "vehicle_maintenance_logs"
+    },
+    {
+      "rows": [
+        {
+          "id": 1,
+          "status": "active",
+          "vehicle_id": 2,
+          "location_id": 1,
+          "final_odometer": null,
+          "organization_id": 1,
+          "pickup_datetime": "2025-05-10T09:00:00Z",
+          "initial_odometer": 18420,
+          "total_paid_amount": 532.5,
+          "reservation_number": "DF-2025-8831",
+          "balance_owed_amount": 0,
+          "customer_profile_id": 1,
+          "vehicle_category_id": 2,
+          "total_charges_amount": 532.5,
+          "dropoff_location_code": "SFO-01",
+          "final_fuel_percentage": null,
+          "actual_return_datetime": null,
+          "initial_fuel_percentage": 92,
+          "scheduled_duration_days": 4,
+          "scheduled_return_datetime": "2025-05-14T09:00:00Z"
+        },
+        {
+          "id": 2,
+          "status": "completed",
+          "vehicle_id": 3,
+          "location_id": 2,
+          "final_odometer": 12800,
+          "organization_id": 1,
+          "pickup_datetime": "2025-05-01T10:00:00Z",
+          "initial_odometer": 12320,
+          "total_paid_amount": 685.25,
+          "reservation_number": "DF-2025-7490",
+          "balance_owed_amount": 0,
+          "customer_profile_id": 2,
+          "vehicle_category_id": 3,
+          "total_charges_amount": 685.25,
+          "dropoff_location_code": "LAX-01",
+          "final_fuel_percentage": 45,
+          "actual_return_datetime": "2025-05-04T16:30:00Z",
+          "initial_fuel_percentage": 100,
+          "scheduled_duration_days": 3,
+          "scheduled_return_datetime": "2025-05-04T10:00:00Z"
+        },
+        {
+          "id": 3,
+          "status": "overdue",
+          "vehicle_id": 1,
+          "location_id": 1,
+          "final_odometer": null,
+          "organization_id": 1,
+          "pickup_datetime": "2025-05-05T08:00:00Z",
+          "initial_odometer": 23800,
+          "total_paid_amount": 175,
+          "reservation_number": "DF-2025-6214",
+          "balance_owed_amount": 240,
+          "customer_profile_id": 1,
+          "vehicle_category_id": 1,
+          "total_charges_amount": 415,
+          "dropoff_location_code": "SFO-01",
+          "final_fuel_percentage": null,
+          "actual_return_datetime": null,
+          "initial_fuel_percentage": 100,
+          "scheduled_duration_days": 2,
+          "scheduled_return_datetime": "2025-05-07T08:00:00Z"
+        },
+        {
+          "id": 4,
+          "status": "reserved",
+          "vehicle_id": null,
+          "location_id": 1,
+          "final_odometer": null,
+          "organization_id": 1,
+          "pickup_datetime": "2025-05-20T14:00:00Z",
+          "initial_odometer": null,
+          "total_paid_amount": 342.5,
+          "reservation_number": "DF-2025-9901",
+          "balance_owed_amount": 0,
+          "customer_profile_id": 3,
+          "vehicle_category_id": 1,
+          "total_charges_amount": 342.5,
+          "dropoff_location_code": "SFO-01",
+          "final_fuel_percentage": null,
+          "actual_return_datetime": null,
+          "initial_fuel_percentage": null,
+          "scheduled_duration_days": 5,
+          "scheduled_return_datetime": "2025-05-25T14:00:00Z"
+        }
+      ],
+      "table_name": "rentals"
+    },
+    {
+      "rows": [
+        {
+          "id": 1,
+          "notes": "Vehicle sanitized; existing surface scuff on rear bumper noted and photographed.",
+          "user_id": 2,
+          "rental_id": 1,
+          "vehicle_id": 2,
+          "performed_at": "2025-05-10T09:10:00Z",
+          "fuel_percentage": 92,
+          "inspection_type": "check_out",
+          "organization_id": 1,
+          "odometer_reading": 18420,
+          "cleanliness_status": "clean",
+          "customer_signature_url": "https://storage.driveflow.com/signatures/rental-1-checkout.png",
+          "customer_signature_timestamp": "2025-05-10T09:12:00Z"
+        },
+        {
+          "id": 2,
+          "notes": "Convertible roof tested and operating smoothly. Full tank of premium 91.",
+          "user_id": 3,
+          "rental_id": 2,
+          "vehicle_id": 3,
+          "performed_at": "2025-05-01T10:14:00Z",
+          "fuel_percentage": 100,
+          "inspection_type": "check_out",
+          "organization_id": 1,
+          "odometer_reading": 12320,
+          "cleanliness_status": "clean",
+          "customer_signature_url": "https://storage.driveflow.com/signatures/rental-2-checkout.png",
+          "customer_signature_timestamp": "2025-05-01T10:15:00Z"
+        },
+        {
+          "id": 3,
+          "notes": "Returned 6.5 hours late. Fuel level down to 45% (missing 55%). Minor curb scratch on front-passenger alloy rim.",
+          "user_id": 3,
+          "rental_id": 2,
+          "vehicle_id": 3,
+          "performed_at": "2025-05-04T16:32:00Z",
+          "fuel_percentage": 45,
+          "inspection_type": "check_in",
+          "organization_id": 1,
+          "odometer_reading": 12800,
+          "cleanliness_status": "moderate",
+          "customer_signature_url": "https://storage.driveflow.com/signatures/rental-2-checkin.png",
+          "customer_signature_timestamp": "2025-05-04T16:35:00Z"
+        }
+      ],
+      "table_name": "inspections"
+    },
+    {
+      "rows": [
+        {
+          "id": 1,
+          "amount": 460,
+          "quantity": 4,
+          "rental_id": 1,
+          "unit_price": 115,
+          "charge_type": "base_rate",
+          "description": "Premium Electric Sedan 4-day base rental ($115/day)"
+        },
+        {
+          "id": 2,
+          "amount": 40,
+          "quantity": 4,
+          "rental_id": 1,
+          "unit_price": 10,
+          "charge_type": "insurance_protection",
+          "description": "Collision Damage Waiver (CDW Plus) $10/day"
+        },
+        {
+          "id": 3,
+          "amount": 32.5,
+          "quantity": 1,
+          "rental_id": 1,
+          "unit_price": 32.5,
+          "charge_type": "sales_tax",
+          "description": "State and municipal vehicle rental tax (6.5%)"
+        },
+        {
+          "id": 4,
+          "amount": 405,
+          "quantity": 3,
+          "rental_id": 2,
+          "unit_price": 135,
+          "charge_type": "base_rate",
+          "description": "Convertible Sports 3-day base rental ($135/day)"
+        },
+        {
+          "id": 5,
+          "amount": 160,
+          "quantity": 4,
+          "rental_id": 2,
+          "unit_price": 40,
+          "charge_type": "late_return_fee",
+          "description": "Late return hourly penalty (4 billable hours beyond 2-hr grace @ $40/hr)"
+        },
+        {
+          "id": 6,
+          "amount": 78.5,
+          "quantity": 1,
+          "rental_id": 2,
+          "unit_price": 78.5,
+          "charge_type": "refueling_charge",
+          "description": "Refueling surcharge (55% tank capacity missing @ $8.50/gal equivalent)"
+        },
+        {
+          "id": 7,
+          "amount": 41.75,
+          "quantity": 1,
+          "rental_id": 2,
+          "unit_price": 41.75,
+          "charge_type": "sales_tax",
+          "description": "Sales and rental concession tax (6.5%)"
+        }
+      ],
+      "table_name": "rental_charges"
+    },
+    {
+      "rows": [
+        {
+          "id": 1,
+          "notes": "Online booking pre-payment covering base rate, CDW protection, and taxes.",
+          "amount": 532.5,
+          "status": "succeeded",
+          "rental_id": 1,
+          "processed_at": "2025-05-09T18:30:00Z",
+          "organization_id": 1,
+          "transaction_type": "rental_payment",
+          "stripe_charge_key": "ch_3N1pQ92eZvKYlo2C01a",
+          "customer_profile_id": 1,
+          "payment_method_last4": "4242",
+          "stripe_payment_intent_key": "pi_3N1pQ92eZvKYlo2C01a9b88"
+        },
+        {
+          "id": 2,
+          "notes": "Counter pickup security deposit pre-authorization hold.",
+          "amount": 500,
+          "status": "succeeded",
+          "rental_id": 1,
+          "processed_at": "2025-05-10T09:12:00Z",
+          "organization_id": 1,
+          "transaction_type": "deposit_hold",
+          "stripe_charge_key": null,
+          "customer_profile_id": 1,
+          "payment_method_last4": "4242",
+          "stripe_payment_intent_key": "pi_3N1pZ82eZvKYlo2C99k01xHold"
+        },
+        {
+          "id": 3,
+          "notes": "Initial rental agreement advance charge.",
+          "amount": 446.75,
+          "status": "succeeded",
+          "rental_id": 2,
+          "processed_at": "2025-05-01T10:16:00Z",
+          "organization_id": 1,
+          "transaction_type": "rental_payment",
+          "stripe_charge_key": "ch_3O7kLa2eZvKYlo2D55f",
+          "customer_profile_id": 2,
+          "payment_method_last4": "8819",
+          "stripe_payment_intent_key": "pi_3O7kLa2eZvKYlo2D55f002z"
+        },
+        {
+          "id": 4,
+          "notes": "Security deposit pre-auth hold on convertible sports category.",
+          "amount": 600,
+          "status": "succeeded",
+          "rental_id": 2,
+          "processed_at": "2025-05-01T10:16:30Z",
+          "organization_id": 1,
+          "transaction_type": "deposit_hold",
+          "stripe_charge_key": null,
+          "customer_profile_id": 2,
+          "payment_method_last4": "8819",
+          "stripe_payment_intent_key": "pi_3O7kLb2eZvKYlo2D99zHold"
+        },
+        {
+          "id": 5,
+          "notes": "Partial deposit capture for 4hr late penalty ($160) + refueling charge ($78.50).",
+          "amount": 238.5,
+          "status": "succeeded",
+          "rental_id": 2,
+          "processed_at": "2025-05-04T16:40:00Z",
+          "organization_id": 1,
+          "transaction_type": "deposit_capture",
+          "stripe_charge_key": "ch_3O8xNm2eZvKYlo2E11q",
+          "customer_profile_id": 2,
+          "payment_method_last4": "8819",
+          "stripe_payment_intent_key": "pi_3O7kLb2eZvKYlo2D99zHold"
+        },
+        {
+          "id": 6,
+          "notes": "Remaining security deposit uncaptured balance released back to card.",
+          "amount": 361.5,
+          "status": "succeeded",
+          "rental_id": 2,
+          "processed_at": "2025-05-04T16:40:05Z",
+          "organization_id": 1,
+          "transaction_type": "deposit_release",
+          "stripe_charge_key": null,
+          "customer_profile_id": 2,
+          "payment_method_last4": "8819",
+          "stripe_payment_intent_key": "pi_3O7kLb2eZvKYlo2D99zHold"
+        }
+      ],
+      "table_name": "payments"
+    },
+    {
+      "rows": [
+        {
+          "id": 1,
+          "repaired": false,
+          "severity": "minor_scratch",
+          "photo_url": "https://storage.driveflow.com/damage/vin-204819-rear-scuff.jpg",
+          "vehicle_id": 2,
+          "description": "3-inch light surface clearcoat scuff near trunk latch. No paint penetration.",
+          "inspection_id": 1,
+          "panel_location": "rear_bumper",
+          "is_pre_existing": true,
+          "repair_cost_estimate": 0
+        },
+        {
+          "id": 2,
+          "repaired": false,
+          "severity": "minor_scratch",
+          "photo_url": "https://storage.driveflow.com/damage/vin-5108394-wheel-rash.jpg",
+          "vehicle_id": 3,
+          "description": "4-inch curb rash abrasion on outer rim lip, sustained during rental term.",
+          "inspection_id": 3,
+          "panel_location": "wheel_rim_front_right",
+          "is_pre_existing": false,
+          "repair_cost_estimate": 150
+        }
+      ],
+      "table_name": "damage_records"
+    }
+  ]
+}
